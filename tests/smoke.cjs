@@ -9,7 +9,8 @@ const root=path.resolve(__dirname,'..');
 const url=pathToFileURL(path.join(root,'index.html')).href;
 const key='tokenia.chapter1.v1';
 const routes=['chatgpt','claude','gemini','deepseek','grok'];
-const scope={window:{}};vm.createContext(scope);vm.runInContext(fs.readFileSync(path.join(root,'story.js'),'utf8'),scope);
+const storyFiles=['story/core.js','story/chapters/opening.js','story/chapters/chatgpt.js','story/chapters/claude.js','story/chapters/gemini.js','story/chapters/deepseek.js','story/chapters/grok.js','story/chapters/chapter-finale.js','story/routes.js'];
+const scope={window:{}};vm.createContext(scope);for(const file of storyFiles)vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),scope,{filename:file});
 const nodes=scope.window.STORY;
 for(const node of Object.values(nodes)){
   if(node.next)assert.ok(nodes[node.next],`Missing next from ${node.id}`);
