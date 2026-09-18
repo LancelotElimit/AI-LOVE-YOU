@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f5f7f5">
+  <title>越过屏幕的你 · 第一章</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="assets/lucide.min.js"></script>
+  <script defer src="scenes.js"></script>
+  <script defer src="story.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <main id="game" class="game">
+    <div id="backdrop" class="backdrop" aria-hidden="true"></div>
+    <div class="paper-wash" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <header class="topbar">
+      <a class="brand" href="#" id="brand" aria-label="章节信息"><span class="brand-mark">T<span>·</span></span><span>TOKENIA<small>越过屏幕的你</small></span></a>
+      <div class="chapter-label"><span class="live-dot"></span> CHAPTER 01 <span class="divider">/</span> 未登记的来访者</div>
+      <div class="top-actions">
+        <button class="icon-button" id="home" title="返回标题" aria-label="返回标题"><i data-lucide="house"></i></button>
+        <div class="wallet" title="可用 Token"><i data-lucide="gem"></i><span id="tokens">10,000</span><small>TK</small></div>
+        <button class="icon-button" id="sound" title="开启声音" aria-label="开启声音"><i data-lucide="volume-x"></i></button>
+        <button class="icon-button" id="settings" title="设置" aria-label="设置"><i data-lucide="sliders-horizontal"></i></button>
+      </div>
+    </header>
+
+    <section class="stage" id="stage" aria-label="故事场景">
+      <div class="scene-caption"><span id="scene-index">01 — ARRIVAL</span><h1 id="scene-title">屏幕的另一边</h1><p id="location">原世界 · 你的房间 / 02:17</p><div class="caption-line"></div></div>
+      <div class="scene-note" id="scene-note">连接已建立。<br>目的地：未知。</div>
+      <div id="character-wrap" class="character-wrap"><img id="character" alt="" draggable="false"></div>
+      <div id="model-shift" class="model-shift" aria-live="polite"><span>MODEL SHIFT</span><strong id="model-name"></strong><small id="model-detail"></small></div>
+      <div id="character-tag" class="character-tag"><span id="character-en"></span><small id="character-role"></small></div>
+      <div class="ambient-label" id="ambient-label">A WORLD JUST BEYOND YOUR SCREEN</div>
+    </section>
+
+    <section class="dialogue-area" id="dialogue-area" aria-label="对话">
+      <div class="speaker-line"><div><span class="speaker-dot" id="speaker-dot"></span><strong id="speaker">你</strong><span id="speaker-sub">未登记的来访者</span></div><span class="line-counter" id="line-counter">01 / 01</span></div>
+      <button class="dialogue" id="advance" aria-label="继续剧情"><span id="dialogue-text"></span><span class="continue-mark"><i data-lucide="chevron-down"></i></span></button>
+      <nav class="toolbar" aria-label="播放控制">
+        <div class="toolbar-left"><button id="history"><i data-lucide="list"></i><span>回看</span></button><button id="auto" aria-pressed="false"><i data-lucide="play"></i><span>自动</span></button><button id="skip" aria-pressed="false"><i data-lucide="fast-forward"></i><span>快进</span></button></div>
+        <div class="toolbar-right"><span id="route-label">共同篇 · 初来乍到</span><button id="save"><i data-lucide="save"></i><span>存档</span></button><button id="load"><i data-lucide="folder-open"></i><span>读档</span></button><button id="fullscreen" title="全屏" aria-label="全屏"><i data-lucide="maximize"></i></button></div>
+      </nav>
+      <div class="progress-track"><div id="progress"></div></div>
+    </section>
+
+    <section id="choices" class="choices hidden" aria-label="剧情选择"></section>
+    <section id="ending" class="ending hidden" aria-label="章节结束"></section>
+    <section id="title-screen" class="title-screen" aria-label="游戏标题">
+      <div id="title-background" class="title-background" aria-hidden="true"></div>
+      <div class="title-heading"><span class="title-kicker">TOKENIA · CHAPTER 01</span><h1>越过屏幕的你</h1><p>在所有答案之外，与你相遇。</p></div>
+      <div class="title-cast" aria-hidden="true">
+        <img src="assets/grok-transparent.png" class="title-grok" alt="">
+        <img src="assets/claude-transparent.png" class="title-claude" alt="">
+        <img src="assets/chatgpt-transparent.png" class="title-chatgpt" alt="">
+        <img src="assets/gemini-transparent.png" class="title-gemini" alt="">
+        <img src="assets/deepseek-transparent.png" class="title-deepseek" alt="">
+      </div>
+      <nav class="title-menu" aria-label="主菜单">
+        <button id="title-new"><i data-lucide="play"></i><span>开始旅程</span><small>NEW STORY</small></button>
+        <button id="title-continue"><i data-lucide="step-forward"></i><span>继续旅程</span><small>CONTINUE</small></button>
+        <button id="title-load"><i data-lucide="folder-open"></i><span>读取记忆</span><small>LOAD</small></button>
+        <button id="title-settings"><i data-lucide="settings-2"></i><span>偏好设置</span><small>SETTINGS</small></button>
+      </nav>
+      <p id="title-memory" class="title-memory"></p>
+      <span class="title-edition">第一章 · 未登记的来访者</span>
+    </section>
+    <section id="station-screen" class="station-screen hidden" aria-label="零号中转站登录">
+      <div class="station-coordinate">LOCAL SESSION / 00:00:07</div>
+      <form id="station-form" class="station-form" novalidate>
+        <span class="station-symbol" aria-hidden="true">Ø</span>
+        <p class="station-eyebrow">ZERO · TRANSIT STATION</p>
+        <h2>零号中转站</h2>
+        <p class="station-intro">检测到来自另一端的访客。<br>请留下一个可以被记住的名字。</p>
+        <label for="player-name">访客用户名</label>
+        <div class="name-field"><i data-lucide="user-round"></i><input id="player-name" name="playerName" type="text" maxlength="24" autocomplete="off" spellcheck="false" placeholder="你希望被怎样称呼？" aria-describedby="name-error"><span id="name-count">0 / 12</span></div>
+        <p id="name-error" class="name-error" role="status"></p>
+        <button id="station-submit" class="station-submit" type="submit"><span>建立连接</span><i data-lucide="arrow-right"></i></button>
+        <p id="station-status" class="station-status" aria-live="polite">来源地址：未知　 /　 目的地：等待分配</p>
+      </form>
+      <p class="station-footer">「你留下的名字，将成为我们找到你的坐标。」</p>
+    </section>
+    <div id="toast" class="toast" role="status"></div>
+    <dialog id="modal"><div class="modal-heading"><div><span id="modal-eyebrow">TOKENIA</span><h2 id="modal-title"></h2></div><button id="close-modal" class="icon-button" aria-label="关闭" title="关闭"><i data-lucide="x"></i></button></div><div id="modal-content"></div></dialog>
+  </main>
+</body>
+</html>
