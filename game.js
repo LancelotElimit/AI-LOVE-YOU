@@ -11,7 +11,7 @@
   let state;
   let typingTimer,autoTimer,skipTimer,toastTimer,stationTimer;
   let atTitle=true,hasJourney=false,connecting=false,composingName=false;
-  let isTyping=false,auto=false,skipping=false,fullText='',characterId=undefined,currentBg=null;
+  let isTyping=false,auto=false,skipping=false,fullText='',characterId=undefined,characterSprite=undefined,currentBg=null;
   let soundEngine=null;
   const icons = () => window.lucide?.createIcons();
   const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -105,6 +105,16 @@
     state.history.push({id,who:actualWho(node),text:actualText(node)});
     persist();render(false);
   }
+  function spriteFile(cid,sprite){
+    const files={
+      chatgpt:{default:'ChatGPT-default1.png',hello:'ChatGPT-hello1.png',happy:'ChatGPT-default1.png',shy:'ChatGPT-shy1.png',angry:'ChatGPT-angry1.png'},
+      claude:{default:'Claude-default.png',happy:'Claude-happy1.png',shy:'Claude-shy1.png',angry:'Claude-angry1.png'},
+      gemini:{happy:'Gemini-happy1.png',shy:'Gemini-shy1.png',angry:'Gemini-angry1.png',angry2:'Gemini-angry2.png'},
+      deepseek:{hello:'Deepseek-hello1.png',happy:'Deepseek-happy1.png',shy:'Deepseek-shy1.png',angry:'Deepseek-angry1.png'},
+      grok:{hello:'Grok-hello1.png',happy:'Grok-happy1.png',shy:'Grok-shy1.png',angry:'Grok-angry1.png'}
+    };
+    return files[cid]?.[sprite]||`${cid}-transparent.png`;
+  }
   function render(instant=false){
     stopTimers();$('ending').classList.add('hidden');$('dialogue-area').classList.remove('hidden');$('game').classList.remove('ended');
     $('station-screen').classList.add('hidden');$('game').classList.remove('station-active');
@@ -112,7 +122,16 @@
     if(currentBg!==node.bg){$('backdrop').innerHTML=scene.art;currentBg=node.bg;}
     $('scene-index').textContent=scene.index;$('scene-title').textContent=scene.title;$('location').textContent=scene.location;$('scene-note').textContent=scene.note;
     const cid=node.char==='$route'?state.route:node.char;
-    if(characterId!==cid){characterId=cid;const img=$('character');$('character-wrap').classList.toggle('empty',!cid);if(cid){img.src=`assets/${cid}-transparent.png`;img.alt=`${CAST[cid].name} 透明底角色立绘`;}else{img.removeAttribute('src');img.alt='';}}
+    const sprite=node.sprite||'default';
+    if(characterId!==cid||characterSprite!==sprite){
+      characterId=cid;characterSprite=sprite;
+      const img=$('character');$('character-wrap').classList.toggle('empty',!cid);
+      if(cid){
+        const filename=spriteFile(cid,sprite);
+        img.src=`assets/${cid}/${filename}`;
+        img.alt=`${CAST[cid].name} ${sprite==='default'?'默认':sprite}表情立绘`;
+      }else{img.removeAttribute('src');img.alt='';}
+    }
     $('game').classList.toggle('has-character',!!cid);$('game').classList.toggle('portal-active',!!node.portal);
     $('character-tag').style.display=cid?'flex':'none';if(cid){$('character-en').textContent=CAST[cid].name;$('character-role').textContent=CAST[cid].role;}
     document.documentElement.style.setProperty('--accent',cid?CAST[cid].color:who.color);
@@ -250,5 +269,9 @@
   $('title-background').innerHTML=SCENES.campus.art;$('backdrop').innerHTML=SCENES.room.art;
   showTitle();
   if(!storageOK)toast('浏览器限制了本地存储，可在存档页导出备份');
-  for(const id of Object.keys(ROUTE_LINES)){const preload=new Image();preload.src=`assets/${id}-transparent.png`;}
+  for(const id of Object.keys(ROUTE_LINES)){
+    for(const sprite of ['default','hello','happy','shy','angry','angry2']){
+      const preload=new Image();preload.src=`assets/${id}/${spriteFile(id,sprite)}`;
+    }
+  }
 })();

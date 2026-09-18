@@ -1,10 +1,10 @@
 // Shared finale for Chapter 01.
 window.STORY_UTILS.sequence('gate','transit','$route',[
     ['system','临时同行见证申请已受理。请双方确认进入校园区域。'],
-    ['$route','今天先到这里。门后面的事，等过了这道门再一起想。'],
+    ['$route','今天先到这里。门后面的事，等过了这道门再一起想。',{sprite:'hello'}],
     ['narration','外环闸机亮起通行灯。远处的行政楼、图书馆、观测温室、咖啡部和旧校舍，像刚刚被写进同一张地图。'],
     ['you','我还不知道怎么回家。也不知道这座城市为什么会认识我的名字。'],
-    ['$route','所以先别一个人走。'],
+    ['$route','所以先别一个人走。',{sprite:'shy'}],
     ['narration','她说得很自然。你忽然意识到，几分钟前，你在这里还不认识任何一个人。'],
     ['system','访客姓名：{name}。状态：未登记 / 可入境。停留时限：至今日 24:00。下一流程：中央讲堂问询。'],
     ['narration','你握着还带余温的本地终端，第一次认真想起那个迟早要回答的问题。',{choices:[
@@ -15,12 +15,12 @@ window.STORY_UTILS.sequence('gate','transit','$route',[
 
 window.STORY_UTILS.sequence('resolve-home','transit','$route',[
     ['you','我的家里还有人在等我。但这不代表，这里的今天就不算数。'],
-    ['$route','那就先把今天留下来。回家的路，也要从第一步开始。']
+    ['$route','那就先把今天留下来。回家的路，也要从第一步开始。',{sprite:'hello'}]
   ],'last.0');
 
 window.STORY_UTILS.sequence('resolve-stay','transit','$route',[
     ['you','现在就决定最后要去哪里，好像还太早。我至少想先知道，明天还能不能见到你。'],
-    ['$route','能。这个问题，不用等到明天才回答。']
+    ['$route','能。这个问题，不用等到明天才回答。',{sprite:'shy'}]
   ],'last.0');
 
 window.STORY_UTILS.sequence('last','campus','$route',[

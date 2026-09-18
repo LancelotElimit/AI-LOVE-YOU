@@ -7,7 +7,7 @@
 - `index.html`、`style.css`、`game.js`、`story/`、`scenes.js`：可直接运行的 Demo。
 - `characters/`：五位角色的独立设定，包含组织背景、性格、能力与后续模型形态。
 - `剧情脚本.md`：第一章的结构化剧情稿。
-- `assets/`：原始立绘、透明底立绘、图标和素材说明。
+- `assets/`：原始立绘、透明底立绘、表情差分、图标和素材说明。
 - `tests/`：剧情图、存档、输入、响应式布局和素材透明度检查。
 
 ## 运行
@@ -32,8 +32,9 @@
 
 ## 素材与范围
 
-- `assets/chatgpt.png` 等五张原始立绘完整保留。
-- `assets/*-transparent.png`：使用内置 imagegen 的 background-extraction 模式生成的透明底副本，用于标题页群像和剧情中央立绘。提示词与源文件记录见 `assets/ART-NOTES.md`；未设计新衣服或改变角色姿势。
+- `assets/chatgpt/` 等五个角色目录：分别保存对应角色的原始立绘、透明底立绘和表情立绘。
+- `assets/*/*-transparent.png`：使用内置 imagegen 的 background-extraction 模式生成的透明底副本，用于标题页群像和剧情中央立绘。提示词与源文件记录见 `assets/ART-NOTES.md`；未设计新衣服或改变角色姿势。
+- 表情差分使用建议见 `assets/SPRITE-DIFF-GUIDE.md`；这些标注只供制作使用，不写入剧情文本。
 - 第一章暂不正式介绍模型形态；相关能力状态留待第二章危机和后续个人线展开。
 - `scenes.js`：原创 SVG 场景，共八个场景定义（校园、房间、图书馆、温室、咖啡部、旧校舍、大厅与夕照等），在浏览器中绘制，无远程素材请求。
 - `game.js`：Web Audio 本地合成原创低音量钢琴音色背景乐与轻点击音；无配音、环境音、付费音频服务或第三方音乐版权依赖。

@@ -48,7 +48,7 @@ async function checkLayout(page){
         const centered=await page.locator('#character-wrap').evaluate(el=>{const r=el.getBoundingClientRect();return Math.abs(r.left+r.width/2-innerWidth/2)<1;});assert.ok(centered,id+' should be centered');
         await capture(page,`centered-${id}-${label}`);
       }
-      const {data,info}=await sharp(path.join(root,`assets/${id}-transparent.png`)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
+      const {data,info}=await sharp(path.join(root,`assets/${id}/${id}-transparent.png`)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
       let clear=0,opaque=0;for(let p=3;p<data.length;p+=info.channels){if(data[p]===0)clear++;if(data[p]>=250)opaque++;}
       assert.ok(clear>info.width*info.height*.15);assert.ok(opaque>info.width*info.height*.25);console.log(`${id}: centered desktop/mobile; genuine alpha channel verified.`);
     }
