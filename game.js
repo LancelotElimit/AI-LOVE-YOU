@@ -120,7 +120,7 @@
     $('speaker').classList.toggle('long-name',Array.from($('speaker').textContent).length>8);
     $('tokens').textContent=state.tokens.toLocaleString('en-US');$('route-label').textContent=state.route?`${CAST[state.route].name} · 初遇篇`:'共同篇 · 初来乍到';
     $('line-counter').textContent=String(state.history.filter(h=>h.who!=='choice').length).padStart(3,'0');
-    const progress = {room:4,campus:15,library:32,council:32,observatory:32,cafe:32,night:32,hall:68,sunset:91};
+    const progress = {room:4,campus:15,transit:24,library:32,council:32,observatory:32,cafe:32,night:32,hall:68,sunset:91};
     $('progress').style.width=`${node.end?100:progress[node.bg]+Math.min(8,Number(node.id.split('.').pop())/2)}%`;
     $('model-shift').classList.toggle('visible',!!node.shift);$('game').classList.toggle('shifting',!!node.shift);$('character-wrap').classList.remove('shift');
     if(node.shift){$('model-name').textContent=node.shift.name;$('model-detail').textContent=node.shift.detail;void $('character-wrap').offsetWidth;$('character-wrap').classList.add('shift');}
@@ -220,8 +220,8 @@
   function finish(){
     stopTimers();stopPlayback();state.finished=true;persist();$('choices').classList.add('hidden');$('game').classList.remove('choosing');$('game').classList.add('ended');$('dialogue-area').classList.add('hidden');
     const name=CAST[state.route].name;const affinity=state.affinity[state.route];
-    $('ending').innerHTML=`<span class="eyebrow">CHAPTER 01 / COMPLETE</span><h2>今天，先留下来。</h2><p class="end-copy">回家的路还没有找到。<br>但在这个陌生的世界，<br>已经有人对你说了「明天见」。</p><div class="end-stats"><div><small>第一场相遇</small><strong>${name}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div><div><small>你们之间</small><strong>${affinity>=3?'多了一点默契':affinity>=2?'初生的信任':'记住了彼此'}</strong></div></div><div class="end-rule"></div><p class="end-teaser">第二章 · 七日旁听<br>${ROUTE_LINES[state.route].teaser}</p><div class="modal-actions"><button class="modal-button primary" id="end-save"><i data-lucide="save"></i>保存旅程</button><button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一场初遇</button><button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">第一章 DEMO 完 · 第二章尚未开放</p>`;
-    $('ending').classList.remove('hidden');bind('end-save',()=>showSaves('save'));bind('end-replay',()=>confirmRestart('arrival.7'));bind('end-history',showHistory);icons();
+    $('ending').innerHTML=`<span class="eyebrow">CHAPTER 01 / COMPLETE</span><h2>第一道门，已经打开。</h2><p class="end-copy">回家的路还没有找到。<br>但在这个陌生的世界，<br>已经有人陪你走进校园。</p><div class="end-stats"><div><small>同行见证人</small><strong>${name}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div><div><small>你们之间</small><strong>${affinity>=2?'初生的信任':'记住了彼此'}</strong></div></div><div class="end-rule"></div><p class="end-teaser">第二章 · 中央讲堂问询<br>${ROUTE_LINES[state.route].teaser}</p><div class="modal-actions"><button class="modal-button primary" id="end-save"><i data-lucide="save"></i>保存旅程</button><button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button><button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">第一章 DEMO 完 · 第二章尚未开放</p>`;
+    $('ending').classList.remove('hidden');bind('end-save',()=>showSaves('save'));bind('end-replay',()=>confirmRestart('arrival.0'));bind('end-history',showHistory);icons();
   }
   bind('advance',()=>{activateAudio(true);advance();});bind('auto',()=>{activateAudio(true);toggleAuto();});bind('skip',()=>{activateAudio(true);toggleSkip();});
   bind('history',showHistory);bind('settings',showSettings);bind('save',()=>showSaves('save'));bind('load',()=>showSaves('load'));bind('close-modal',closeModal);

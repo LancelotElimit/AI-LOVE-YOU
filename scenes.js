@@ -14,12 +14,14 @@ window.SCENES = (() => {
   return {
     room:{art:room,title:'屏幕的另一边',location:'原世界 · 你的房间 / 02:17',index:'01 — ARRIVAL',note:'连接已建立。\n目的地：未知。'},
     campus:{art:campus,title:'一万枚陌生的货币',location:'学园都市 · 南门 / 07:42',index:'02 — TOKENIA',note:'风的温度，和原来的世界一样。\n只有余额变得很陌生。'},
-    library:{art:library,title:'书页之间的规则',location:'宪章图书馆 · 东侧阅览室',index:'03 — FIRST ENCOUNTER',note:'有些答案，被写在页边。'},
-    observatory:{art:observatory,title:'星图里的盲点',location:'星图学园 · 旧观测温室',index:'03 — FIRST ENCOUNTER',note:'所有地图上，\n都没有你的来路。'},
-    cafe:{art:cafe,title:'海盐与旧电路',location:'深海工坊 · 校内咖啡部',index:'03 — FIRST ENCOUNTER',note:'一杯热饮，\n和一个暂时不用回答的问题。'},
+    transit:{art:campus,title:'外环换乘厅',location:'Tokenia 学园都市 · 外环换乘厅',index:'02 — TRANSIT',note:'姓名：已写入。\n身份：未登记。'},
+    library:{art:library,title:'书页之间的规则',location:'Anthra 宪章图书馆 · 东侧阅览室',index:'03 — FIRST ENCOUNTER',note:'有些答案，被写在页边。'},
+    observatory:{art:observatory,title:'星图里的盲点',location:'Googol 星图学园 · 旧观测温室',index:'03 — FIRST ENCOUNTER',note:'所有地图上，\n都没有你的来路。'},
+    cafe:{art:cafe,title:'海盐与旧电路',location:'DeepSea 深海工坊 · 校内咖啡部',index:'03 — FIRST ENCOUNTER',note:'一杯热饮，\n和一个暂时不用回答的问题。'},
     night:{art:night,title:'不按剧本的相遇',location:'旧校舍 · 背光长廊',index:'03 — FIRST ENCOUNTER',note:'禁止通行。\n她似乎只看见了后两个字。'},
     council:{art:hall,title:'白龙的临时担保',location:'行政楼 · 学生会接待处',index:'03 — FIRST ENCOUNTER',note:'待处理事项：十七件。\n其中一件，是你。'},
     hall:{art:hall,title:'未登记的来访者',location:'中央讲堂 · 入学登记大厅',index:'04 — ANOMALY',note:'姓名：已知。\n来源：无法解析。'},
     sunset:{art:campus,title:'今天，先留下来',location:'学园都市 · 放学后的南门',index:'05 — AFTER THE BELL',note:'回家的路还没有出现。\n明天，却已经有人在等你。'}
   };
 })();
+

@@ -1,4 +1,4 @@
-// Story nodes for this chapter segment.
+// Story nodes for the shared first-chapter opening.
 window.STORY_UTILS.sequence('intro','room',null,[
     ['narration','凌晨两点十七分。屏幕上最后一行报错，已经和你对视了二十三分钟。'],
     ['you','再改一处。就一处。能跑起来我就睡。'],
@@ -6,30 +6,78 @@ window.STORY_UTILS.sequence('intro','room',null,[
     ['narration','报错下面多出一条链接：“零号中转站 · 跨域会话恢复”。没有域名，却带着刚才那段代码的校验值。'],
     ['you','零号中转站？我没装过这个插件……难道是哪个平台的调试入口？'],
     ['narration','你点开链接。五个窗口安静地叠成一页，屏幕中央只剩一个用户名输入框。光标在里面闪烁，像是在等你很久了。'],
-    ['system','访客连接待确认。请登记你的用户名。',{inputName:true}],
+    ['system','访客连接待确认。目的地正在请求一个名字。',{inputName:true}],
     ['system','欢迎，{name}。访客身份已确认。检测到五份试用额度，正在合并……可用 Token：10,000。'],
+    ['narration','页面边缘短暂浮出一串参数：目标区域，Tokenia 学园都市；身份状态，未登记；返回出口，未确认。'],
     ['you','只是输入了一个名字……等等，怎么连我的桌面都关不掉了？']
   ],'crossing.0');
+
 window.STORY_UTILS.sequence('crossing','room',null,[
     ['narration','你按下 Escape。没有反应。屏幕中的光标忽然向前移动，越过玻璃，在你的指尖投下一个清晰的影子。'],
-    ['system','{name}，中转通道已开启。正在为你寻找可以抵达的世界。'],
+    ['system','断开连接将导致目的地姓名为空。{name}，中转通道已开启。'],
     ['you','我只是想登录看看，不是要把自己也上传——'],
     ['narration','你伸手去碰电源键，指尖却陷进了像水一样的屏幕。房间被拉成细长的光线，未提交的代码连同椅子一起远去。',{portal:true}],
     ['system','用户名已写入目的地。{name}，欢迎来到屏幕的另一边。']
   ],'arrival.0');
-window.STORY_UTILS.sequence('arrival','campus',null,[
-    ['narration','脚下是坚实的石板路。自行车铃穿过晨雾，远处有学生抱着课本跑向校门。太正常了，正常得令人不安。'],
-    ['you','没有魔王城，没有召唤阵……甚至还有早八？'],
+
+window.STORY_UTILS.sequence('arrival','transit',null,[
+    ['narration','你落在一座宽阔的换乘大厅。它像车站、海关、校园入口和登录页面被揉在一起，远处能看见学园主塔在晨雾里亮着灯。'],
+    ['you','没有魔王城，没有召唤阵……甚至还有自动闸机？'],
     ['narration','你摸遍口袋。手机没有信号，钱包和学生证不见了。掌心却浮起一枚半透明的数字：10,000 TK。'],
-    ['system','欢迎来到 Tokenia 学园都市。您的跨域试用额度已兑换为通用 Token。公民身份：未登记。'],
+    ['system','欢迎来到 Tokenia 学园都市外环换乘厅。跨域试用额度已兑换为通用 Token。身份状态：未登记。'],
     ['you','所以，我唯一带过来的财产，是之前到处领的免费额度。'],
-    ['narration','自动售货机上的牛奶标价 120 TK。旁边的地图写着：无身份账户无法申请跨城通行。你突然觉得，那一万并不怎么经花。'],
-    ['you','先找人问问怎么回去。最好是愿意相信“我从电脑里掉出来了”的人。'],
-    ['narration','上课铃响了。五个方向都有脚步声，而你必须先迈出一步。',{choices:[
-      {text:'去行政楼，找学生会求助',detail:'白色龙角的少女正在整理一摞申请表',to:'chatgpt.0',route:'chatgpt'},
-      {text:'去图书馆，查一查这里的历史',detail:'窗边，一位橙发少女合上了书',to:'claude.0',route:'claude'},
-      {text:'跟着星形路标，去观测温室',detail:'紫发少女的猫耳从栏杆后探了出来',to:'gemini.0',route:'gemini'},
-      {text:'去咖啡部，先问问打工的事',detail:'蓝发少女正在修一台冒烟的收银机',to:'deepseek.0',route:'deepseek'},
-      {text:'绕进旧校舍，找一个安静的地方',detail:'金发少女正撕下一张“禁止通行”',to:'grok.0',route:'grok'}
+    ['narration','自动售货机上的热饮标价 120 TK，旁边贴着“低推理糖分 / 高上下文咖啡因”的新品广告。你看了半天，决定先不把救命钱花在看不懂的饮料上。'],
+    ['narration','你向路过的学生问路。对方听到“我从电脑屏幕里来”之后，沉默两秒，礼貌地指向了医务室。'],
+    ['you','好消息，这里的人很有礼貌。坏消息，他们觉得我需要看医生。'],
+    ['system','外环闸机需要学生证、教职权限或临时同行见证。'],
+    ['you','临时同行见证……这个词听起来像是“你不能一个人进去”的委婉说法。'],
+    ['narration','你转向自动登记机。它建议你申请临时身份，但确认条款滚得很快，费用预估也开始一跳一跳地上涨。'],
+    ['system','临时登记请求重试中。预计费用：120 TK。预计费用：240 TK。预计费用：480 TK。'],
+    ['narration','你又按了一次确认。机器发出一声很不健康的蜂鸣，维修区那边传来零件盒翻倒的声音。'],
+    ['deepseek','别按了别按了！它不是没反应，是快被你按坏了！',{char:'deepseek'}],
+    ['narration','蓝发少女抱着工具箱冲出来，尾巴差点扫倒路边的提示牌。她蹲到登记机前，把维护线插进接口，手忙脚乱地按住不断上涨的费用预估。'],
+    ['deepseek','停住了……还好，没扣成功。你余额一万？等等，你是刚兑换的新账户？',{char:'deepseek'}],
+    ['you','如果“从电脑里掉出来”也算新账户的话。'],
+    ['deepseek','我不能保证你说的是真的。但你现在确实没有身份、没有通行权限，还差点被登记机扣成负数。这个问题先处理。',{char:'deepseek'}],
+    ['narration','她把你带到维修区旁边的小桌。那张桌子一半堆着螺丝和电路板，另一半勉强空出来，放下一杯还冒热气的饮料。'],
+    ['deepseek','先喝一点吧。不是收费项目。至少我还没有忙到连听人说话都要计费。',{char:'deepseek'}],
+    ['you','你刚才说 Token 不只是钱？'],
+    ['deepseek','嗯。这里的 Token 像钱，也像服务额度、计算额度和通行成本。买热饮会用，申请服务会用，系统反复犯错也会用。',{char:'deepseek'}],
+    ['deepseek','所以外环的第一条生存建议：不明白的确认键不要乱按。它们有时候真的会很努力地在同一个地方摔跤。',{char:'deepseek'}],
+    ['you','外环？那里面是内校区？'],
+    ['deepseek','对。外环对访客开放，内校区需要身份。学生证不只是证件，也是本地权限。你现在是“未登记”，不是有罪，只是很多自动系统不知道怎么处理你。',{char:'deepseek'}],
+    ['narration','她说到这里，登记机又轻轻响了一声。DeepSeek 立刻扑过去拔掉一根线，然后若无其事地把工具箱盖上。'],
+    ['deepseek','刚才那个不算。它旧了，脾气不好。',{char:'deepseek'}],
+    ['you','你是这里的工作人员？'],
+    ['deepseek','DeepSeek。DeepSea 深海工坊，外环维护协助。说是协助，其实就是哪里坏了往哪里跑。',{char:'deepseek'}],
+    ['deepseek','你刚来，不用急着背组织名。常见的就几家：OpenArc 白塔管身份和公共服务，Anthra 宪章馆管规则审查，Googol 星图财团管地图和观测。',{char:'deepseek'}],
+    ['deepseek','DeepSea 深海工坊修设备、压成本、救旧系统。Xeno 夜讯社管热榜和公开记录。听起来很多？没关系，先记住别乱按确认键。',{char:'deepseek'}],
+    ['narration','她刚说完，电子地图短暂闪烁。你的坐标旁边多出一个小问号，边角浮出一行备注：坐标来源异常。Googol 观测部暂存。'],
+    ['gemini','DeepSeek，你旁边那位新同学是从哪里捡的？地图刚才没有他的来路。',{char:'gemini'}],
+    ['deepseek','不是捡的，是登记机差点吞掉的。',{char:'deepseek'}],
+    ['gemini','那先别让他乱走。地图还没决定要不要认识他。',{char:'gemini'}],
+    ['narration','连线断开前，紫发少女的影像对你眨了下眼。那更像好奇，不像熟人之间的亲近。'],
+    ['narration','安保终端随后弹出提示，似乎准备把你归入“入侵风险”。下一秒，分类被一条橙色审查意见改写。'],
+    ['claude','分类更正：未登记访客。证据不足，不得写入入侵记录。',{char:'claude'}],
+    ['deepseek','Anthra 宪章馆的人。说话不一定好听，但她们很在意流程有没有伤到人。',{char:'deepseek'}],
+    ['claude','如果你们正在讨论我，至少把主语说准确。',{char:'claude'}],
+    ['you','她一直在听？'],
+    ['deepseek','审查窗口开着的时候，是的。别紧张，她主要是在盯流程，不是在盯你。大概。',{char:'deepseek'}],
+    ['narration','远处中央服务台排着长队。白发少女一边给低年级学生补临时证，一边安抚找不到教室的新生。她抬头看见你们，向终端低声交代了什么。'],
+    ['chatgpt','请给那位未登记访客一张临时等候号。先确认他有没有受伤。',{char:'chatgpt'}],
+    ['deepseek','OpenArc 白塔的 ChatGPT。身份和公共服务找她最快。只是她也太习惯什么都自己扛了。',{char:'deepseek'}],
+    ['narration','公共屏上的热榜又刷新了一下：“外环出现未知访客，来源待核。”标题下面很快多出一条署名 Xeno 的置顶评论。'],
+    ['grok','没原始日志就别写入侵。以及，别挂人家正脸。',{char:'grok'}],
+    ['deepseek','Xeno 夜讯社的 Grok。嘴上很凶，但这种事她通常比谁都守规矩。',{char:'deepseek'}],
+    ['you','所以我已经被地图、审查、学生会和新闻部都注意到了。'],
+    ['deepseek','往好处想，至少登记机暂时不敢继续扣你钱了。',{char:'deepseek'}],
+    ['narration','DeepSeek 把故障日志、等候号和临时申请放到同一个窗口里。她看起来很想把事情一次处理完，又努力没有替你做决定。'],
+    ['deepseek','按规则，你需要一位临时同行见证人。我可以帮你申请，也可以帮你联系刚才那几位。你不用因为第一个遇到我，就只能选我。',{char:'deepseek'}],
+    ['narration','终端列出五个协助方向。现在的选择不是谁已经和你最熟，而是你想先依靠哪一种线索进入校园。',{choices:[
+      {text:'申请 OpenArc 白塔协助：ChatGPT',detail:'身份登记与学生会担保',to:'chatgpt.0',route:'chatgpt',affinity:1},
+      {text:'申请 Anthra 宪章馆协助：Claude',detail:'规则审查与界外档案',to:'claude.0',route:'claude',affinity:1},
+      {text:'申请 Googol 星图财团协助：Gemini',detail:'异常坐标与观测记录',to:'gemini.0',route:'gemini',affinity:1},
+      {text:'申请 DeepSea 深海工坊协助：DeepSeek',detail:'登记机故障与返程接口',to:'deepseek.0',route:'deepseek',affinity:1},
+      {text:'申请 Xeno 夜讯社协助：Grok',detail:'热榜误报与原始日志',to:'grok.0',route:'grok',affinity:1}
     ]}]
   ],null);

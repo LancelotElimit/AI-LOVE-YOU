@@ -33,11 +33,12 @@ async function checkLayout(page){
     await page.locator('#player-name').dispatchEvent('compositionstart');await page.locator('#station-form').dispatchEvent('submit');assert.equal((await saved(page)).state.playerName,'');await page.locator('#player-name').dispatchEvent('compositionend');
     await page.locator('#player-name').press('Enter');await page.waitForFunction(()=>document.querySelector('#station-screen').classList.contains('hidden'));
     assert.equal((await saved(page)).state.playerName,'林澈');assert.match(await page.locator('#dialogue-text').textContent(),/欢迎，林澈/);
+    await page.locator('#advance').click();assert.equal(await page.locator('#speaker').textContent(),'旁白');
     await page.locator('#advance').click();assert.equal(await page.locator('#speaker').textContent(),'林澈');
     await page.locator('#home').click();const before=await saved(page);await page.reload();assert.deepEqual((await saved(page)).state,before.state);assert.ok(await page.locator('#title-screen').isVisible());
     await page.locator('#title-new').click();await page.locator('#restart-cancel').click();assert.deepEqual((await saved(page)).state,before.state);
     await page.locator('#title-continue').click();assert.equal(await page.locator('#speaker').textContent(),'林澈');
-    await page.evaluate(()=>{for(let i=0;i<30;i++){if(!document.querySelector('#choices').classList.contains('hidden'))return;document.querySelector('#advance').click();}throw Error('No routes');});
+    await page.evaluate(()=>{for(let i=0;i<80;i++){if(!document.querySelector('#choices').classList.contains('hidden'))return;document.querySelector('#advance').click();}throw Error('No routes');});
     const routeStart=await saved(page);
     for(const [index,id] of ['chatgpt','claude','gemini','deepseek','grok'].entries()){
       if(index){await page.locator('#load').click();await page.locator('#import-file').setInputFiles({name:'routes.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(routeStart))});await page.waitForFunction(()=>!document.querySelector('#modal').open);}
