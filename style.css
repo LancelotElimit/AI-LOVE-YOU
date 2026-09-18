@@ -17,7 +17,7 @@ dialog{border:1px solid #dbe3dc;border-radius:7px;color:#294038;padding:28px;wid
 
 /* Transparent sprites sit at the center of the stage on every viewport. */
 .paper-wash{background:linear-gradient(180deg,#fafffd29,#fbfff91a 55%,#f9fff15c)}
-.character-wrap{left:50%;right:auto;width:min(60%,740px);height:calc(100% + 74px);top:9px;transform:translateX(-50%);mix-blend-mode:normal;animation:sprite-enter .55s ease-out}
+.character-wrap{left:50%;right:auto;width:min(70%,740px);height:calc(100% + 450px);top:100px;transform:translateX(-50%);mix-blend-mode:normal;animation:sprite-enter .55s ease-out}
 .character-wrap img{filter:drop-shadow(0 8px 7px #425d4015)}
 .character-wrap.shift{animation:sprite-shift 1.3s ease-out}
 .has-character .scene-caption{top:7%;left:4.7%;max-width:24%}.has-character .scene-caption h1{font-size:25px;margin:14px 0 10px}.has-character .scene-caption p{font-size:10px}
