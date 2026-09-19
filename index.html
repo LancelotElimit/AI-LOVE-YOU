@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f5f7f5">
-  <title>越过屏幕的你 · 第一章</title>
+  <title>AI Love You · 共同篇</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="assets/lucide.min.js"></script>
   <script defer src="scenes.js"></script>
@@ -17,6 +17,8 @@
   <script defer src="story/chapters/grok.js"></script>
   <script defer src="story/chapters/chapter-finale.js"></script>
   <script defer src="story/routes.js"></script>
+  <script defer src="story/chapters/common.generated.js"></script>
+  <script defer src="music.js"></script>
   <script defer src="game.js"></script>
 </head>
 <body>
@@ -24,11 +26,14 @@
     <div id="backdrop" class="backdrop" aria-hidden="true"></div>
     <div class="paper-wash" aria-hidden="true"></div>
     <div class="grain" aria-hidden="true"></div>
+    <button id="top-edge" class="edge-reveal top-edge" aria-label="显示顶部菜单" title="顶部菜单"></button>
+    <button id="bottom-edge" class="edge-reveal bottom-edge" aria-label="显示播放控制" title="播放控制"></button>
     <header class="topbar">
       <a class="brand" href="#" id="brand" aria-label="章节信息"><span class="brand-mark">T<span>·</span></span><span>TOKENIA<small>越过屏幕的你</small></span></a>
-      <div class="chapter-label"><span class="live-dot"></span> CHAPTER 01 <span class="divider">/</span> 未登记的来访者</div>
+      <div class="chapter-label"><span class="live-dot"></span> PROLOGUE <span class="divider">/</span> 未登记的来访者</div>
       <div class="top-actions">
         <button class="icon-button" id="home" title="返回标题" aria-label="返回标题"><i data-lucide="house"></i></button>
+        <button class="icon-button" id="relationships" title="好感度" aria-label="查看角色好感度"><i data-lucide="heart"></i></button>
         <div class="wallet" title="可用 Token"><i data-lucide="gem"></i><span id="tokens">10,000</span><small>TK</small></div>
         <button class="icon-button" id="sound" title="开启声音" aria-label="开启声音"><i data-lucide="volume-x"></i></button>
         <button class="icon-button" id="settings" title="设置" aria-label="设置"><i data-lucide="sliders-horizontal"></i></button>
@@ -48,17 +53,18 @@
       <div class="speaker-line"><div><span class="speaker-dot" id="speaker-dot"></span><strong id="speaker">你</strong><span id="speaker-sub">未登记的来访者</span></div><span class="line-counter" id="line-counter">01 / 01</span></div>
       <button class="dialogue" id="advance" aria-label="继续剧情"><span id="dialogue-text"></span><span class="continue-mark"><i data-lucide="chevron-down"></i></span></button>
       <nav class="toolbar" aria-label="播放控制">
-        <div class="toolbar-left"><button id="history"><i data-lucide="list"></i><span>回看</span></button><button id="auto" aria-pressed="false"><i data-lucide="play"></i><span>自动</span></button><button id="skip" aria-pressed="false"><i data-lucide="fast-forward"></i><span>快进</span></button></div>
-        <div class="toolbar-right"><span id="route-label">共同篇 · 初来乍到</span><button id="save"><i data-lucide="save"></i><span>存档</span></button><button id="load"><i data-lucide="folder-open"></i><span>读档</span></button><button id="fullscreen" title="全屏" aria-label="全屏"><i data-lucide="maximize"></i></button></div>
+        <div class="toolbar-left"><button id="history"><i data-lucide="list"></i><span>回看</span></button><button id="auto" aria-pressed="false"><i data-lucide="play"></i><span>自动</span></button><button id="skip" aria-pressed="false"><i data-lucide="fast-forward"></i><span>快进</span></button><button id="toggle-dialogue" title="隐藏对话框" aria-label="隐藏对话框" aria-pressed="false"><i data-lucide="eye-off"></i></button></div>
+        <div class="toolbar-right"><span id="route-label">序章 · 初来乍到</span><button id="save"><i data-lucide="save"></i><span>存档</span></button><button id="load"><i data-lucide="folder-open"></i><span>读档</span></button><button id="cg-fit" class="hidden" title="完整插画" aria-label="完整插画" aria-pressed="false"><i data-lucide="scan"></i></button><button id="fullscreen" title="全屏" aria-label="全屏"><i data-lucide="maximize"></i></button></div>
       </nav>
       <div class="progress-track"><div id="progress"></div></div>
     </section>
 
     <section id="choices" class="choices hidden" aria-label="剧情选择"></section>
+    <button id="restore-dialogue" class="restore-dialogue hidden" aria-label="恢复对话框" title="恢复对话框"></button>
     <section id="ending" class="ending hidden" aria-label="章节结束"></section>
     <section id="title-screen" class="title-screen" aria-label="游戏标题">
       <div id="title-background" class="title-background" aria-hidden="true"></div>
-      <div class="title-heading"><span class="title-kicker">TOKENIA · CHAPTER 01</span><h1>越过屏幕的你</h1><p>在所有答案之外，与你相遇。</p></div>
+      <div class="title-heading"><span class="title-kicker">TOKENIA · COMMON ROUTE</span><h1>AI Love You</h1><p>在所有答案之外，与你相遇。</p></div>
       <div class="title-cast" aria-hidden="true">
         <img src="assets/grok/grok-transparent.png" class="title-grok" alt="">
         <img src="assets/claude/claude-transparent.png" class="title-claude" alt="">
@@ -73,7 +79,7 @@
         <button id="title-settings"><i data-lucide="settings-2"></i><span>偏好设置</span><small>SETTINGS</small></button>
       </nav>
       <p id="title-memory" class="title-memory"></p>
-      <span class="title-edition">第一章 · 未登记的来访者</span>
+      <span class="title-edition">序章 / 第一章 / 第二章</span>
     </section>
     <section id="station-screen" class="station-screen hidden" aria-label="零号中转站登录">
       <div class="station-coordinate">LOCAL SESSION / 00:00:07</div>

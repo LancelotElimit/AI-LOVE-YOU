@@ -1,4 +1,4 @@
-// Claude witness response for Chapter 01.
+// Claude witness response for Prologue.
 window.STORY_UTILS.sequence('claude','transit','claude',[
     ['narration','你提交 Anthra 宪章馆协助申请。橙色审查权限没有变亮得很夸张，只是安静地落在你的临时申请旁。'],
     ['claude','选择宪章馆不代表你可以跳过规则。恰好相反，每一步都要说清楚。',{sprite:'default'}],
@@ -10,3 +10,4 @@ window.STORY_UTILS.sequence('claude','transit','claude',[
     ['claude','这种话建议你附带证据。比如明天同一时间再问一遍。',{sprite:'shy'}],
     ['narration','她合上终端，站到闸机旁边。你发现她给你留的位置，正好避开了安保镜头最刺眼的角度。']
   ],'gate.0');
+

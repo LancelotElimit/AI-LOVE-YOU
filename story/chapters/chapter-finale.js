@@ -1,4 +1,4 @@
-// Shared finale for Chapter 01.
+// Shared finale for Prologue.
 window.STORY_UTILS.sequence('gate','transit','$route',[
     ['system','临时同行见证申请已受理。请双方确认进入校园区域。'],
     ['$route','今天先到这里。门后面的事，等过了这道门再一起想。',{sprite:'hello'}],
@@ -31,3 +31,4 @@ window.STORY_UTILS.sequence('last','campus','$route',[
     ['system','「还有，这一次，请记住她的名字。」'],
     ['narration','你抬头看向 Tokenia 学园都市。第一道门已经在身后合上，而真正的问询还在前方。',{end:true}]
   ],null);
+

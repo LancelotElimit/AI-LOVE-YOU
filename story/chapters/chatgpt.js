@@ -1,4 +1,4 @@
-// ChatGPT witness response for Chapter 01.
+// ChatGPT witness response for Prologue.
 window.STORY_UTILS.sequence('chatgpt','transit','chatgpt',[
     ['narration','你提交 OpenArc 白塔协助申请。服务台的白色权限灯沿着队列亮起，ChatGPT 从一摞表格后抬起头。'],
     ['chatgpt','我需要确认：你理解这不是正式担保，也不是把所有风险交给我处理。',{sprite:'default'}],
@@ -10,3 +10,4 @@ window.STORY_UTILS.sequence('chatgpt','transit','chatgpt',[
     ['you','现在在了。'],
     ['chatgpt','我会帮你找路。但回去以前，也记得告诉我，你今天过得怎么样。',{sprite:'shy'}]
   ],'gate.0');
+

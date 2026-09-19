@@ -2,7 +2,7 @@
   'use strict';
   const $ = id => document.getElementById(id);
   const KEY = 'tokenia.chapter1.v1';
-  const defaultSettings = {sound:true,music:.18,sfx:.28,speed:26,autoDelay:2.8,reduceMotion:false};
+  const defaultSettings = {sound:true,music:.18,sfx:.28,speed:26,autoDelay:2.8,reduceMotion:false,cgFit:false};
   let storageOK = true;
   function read(key,fallback){try{const value=localStorage.getItem(`${KEY}.${key}`);return value?JSON.parse(value):fallback;}catch{storageOK=false;return fallback;}}
   function write(key,value){try{localStorage.setItem(`${KEY}.${key}`,JSON.stringify(value));return true;}catch{storageOK=false;return false;}}
@@ -13,17 +13,46 @@
   let atTitle=true,hasJourney=false,connecting=false,composingName=false;
   let isTyping=false,auto=false,skipping=false,fullText='',characterId=undefined,characterSprite=undefined,currentBg=null;
   let soundEngine=null;
+  let dialogueHidden=false,titleTimer,titleIndex=0;
+  const titlePictures=['chatgpt_tea_break','deepseek_delivery_done','gemini_greenhouse_camera','grok_rocket_alignment'];
+  function startTitleSlideshow(){
+    clearInterval(titleTimer);
+    if(document.hidden)return;
+    titleTimer=setInterval(()=>{
+      const slides=$('title-background').children;
+      slides[titleIndex].classList.remove('current');titleIndex=(titleIndex+1)%slides.length;slides[titleIndex].classList.add('current');
+    },10000);
+  }
+  function setDialogueHidden(hidden){
+    dialogueHidden=hidden;$('game').classList.toggle('dialogue-hidden',hidden);$('restore-dialogue').classList.toggle('hidden',!hidden);
+    const button=$('toggle-dialogue');button.title=hidden?'恢复对话框':'隐藏对话框';button.setAttribute('aria-label',button.title);button.setAttribute('aria-pressed',String(hidden));button.innerHTML=`<i data-lucide="${hidden?'eye':'eye-off'}"></i>`;icons();
+    if(hidden)stopPlayback();
+  }
+  function setControls(edge,visible){$('game').classList.toggle(`${edge}-controls-open`,visible);}
+  function hideControls(){setControls('top',false);setControls('bottom',false);}
+  async function enterFullscreen(){
+    if(document.fullscreenElement)return;
+    try{await document.documentElement.requestFullscreen();}catch{toast('未能自动全屏，可继续游玩或使用全屏按钮。');}
+  }
+  function updateFullscreen(){
+    const active=!!document.fullscreenElement,button=$('fullscreen');
+    button.innerHTML=`<i data-lucide="${active?'minimize':'maximize'}"></i>`;
+    button.title=active?'退出全屏':'全屏';button.setAttribute('aria-label',button.title);icons();
+  }
   const icons = () => window.lucide?.createIcons();
   const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const blank = () => ({version:1,node:'intro.0',playerName:'',tokens:10000,route:null,affinity:{chatgpt:0,claude:0,gemini:0,deepseek:0,grok:0},intent:null,flags:[],history:[],finished:false});
   const current = () => STORY[state.node];
+  const chapterInfo = () => window.CHAPTERS?.[current().chapter||0];
+  function eligible(node){return (node.when||[]).every(c=>(!c.route||state.route===c.route)&&(!c.notRoute||state.route!==c.notRoute)&&(!c.flag||state.flags.includes(c.flag))&&(!c.notFlag||!state.flags.includes(c.notFlag)));}
+  function resolveNode(id){const visited=new Set();while(id&&STORY[id]&&!eligible(STORY[id])){if(visited.has(id))return null;visited.add(id);id=STORY[id].next;}return id&&STORY[id]?id:null;}
   function actualWho(node){return node.who==='$route'?state.route:node.who;}
   function named(text,saved=state){return text.replaceAll('{name}',saved.playerName||'旅人');}
   function actualText(node){return named(ROUTE_LINES[state.route]?.[node.id]||node.text);}
   function speakerName(who){return who==='you'?(state.playerName||'你'):(CAST[who]?.name||'旁白');}
   function toast(text){clearTimeout(toastTimer);$('toast').textContent=text;$('toast').classList.add('visible');toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),2700);}
   function updateSoundIcon(){ $('sound').innerHTML=`<i data-lucide="${settings.sound?'volume-2':'volume-x'}"></i>`;$('sound').title=settings.sound?'关闭声音':'开启声音';$('sound').setAttribute('aria-label',$('sound').title);icons(); }
-  function applySettings(){document.documentElement.classList.toggle('reduce-motion',settings.reduceMotion);updateSoundIcon();soundEngine?.volumes();write('settings',settings);}
+  function applySettings(){document.documentElement.classList.toggle('reduce-motion',settings.reduceMotion);$('game').classList.toggle('cg-fit',!!settings.cgFit);$('cg-fit').title=settings.cgFit?'铺满插画':'完整插画';$('cg-fit').setAttribute('aria-label',$('cg-fit').title);$('cg-fit').setAttribute('aria-pressed',String(!!settings.cgFit));updateSoundIcon();soundEngine?.volumes();write('settings',settings);}
 
   class AudioEngine {
     constructor(){
@@ -31,49 +60,61 @@
       if(!AudioContext)throw new Error('Web Audio unavailable');
       this.ctx=new AudioContext();this.music=this.ctx.createGain();this.effects=this.ctx.createGain();
       this.music.connect(this.ctx.destination);this.effects.connect(this.ctx.destination);
+      this.cue=null;this.setCue('prologue');
       this.step=0;this.nextTime=this.ctx.currentTime+.12;this.volumes();
       this.timer=setInterval(()=>this.schedule(),200);
     }
     volumes(){const t=this.ctx.currentTime;this.music.gain.setTargetAtTime(settings.sound?settings.music:0,t,.12);this.effects.gain.setTargetAtTime(settings.sound?settings.sfx:0,t,.02);}
     async resume(){if(this.ctx.state==='suspended')await this.ctx.resume();if(this.nextTime<this.ctx.currentTime)this.nextTime=this.ctx.currentTime+.08;}
-    note(midi,time,duration,volume){
+    setCue(id){
+      if(this.cue===id)return;
+      const time=this.ctx.currentTime,previous=this.bus;
+      if(previous){previous.gain.cancelScheduledValues(time);previous.gain.setTargetAtTime(0,time,.65);setTimeout(()=>previous.disconnect(),8000);}
+      this.cue=id;this.bus=this.ctx.createGain();this.bus.connect(this.music);this.bus.gain.setValueAtTime(0,time);this.bus.gain.setTargetAtTime(1,time,.8);
+      this.step=0;this.nextTime=time+.12;
+    }
+    note(midi,time,duration,volume,voice='sine'){
       const base=this.ctx.createOscillator(),harm=this.ctx.createOscillator(),gain=this.ctx.createGain(),hg=this.ctx.createGain();
-      base.type='sine';harm.type='triangle';base.frequency.value=440*Math.pow(2,(midi-69)/12);harm.frequency.value=base.frequency.value*2;hg.gain.value=.08;
-      base.connect(gain);harm.connect(hg);hg.connect(gain);gain.connect(this.music);
+      base.type=voice;harm.type='triangle';base.frequency.value=440*Math.pow(2,(midi-69)/12);harm.frequency.value=base.frequency.value*2;hg.gain.value=.08;
+      base.connect(gain);harm.connect(hg);hg.connect(gain);gain.connect(this.bus);
       gain.gain.setValueAtTime(0,time);gain.gain.linearRampToValueAtTime(volume,time+.018);gain.gain.exponentialRampToValueAtTime(.001,time+duration);
       base.start(time);harm.start(time);base.stop(time+duration+.05);harm.stop(time+duration+.05);
       base.onended=()=>{base.disconnect();harm.disconnect();gain.disconnect();hg.disconnect();};
     }
     schedule(){
-      if(this.ctx.state!=='running')return;
-      // A quiet original 32-bar pentatonic piece, synthesized locally.
-      const chords=[[48,55,60,64],[45,52,57,60],[41,48,53,57],[43,50,55,62]];
-      const melody=[76,null,79,74,null,72,null,67,72,null,76,79,null,76,74,null,69,null,72,null,76,null,72,69,67,null,74,null,72,null,null,null];
+      if(this.ctx.state!=='running'||!settings.sound)return;
+      const score=window.SCORES?.[this.cue];
+      if(!score)return;
+      if(this.nextTime<this.ctx.currentTime)this.nextTime=this.ctx.currentTime+.08;
       while(this.nextTime<this.ctx.currentTime+.65){
-        const chord=chords[Math.floor(this.step/16)%4];
-        if(this.step%4===0)this.note(chord[(this.step/4)%4],this.nextTime,3.8,.19);
-        if(this.step%16===0)this.note(chord[0]-12,this.nextTime,5,.13);
-        const melodyNote=melody[this.step%32];if(melodyNote!==null)this.note(melodyNote,this.nextTime,2.4,.105);
-        this.step++;this.nextTime+=.47;
+        const bar=Math.floor(this.step/16)%4,chord=score.chords[bar],pulse=score.sparse?8:4;
+        if(this.step%pulse===0)this.note(score.root+chord[Math.floor(this.step/pulse)%4],this.nextTime,score.sparse?3.5:2.3,.12);
+        if(this.step%16===0)this.note(score.root+chord[0]-12,this.nextTime,4,.09);
+        const melodyNote=score.melody[this.step%score.melody.length];
+        if(melodyNote!==null)this.note(score.root+melodyNote+(bar===2?-12:0),this.nextTime,score.sparse?2.8:1.8,.09,score.voice);
+        this.step++;this.nextTime+=30/score.bpm;
       }
     }
     click(){if(!settings.sound)return;const t=this.ctx.currentTime,o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type='sine';o.frequency.setValueAtTime(920,t);o.frequency.exponentialRampToValueAtTime(620,t+.04);g.gain.setValueAtTime(.16,t);g.gain.exponentialRampToValueAtTime(.001,t+.055);o.connect(g);g.connect(this.effects);o.start();o.stop(t+.06);o.onended=()=>{o.disconnect();g.disconnect();};}
   }
   function activateAudio(click=false){
     if(!settings.sound)return;
-    try{if(!soundEngine)soundEngine=new AudioEngine();soundEngine.resume().catch(()=>{});if(click)soundEngine.click();}catch{settings.sound=false;updateSoundIcon();toast('当前浏览器未能启用声音，仍可继续阅读。');}
+    try{if(!soundEngine)soundEngine=new AudioEngine();soundEngine.setCue(atTitle?'prologue':current().music||'prologue');soundEngine.resume().catch(()=>{});if(click)soundEngine.click();}catch{settings.sound=false;updateSoundIcon();toast('当前浏览器未能启用声音，仍可继续阅读。');}
   }
   function stopTimers(){clearInterval(typingTimer);clearTimeout(autoTimer);clearTimeout(skipTimer);clearTimeout(stationTimer);}
   function stopPlayback(){auto=false;skipping=false;clearTimeout(autoTimer);clearTimeout(skipTimer);$('auto').classList.remove('active');$('skip').classList.remove('active');$('auto').setAttribute('aria-pressed','false');$('skip').setAttribute('aria-pressed','false');}
   function persist(){if(hasJourney)write('autosave',{state:structuredClone(state),date:Date.now()});}
   function showTitle(){
+    setDialogueHidden(false);startTitleSlideshow();
     persist();stopTimers();stopPlayback();atTitle=true;connecting=false;closeModal();
+    hideControls();
+    soundEngine?.setCue('prologue');
     $('station-screen').classList.add('hidden');$('game').classList.remove('station-active','portal-active');$('game').classList.add('at-title');$('title-screen').classList.remove('hidden');
     const entry=read('autosave',null);$('title-continue').disabled=!validSave(entry);
-    $('title-memory').textContent=validSave(entry)?`${entry.state.playerName||'旅人'} · ${entry.state.finished?'第一章已完成':SCENES[STORY[entry.state.node].bg].title}`:'一场尚未开始的相遇';
+    $('title-memory').textContent=validSave(entry)?`${entry.state.playerName||'旅人'} · ${window.CHAPTERS?.[STORY[entry.state.node].chapter||0]?.title||'未登记的来访者'}${entry.state.finished?' · 已完成':''}`:'一场尚未开始的相遇';
     $('title-new').focus({preventScroll:true});
   }
-  function leaveTitle(){atTitle=false;hasJourney=true;$('title-screen').classList.add('hidden');$('game').classList.remove('at-title');}
+  function leaveTitle(){clearInterval(titleTimer);const entering=atTitle;atTitle=false;hasJourney=true;hideControls();$('title-screen').classList.add('hidden');$('game').classList.remove('at-title');if(entering)void enterFullscreen();}
   function startNew(target='intro.0'){
     const previousName=state.playerName;stopTimers();stopPlayback();state=blank();
     if(target!=='intro.0')state.playerName=previousName||'旅人';
@@ -98,14 +139,17 @@
     stationTimer=setTimeout(()=>{if(atTitle||!current().inputName)return;connecting=false;enter(current().next);$('advance').focus({preventScroll:true});},settings.reduceMotion?150:1200);
   }
   function enter(id){
+    id=resolveNode(id);
     if(!STORY[id]){toast('这段故事暂时没有连接。');return;}
     clearTimeout(toastTimer);$('toast').classList.remove('visible');
     state.node=id;const node=current();
+    if(node.award&&!state.flags.includes(`award:${node.award.id}`)){state.affinity[node.award.to]+=node.award.amount;state.flags.push(`award:${node.award.id}`);}
     if(node.grant){state.tokens+=node.grant;toast(`维修报酬 +${node.grant} TK`);}
     state.history.push({id,who:actualWho(node),text:actualText(node)});
     persist();render(false);
   }
   function spriteFile(cid,sprite){
+    if(new RegExp(`^${cid}_[a-z0-9_]+$`).test(sprite))return `${sprite}.png`;
     const files={
       chatgpt:{default:'ChatGPT-default1.png',hello:'ChatGPT-hello1.png',happy:'ChatGPT-default1.png',shy:'ChatGPT-shy1.png',angry:'ChatGPT-angry1.png'},
       claude:{default:'Claude-default.png',happy:'Claude-happy1.png',shy:'Claude-shy1.png',angry:'Claude-angry1.png'},
@@ -116,9 +160,15 @@
     return files[cid]?.[sprite]||`${cid}-transparent.png`;
   }
   function render(instant=false){
+    if(dialogueHidden)setDialogueHidden(false);
     stopTimers();$('ending').classList.add('hidden');$('dialogue-area').classList.remove('hidden');$('game').classList.remove('ended');
     $('station-screen').classList.add('hidden');$('game').classList.remove('station-active');
     const node=current(),who=CAST[actualWho(node)]||CAST.narration,scene=SCENES[node.bg];
+    $('game').classList.toggle('illustrated',!!scene.image);$('game').classList.toggle('showing-cg',!!scene.cg);
+    $('cg-fit').classList.toggle('hidden',!scene.cg);
+    $('game').dataset.bgm=node.music||'prologue';soundEngine?.setCue(node.music||'prologue');
+    const chapter=node.chapter||0,chapterName=chapterInfo()?.title||'未登记的来访者';
+    document.querySelector('.chapter-label').textContent=`${chapter?'CHAPTER '+chapter:'PROLOGUE'} / ${chapterName}`;
     if(currentBg!==node.bg){$('backdrop').innerHTML=scene.art;currentBg=node.bg;}
     $('scene-index').textContent=scene.index;$('scene-title').textContent=scene.title;$('location').textContent=scene.location;$('scene-note').textContent=scene.note;
     const cid=node.char==='$route'?state.route:node.char;
@@ -135,12 +185,12 @@
     $('game').classList.toggle('has-character',!!cid);$('game').classList.toggle('portal-active',!!node.portal);
     $('character-tag').style.display=cid?'flex':'none';if(cid){$('character-en').textContent=CAST[cid].name;$('character-role').textContent=CAST[cid].role;}
     document.documentElement.style.setProperty('--accent',cid?CAST[cid].color:who.color);
-    $('speaker').textContent=speakerName(actualWho(node));$('speaker-sub').textContent=who.sub;$('speaker-dot').style.background=who.color;
+    $('speaker').textContent=speakerName(actualWho(node));$('speaker-sub').textContent=node.delivery||((actualWho(node)==='narration'||actualWho(node)==='you')?chapterName:who.sub);$('speaker-dot').style.background=who.color;
     $('speaker').classList.toggle('long-name',Array.from($('speaker').textContent).length>8);
-    $('tokens').textContent=state.tokens.toLocaleString('en-US');$('route-label').textContent=state.route?`${CAST[state.route].name} · 初遇篇`:'共同篇 · 初来乍到';
+    $('tokens').textContent=state.tokens.toLocaleString('en-US');$('route-label').textContent=chapter?`共同篇 · 第${chapter}章`:(state.route?`${CAST[state.route].name} · 同行见证人`:'序章 · 初来乍到');
     $('line-counter').textContent=String(state.history.filter(h=>h.who!=='choice').length).padStart(3,'0');
     const progress = {room:4,campus:15,transit:24,library:32,council:32,observatory:32,cafe:32,night:32,hall:68,sunset:91};
-    $('progress').style.width=`${node.end?100:progress[node.bg]+Math.min(8,Number(node.id.split('.').pop())/2)}%`;
+    $('progress').style.width=`${node.end?100:node.progress??((progress[node.bg]||0)+Math.min(8,Number(node.id.split('.').pop())/2))}%`;
     $('model-shift').classList.toggle('visible',!!node.shift);$('game').classList.toggle('shifting',!!node.shift);$('character-wrap').classList.remove('shift');
     if(node.shift){$('model-name').textContent=node.shift.name;$('model-detail').textContent=node.shift.detail;void $('character-wrap').offsetWidth;$('character-wrap').classList.add('shift');}
     $('choices').classList.add('hidden');$('game').classList.remove('choosing');
@@ -165,22 +215,24 @@
     });$('choices').classList.remove('hidden');$('game').classList.add('choosing');icons();
   }
   function choose(index){
+    if(dialogueHidden)return;
     const choice=current().choices?.[index];if(atTitle||!choice||isTyping||$('modal').open||(choice.cost||0)>state.tokens)return;
     activateAudio(true);state.history.push({id:state.node,who:'choice',text:choice.text});
     if(choice.route)state.route=choice.route;
     if(choice.cost)state.tokens-=choice.cost;
-    if(choice.affinity&&state.route)state.affinity[state.route]+=choice.affinity;
-    if(choice.flag)state.flags.push(choice.flag);
+    if(choice.affinity&&(choice.affinityTo||state.route))state.affinity[choice.affinityTo||state.route]+=choice.affinity;
+    if(choice.flag&&!state.flags.includes(choice.flag))state.flags.push(choice.flag);
     if(choice.intent)state.intent=choice.intent;
     enter(choice.to);
   }
   function advance(){
+    if(dialogueHidden){setDialogueHidden(false);return;}
     if(atTitle||current().inputName||$('modal').open||state.finished)return;
     if(isTyping){completeText();return;}
     const node=current();if(node.choices)return;if(node.end){finish();return;}if(node.next)enter(node.next);
   }
   function scheduleSkip(){
-    const next=current().next;
+    const next=resolveNode(current().next);
     if(current().inputName||current().choices||current().end||!next||!seen.has(next)){skipping=false;$('skip').classList.remove('active');$('skip').setAttribute('aria-pressed','false');toast('已到达未读剧情或选择处');return;}
     skipTimer=setTimeout(advance,95);
   }
@@ -204,7 +256,14 @@
     $('setting-motion').addEventListener('change',e=>{settings.reduceMotion=e.target.checked;applySettings();});
     bind('restart-button',()=>confirmRestart());bind('about-button',showAbout);
   }
-  function showAbout(){openModal('越过屏幕的你',`<div class="about"><p>第一章 · 未登记的来访者</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>五位少女，五场相遇。你在这里的第一个选择，会被认真记住。</p><p>原始角色立绘由你提供。场景与音乐为本 Demo 原创；图标使用 Lucide（ISC）。人物、家系与能力均为虚构改编。</p><p>本章完成后，故事暂止于七日旁听的第一晚。</p></div>`,'CHAPTER 01');}
+  function showAbout(){openModal('AI Love You',`<div class="about"><p>序章 · 未登记的来访者<br>第一章 · 名字写在临时证上<br>第二章 · 课表之外的时间</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>人物、组织与能力均为虚构改编。</p><p>角色、背景与插画由你提供。音乐为本地合成的原创暂定配乐；图标使用 Lucide（ISC）。</p></div>`,'COMMON ROUTE');}
+  function showRelationships(){
+    const rows=Object.keys(ROUTE_LINES).map(id=>{
+      const value=state.affinity[id],status=value>=40?'逐渐亲近':value>=20?'多了一点熟悉':value>=10?'开始了解':value>0?'记住了彼此':'初识';
+      return `<div class="relationship-row"><div><strong>${CAST[id].name}</strong><small>${status}</small></div><span class="affinity-value">${value}</span><meter min="0" max="100" value="${Math.max(0,Math.min(100,value))}" aria-label="${CAST[id].name} 好感度 ${value}"></meter></div>`;
+    }).join('');
+    openModal('你们之间',rows,'RELATIONSHIPS');
+  }
   function confirmRestart(target='intro.0'){
     openModal('从这里重新出发？',`<p class="empty-note">当前进度会被新的旅程替代，手动存档仍会保留。</p><div class="modal-actions"><button class="modal-button" id="restart-cancel">暂时不</button><button class="modal-button primary" id="restart-confirm">重新出发</button></div>`,'NEW JOURNEY');
     bind('restart-cancel',closeModal);bind('restart-confirm',()=>startNew(target));
@@ -232,18 +291,36 @@
     }
     const actions=document.createElement('div');actions.className='modal-actions';actions.innerHTML='<button class="modal-button" id="export-save"><i data-lucide="download"></i>导出当前存档</button><button class="modal-button" id="import-save"><i data-lucide="upload"></i>导入存档</button><input id="import-file" type="file" accept="application/json,.json" hidden>';fragment.append(actions);
     openModal(mode==='save'?'把这一刻留下':'回到某一刻',fragment,mode==='save'?'SAVE':'LOAD');
-    bind('export-save',()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({state,date:Date.now()},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='tokenia-chapter1-save.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('存档已导出');});
-    bind('import-save',()=>$('import-file').click());$('import-file').addEventListener('change',async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>2e6)throw new Error('size');const entry=JSON.parse(await file.text());if(!validSave(entry))throw new Error('invalid');restore(entry);}catch{toast('文件不是有效的第一章存档');}});
+    bind('export-save',()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({state,date:Date.now()},null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download=`tokenia-${current().chapter?'chapter'+current().chapter:'prologue'}-save.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('存档已导出');});
+    bind('import-save',()=>$('import-file').click());$('import-file').addEventListener('change',async e=>{try{const file=e.target.files[0];if(!file)return;if(file.size>2e6)throw new Error('size');const entry=JSON.parse(await file.text());if(!validSave(entry))throw new Error('invalid');restore(entry);}catch{toast('文件不是有效的旅程存档');}});
   }
   function actualTextForSave(saved){const node=STORY[saved.node];return named(ROUTE_LINES[saved.route]?.[node.id]||node.text,saved);}
   function finish(){
     stopTimers();stopPlayback();state.finished=true;persist();$('choices').classList.add('hidden');$('game').classList.remove('choosing');$('game').classList.add('ended');$('dialogue-area').classList.add('hidden');
-    const name=CAST[state.route].name;const affinity=state.affinity[state.route];
-    $('ending').innerHTML=`<span class="eyebrow">CHAPTER 01 / COMPLETE</span><h2>第一道门，已经打开。</h2><p class="end-copy">回家的路还没有找到。<br>但在这个陌生的世界，<br>已经有人陪你走进校园。</p><div class="end-stats"><div><small>同行见证人</small><strong>${name}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div><div><small>你们之间</small><strong>${affinity>=2?'初生的信任':'记住了彼此'}</strong></div></div><div class="end-rule"></div><p class="end-teaser">第二章 · 中央讲堂问询<br>${ROUTE_LINES[state.route].teaser}</p><div class="modal-actions"><button class="modal-button primary" id="end-save"><i data-lucide="save"></i>保存旅程</button><button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button><button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">第一章 DEMO 完 · 第二章尚未开放</p>`;
-    $('ending').classList.remove('hidden');bind('end-save',()=>showSaves('save'));bind('end-replay',()=>confirmRestart('arrival.0'));bind('end-history',showHistory);icons();
+    const chapter=current().chapter||0,info=chapterInfo(),next=current().continueTo;
+    const witness=CAST[state.route]?.name||'未选择';
+    $('ending').innerHTML=`<span class="eyebrow">${chapter?'CHAPTER '+chapter:'PROLOGUE'} / COMPLETE</span><h2>${info.ending}</h2><p class="end-copy">${info.copy}</p><div class="end-stats"><div><small>同行见证人</small><strong>${witness}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div></div><div class="end-rule"></div><p class="end-teaser">${next?'下一章 · '+window.CHAPTERS[STORY[next].chapter].title:'第三章 · 采风的约定'}</p><div class="modal-actions">${next?'<button class="modal-button primary" id="end-continue"><i data-lucide="arrow-right"></i>继续故事</button>':''}<button class="modal-button" id="end-save"><i data-lucide="save"></i>保存旅程</button>${chapter===0?'<button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button>':''}<button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">${next?'共同篇 · 未锁定个人路线':'第二章完 · 后续章节待续'}</p>`;
+    $('ending').classList.remove('hidden');bind('end-save',()=>showSaves('save'));bind('end-history',showHistory);
+    if(chapter===0)bind('end-replay',()=>confirmRestart('arrival.0'));
+    if(next)bind('end-continue',()=>{state.finished=false;enter(next);activateAudio();$('advance').focus({preventScroll:true});});
+    icons();
   }
-  bind('advance',()=>{activateAudio(true);advance();});bind('auto',()=>{activateAudio(true);toggleAuto();});bind('skip',()=>{activateAudio(true);toggleSkip();});
+  bind('advance',()=>{activateAudio(true);advance();});bind('auto',()=>{setDialogueHidden(false);activateAudio(true);toggleAuto();});bind('skip',()=>{setDialogueHidden(false);activateAudio(true);toggleSkip();});
   bind('history',showHistory);bind('settings',showSettings);bind('save',()=>showSaves('save'));bind('load',()=>showSaves('load'));bind('close-modal',closeModal);
+  bind('relationships',showRelationships);
+  bind('toggle-dialogue',()=>setDialogueHidden(!dialogueHidden));
+  bind('restore-dialogue',()=>setDialogueHidden(false));
+  bind('cg-fit',()=>{settings.cgFit=!settings.cgFit;applySettings();});
+  bind('top-edge',()=>setControls('top',!$('game').classList.contains('top-controls-open')));
+  bind('bottom-edge',()=>setControls('bottom',!$('game').classList.contains('bottom-controls-open')));
+  $('game').addEventListener('pointermove',event=>{
+    if(atTitle||$('modal').open||event.pointerType==='touch')return;
+    const topHeight=document.querySelector('.topbar').offsetHeight,bottomHeight=document.querySelector('.toolbar').offsetHeight;
+    setControls('top',event.clientY<=($('game').classList.contains('top-controls-open')?topHeight:18));
+    setControls('bottom',event.clientY>=innerHeight-($('game').classList.contains('bottom-controls-open')?bottomHeight:18));
+  });
+  $('game').addEventListener('pointerleave',event=>{if(event.pointerType!=='touch')hideControls();});
+  $('game').addEventListener('pointerdown',event=>{if(!event.target.closest('.topbar,.toolbar,.edge-reveal,dialog'))hideControls();});
   bind('home',showTitle);bind('title-new',()=>{if(validSave(read('autosave',null)))confirmRestart();else startNew();});
   bind('title-continue',()=>{restore(read('autosave',null));activateAudio();});bind('title-load',()=>showSaves('load'));bind('title-settings',showSettings);
   $('station-form').addEventListener('submit',submitName);
@@ -252,21 +329,29 @@
   $('player-name').addEventListener('input',()=>{$('name-count').textContent=`${Array.from($('player-name').value.trim()).length} / 12`;$('name-error').textContent='';$('player-name').removeAttribute('aria-invalid');});
   bind('sound',()=>{settings.sound=!settings.sound;applySettings();activateAudio(true);toast(settings.sound?'声音已开启':'声音已关闭');});
   bind('brand',e=>{e.preventDefault();showAbout();});
-  bind('fullscreen',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{toast('当前浏览器不支持全屏');}});
+  bind('fullscreen',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await enterFullscreen();}catch{toast('当前浏览器不支持全屏');}});
+  document.addEventListener('fullscreenchange',updateFullscreen);
   $('modal').addEventListener('click',e=>{if(e.target===$('modal')){const r=$('modal').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal();}});
   document.addEventListener('keydown',e=>{
     if(e.ctrlKey||e.metaKey||e.altKey||e.repeat||e.isComposing)return;
     if($('modal').open||atTitle||current().inputName||/INPUT|TEXTAREA|SELECT/.test(document.activeElement?.tagName))return;
     if(/INPUT|TEXTAREA|SELECT|BUTTON|A/.test(document.activeElement?.tagName)&&[' ','Enter'].includes(e.key))return;
+    if(dialogueHidden){if([' ','Enter','Escape'].includes(e.key)){e.preventDefault();setDialogueHidden(false);}return;}
     if(e.key===' '||e.key==='Enter'){e.preventDefault();activateAudio(true);advance();}
     else if(/^[1-5]$/.test(e.key))choose(Number(e.key)-1);
-    else if(e.key.toLowerCase()==='a')toggleAuto();else if(e.key.toLowerCase()==='h')showHistory();else if(e.key.toLowerCase()==='s')showSaves('save');else if(e.key.toLowerCase()==='l')showSaves('load');else if(e.key==='Escape')showSettings();
+    else if(e.key.toLowerCase()==='a')toggleAuto();else if(e.key.toLowerCase()==='h')showHistory();else if(e.key.toLowerCase()==='s')showSaves('save');else if(e.key.toLowerCase()==='l')showSaves('load');else if(e.key==='Escape'&&!document.fullscreenElement)showSettings();
   });
   document.addEventListener('visibilitychange',()=>{if(document.hidden){stopPlayback();soundEngine?.ctx.suspend().catch(()=>{});}else if(settings.sound)soundEngine?.resume().catch(()=>{});});
-  window.addEventListener('pagehide',()=>{persist();clearInterval(soundEngine?.timer);});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(titleTimer);else if(atTitle)startTitleSlideshow();});
+  window.addEventListener('pagehide',()=>{persist();clearInterval(soundEngine?.timer);clearInterval(titleTimer);});
   $('character').addEventListener('error',()=>toast('角色图片加载失败，请保留 assets 文件夹。'));
+  const stageObserver=new ResizeObserver(()=>{
+    const rect=$('stage').getBoundingClientRect(),dialogue=$('dialogue-area').getBoundingClientRect();
+    $('game').style.setProperty('--art-top',`${rect.top}px`);$('game').style.setProperty('--art-height',`${rect.height}px`);
+    $('game').style.setProperty('--dialogue-top',`${dialogue.top}px`);
+  });stageObserver.observe($('stage'));
   applySettings();state=blank();
-  $('title-background').innerHTML=SCENES.campus.art;$('backdrop').innerHTML=SCENES.room.art;
+  $('title-background').innerHTML=titlePictures.map((name,i)=>`<img class="title-slide${i===0?' current':''}" src="assets/scene/cg/cg_ch02_${name}.png" alt="" draggable="false">`).join('');$('backdrop').innerHTML=SCENES.room.art;
   showTitle();
   if(!storageOK)toast('浏览器限制了本地存储，可在存档页导出备份');
   for(const id of Object.keys(ROUTE_LINES)){

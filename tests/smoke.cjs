@@ -1,3 +1,4 @@
+const {clickControl}=require('./controls.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -85,24 +86,24 @@ async function assertNoOverflow(page){
     await page.screenshot({path:path.join(qa,'desktop-ending.png')});
     await page.setViewportSize({width:390,height:844});await assertNoOverflow(page);await page.screenshot({path:path.join(qa,'mobile-ending.png')});
     await page.setViewportSize({width:1440,height:960});await fresh(page);
-    await page.locator('#save').click();await page.locator('.save-slot').nth(1).getByRole('button').click();await page.locator('#close-modal').click();
+    await clickControl(page,'save');await page.locator('.save-slot').nth(1).getByRole('button').click();await page.locator('#close-modal').click();
     await page.locator('#advance').click();assert.equal((await state(page)).node,'intro.1');
-    await page.locator('#load').click();await page.locator('.save-slot').nth(1).getByRole('button').click();assert.equal((await state(page)).node,'intro.0');
+    await clickControl(page,'load');await page.locator('.save-slot').nth(1).getByRole('button').click();assert.equal((await state(page)).node,'intro.0');
     await page.locator('#advance').click();await page.reload();assert.equal((await state(page)).node,'intro.1');await page.locator('#title-continue').click();
-    await page.locator('#settings').click();await page.locator('#restart-button').click();await page.locator('#restart-confirm').click();assert.equal((await state(page)).node,'intro.0');
+    await clickControl(page,'settings');await page.locator('#restart-button').click();await page.locator('#restart-confirm').click();assert.equal((await state(page)).node,'intro.0');
     console.log('Manual save/load, automatic resume and restart: passed.');
-    await page.locator('#skip').click();await page.waitForTimeout(250);assert.equal((await state(page)).node,'intro.1');assert.equal(await page.locator('#skip').getAttribute('aria-pressed'),'false');
-    await page.locator('#settings').click();await page.locator('#setting-delay').fill('1');await page.locator('#setting-delay').dispatchEvent('input');await page.locator('#close-modal').click();
-    await page.locator('#auto').click();await page.waitForTimeout(2500);assert.notEqual((await state(page)).node,'intro.1');await page.locator('#auto').click();
-    await page.locator('#settings').click();await page.locator('#setting-speed').fill('65');await page.locator('#setting-speed').dispatchEvent('input');await page.locator('#close-modal').click();
+    await clickControl(page,'skip');await page.waitForTimeout(250);assert.equal((await state(page)).node,'intro.1');assert.equal(await page.locator('#skip').getAttribute('aria-pressed'),'false');
+    await clickControl(page,'settings');await page.locator('#setting-delay').fill('1');await page.locator('#setting-delay').dispatchEvent('input');await page.locator('#close-modal').click();
+    await clickControl(page,'auto');await page.waitForTimeout(2500);assert.notEqual((await state(page)).node,'intro.1');await clickControl(page,'auto');
+    await clickControl(page,'settings');await page.locator('#setting-speed').fill('65');await page.locator('#setting-speed').dispatchEvent('input');await page.locator('#close-modal').click();
     await page.locator('#advance').click();assert.ok(await page.locator('#advance').evaluate(el=>el.classList.contains('typing')));const typedNode=(await state(page)).node;
     await page.locator('#advance').click();assert.equal((await state(page)).node,typedNode);assert.equal(await page.locator('#advance').evaluate(el=>el.classList.contains('typing')),false);
-    await page.locator('#settings').click();await page.locator('#setting-speed').fill('0');await page.locator('#setting-speed').dispatchEvent('input');await page.locator('#close-modal').click();
-    await page.locator('#save').click();
+    await clickControl(page,'settings');await page.locator('#setting-speed').fill('0');await page.locator('#setting-speed').dispatchEvent('input');await page.locator('#close-modal').click();
+    await clickControl(page,'save');
     const downloadPromise=page.waitForEvent('download');await page.locator('#export-save').click();const download=await downloadPromise;const exported=JSON.parse(fs.readFileSync(await download.path(),'utf8'));
     assert.equal(exported.state.node,typedNode);await page.locator('#close-modal').click();await page.locator('#advance').click();
-    await page.locator('#load').click();await page.locator('#import-file').setInputFiles({name:'save.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(exported))});await page.waitForFunction(()=>!document.querySelector('#modal').open);assert.equal((await state(page)).node,typedNode);
-    await page.locator('#load').click();await page.locator('#import-file').setInputFiles({name:'broken.json',mimeType:'application/json',buffer:Buffer.from('{"state":{"node":"no-such-node"}}')});await page.waitForTimeout(150);assert.equal((await state(page)).node,typedNode);assert.ok(await page.locator('#modal').evaluate(el=>el.open));await page.locator('#close-modal').click();
+    await clickControl(page,'load');await page.locator('#import-file').setInputFiles({name:'save.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(exported))});await page.waitForFunction(()=>!document.querySelector('#modal').open);assert.equal((await state(page)).node,typedNode);
+    await clickControl(page,'load');await page.locator('#import-file').setInputFiles({name:'broken.json',mimeType:'application/json',buffer:Buffer.from('{"state":{"node":"no-such-node"}}')});await page.waitForTimeout(150);assert.equal((await state(page)).node,typedNode);assert.ok(await page.locator('#modal').evaluate(el=>el.open));await page.locator('#close-modal').click();
     console.log('Read-only skip, autoplay, typewriter, exported/imported saves and malformed import: passed.');
     await untilChoice(page);
     for(const size of [{width:390,height:844},{width:360,height:640},{width:844,height:390}]){
@@ -111,9 +112,9 @@ async function assertNoOverflow(page){
     }
     await page.setViewportSize({width:390,height:844});await page.locator('.choice').nth(3).click();await page.locator('#character').evaluate(img=>img.decode());
     await untilChoice(page);await assertNoOverflow(page);await page.screenshot({path:path.join(qa,'mobile-model-shift-choice.png')});
-    await page.locator('#settings').click();await assertNoOverflow(page);await page.screenshot({path:path.join(qa,'mobile-settings.png')});await page.locator('#close-modal').click();
-    await page.locator('#sound').click();await page.waitForTimeout(800);assert.equal(await page.locator('#sound').getAttribute('aria-label'),'关闭声音');assert.ok(await page.evaluate(()=>window.testOscillators>3),'Audio synthesis should create music and click oscillators');
-    await page.locator('#sound').click();assert.equal(await page.locator('#sound').getAttribute('aria-label'),'开启声音');
+    await clickControl(page,'settings');await assertNoOverflow(page);await page.screenshot({path:path.join(qa,'mobile-settings.png')});await page.locator('#close-modal').click();
+    await clickControl(page,'sound');await page.waitForTimeout(800);assert.equal(await page.locator('#sound').getAttribute('aria-label'),'关闭声音');assert.ok(await page.evaluate(()=>window.testOscillators>3),'Audio synthesis should create music and click oscillators');
+    await clickControl(page,'sound');assert.equal(await page.locator('#sound').getAttribute('aria-label'),'开启声音');
     assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);
     console.log('Responsive layouts, audio toggle, image loads: passed. No browser errors.');
   }finally{await browser.close();}

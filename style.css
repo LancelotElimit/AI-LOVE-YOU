@@ -11,6 +11,30 @@ dialog{border:1px solid #dbe3dc;border-radius:7px;color:#294038;padding:28px;wid
 @media(max-height:650px) and (min-width:700px){.game{min-height:510px}.topbar{height:61px}.scene-caption{top:7%}.scene-caption h1{font-size:28px;margin:9px 0}.caption-line{margin-top:12px}.scene-note{top:56%;font-size:11px}.dialogue-area{margin-bottom:12px}.dialogue{min-height:78px;font-size:14px;padding-top:12px}.speaker-line{padding-top:14px}.toolbar{min-height:38px}.choices{top:70px;bottom:201px;gap:6px}.choice{min-height:43px;padding:8px 13px}.choice small{display:none}.model-shift{bottom:33px}.model-shift small{display:none}.ending{top:61px;padding-top:25px}.character-wrap{height:calc(100% + 80px)}}
 .game.ended .scene-caption,.game.ended .scene-note,.game.ended .ambient-label,.game.ended .character-tag{visibility:hidden}
 .choices{justify-content:safe center}.choices header{flex-shrink:0}
+.scene-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+.illustrated .paper-wash{background:linear-gradient(180deg,#ffffff25,transparent 28%,transparent 80%,#ffffff30)}
+.illustrated .scene-note,.illustrated .ambient-label,.illustrated .character-tag{display:none!important}
+.illustrated .scene-caption,.illustrated.has-character .scene-caption{top:18px;left:4.7%;max-width:min(34%,350px);text-shadow:0 1px 5px #fff,0 0 14px #fff}
+.illustrated .scene-caption h1,.illustrated.has-character .scene-caption h1{font-size:21px;margin:7px 0;line-height:1.35}
+.illustrated .scene-caption .caption-line{display:none}
+.illustrated .character-wrap{top:158px;height:calc(100% + 500px);width:min(62%,1000px)}
+.illustrated .model-shift{background:#fffffff0;padding:12px 16px;max-width:32%;bottom:20px}
+.illustrated .choices{top:calc(var(--art-top,91px) + 8px);bottom:calc(100% - var(--dialogue-top,70%) + 8px)}
+.showing-cg .backdrop{top:var(--art-top,91px);height:var(--art-height,60%);bottom:auto;background:#252a2a}
+.showing-cg .scene-image{object-fit:contain}
+.showing-cg .paper-wash,.showing-cg .scene-caption,.showing-cg .model-shift{display:none}
+.relationship-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px 16px;padding:18px 0;border-bottom:1px solid #deded8}
+.relationship-row strong{font-size:15px}.relationship-row small{display:block;font-size:11px;color:#758078;margin-top:5px}
+.affinity-value{font-size:24px;font-variant-numeric:tabular-nums;color:#b45f76}
+.relationship-row meter{grid-column:1/-1;width:100%;height:9px;accent-color:#b45f76}
+@media(max-width:600px){
+  .illustrated .character-wrap{top:30px;height:calc(100% - 20px);width:min(90%,400px)}
+  .illustrated .scene-caption,.illustrated.has-character .scene-caption{top:9px;left:5%;max-width:90%;display:flex;align-items:center;gap:10px}
+  .illustrated .scene-caption>span,.illustrated .scene-caption p{display:none}
+  .illustrated .scene-caption h1,.illustrated.has-character .scene-caption h1{font-size:14px;white-space:normal;margin:0}
+  .illustrated .model-shift{max-width:90%;bottom:7px;padding:8px 12px}
+  .top-actions{gap:3px}.topbar{padding-left:12px;padding-right:12px}
+}
 @media(max-width:600px){.character-wrap{width:74%;right:-6%}.character-tag{visibility:hidden}.toast{top:70px;font-size:10px;padding:8px 14px}}
 @media(max-width:600px) and (max-height:700px){.choices{bottom:249px;gap:5px}.choice{min-height:44px;padding:8px 10px}.choices header{margin:0}.choice .choice-copy{gap:3px}}
 @media(orientation:landscape) and (max-height:500px){.game{min-height:360px}.topbar{height:50px}.dialogue-area{margin-bottom:8px}.dialogue{min-height:60px;padding-top:10px;padding-bottom:10px;font-size:13px}.speaker-line{padding-top:10px}.toolbar{min-height:34px}.scene-caption h1{font-size:22px}.scene-note,.caption-line{display:none}.choices{top:57px;bottom:163px;gap:5px}.choice{min-height:37px;padding:8px 13px}.choices header{font-size:9px;margin:0}.character-wrap{top:0;height:calc(100% + 55px)}.model-shift{left:34%;bottom:20px}.model-shift strong{font-size:14px}.ambient-label{bottom:15px}.ending{top:50px}}
@@ -67,6 +91,9 @@ dialog{border:1px solid #dbe3dc;border-radius:7px;color:#294038;padding:28px;wid
 .title-screen{background:#182a3b;color:#f6ecd7}
 .title-background{background:url("assets/title-library.png") center center / cover no-repeat}
 .title-background svg{display:none}
+.title-background{background:none}
+.title-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1s ease}
+.title-slide.current{opacity:1}
 .title-screen:before{background:
   linear-gradient(90deg,rgba(12,25,39,.82) 0%,rgba(18,34,50,.62) 28%,rgba(18,34,50,.08) 63%,rgba(10,20,31,.18) 100%),
   linear-gradient(180deg,rgba(8,18,29,.48) 0%,rgba(8,18,29,0) 34%,rgba(8,18,29,.08) 58%,rgba(8,18,29,.9) 100%)}
@@ -109,3 +136,35 @@ dialog{border-color:#d8c9ad;color:#2b3e52;background:#fffaf0;box-shadow:0 25px 9
 .ending{background:linear-gradient(90deg,rgba(248,244,235,.98) 0%,rgba(248,244,235,.94) 47%,rgba(248,244,235,.24) 100%)}.ending .eyebrow{color:#9c7138}.ending .end-copy{color:#5e7182}.end-stats small,.end-footer{color:#8b8b83}.end-rule{background:#b88745}.end-teaser{color:#687889}.about p{color:#687889}
 .station-screen{background:linear-gradient(125deg,#101c2cF5,#1b3850F5);color:#f2ead9}.station-screen:before{background-image:linear-gradient(#9ba9b512 1px,transparent 1px),linear-gradient(90deg,#9ba9b512 1px,transparent 1px)}.station-coordinate{color:#a9a28e}.station-symbol{color:#d0a25f}.station-eyebrow{color:#d0a25f}.station-form h2{color:#f4ead7}.station-intro{color:#aeb8bf}.station-form label{color:#c5c2b5}.name-field{border-bottom-color:#a9834b;background:#d2eddd05}.name-field>svg{color:#d0a25f}.name-field:focus-within{border-color:#f0d198;background:#d2eddd0d}.name-field input::placeholder{color:#718094}#name-count{color:#a9a28e}.station-submit{border-color:#caa368;background:#d5b777;color:#1a3046}.station-submit:hover{background:#e1c88f}.station-status{color:#91a7b3}.station-footer{color:#9fa9a9}.connecting .station-status{color:#e2c787}
 .portal-active:after{background:#fff5dd}
+
+/* Screen-edge controls float over the scene without changing its layout. */
+.game{min-height:0;height:100dvh}
+.topbar{position:absolute;inset:0 0 auto;z-index:30;opacity:0;transform:translateY(-100%);pointer-events:none;transition:opacity .18s,transform .18s}
+.toolbar{position:fixed;inset:auto 0 0;z-index:30;min-height:48px;padding:4px 4.7% max(4px,env(safe-area-inset-bottom));background:rgba(248,244,235,.97);opacity:0;transform:translateY(100%);pointer-events:none;transition:opacity .18s,transform .18s}
+.game.top-controls-open .topbar,.game .topbar:has(:focus-visible),.game.bottom-controls-open .toolbar,.game .toolbar:has(:focus-visible){opacity:1;transform:none;pointer-events:auto}
+.edge-reveal{position:absolute;left:0;right:0;height:18px;width:100%;padding:0;border:0;background:transparent;z-index:31;cursor:default}
+.top-edge{top:0}.bottom-edge{bottom:0}
+.edge-reveal:focus-visible{outline:2px solid #b88745;outline-offset:-2px;background:#f8f4eb99}
+.at-title .edge-reveal,.station-active .bottom-edge,.ended .bottom-edge{display:none}
+.game:not(.at-title) .scene-caption,.game:not(.at-title) .scene-note,.game:not(.at-title) .ambient-label,.game:not(.at-title) .character-tag,.line-counter,.progress-track{display:none!important}
+.dialogue-area{margin-bottom:max(28px,env(safe-area-inset-bottom));overflow:visible}
+.showing-cg .backdrop{inset:0;height:100%;background:#252a2a}
+.showing-cg .scene-image{object-fit:cover;object-position:50% 40%}
+.showing-cg.cg-fit .scene-image{object-fit:contain;object-position:center}
+.restore-dialogue{position:absolute;inset:0;z-index:9;border:0;padding:0;background:transparent;cursor:pointer}
+.game.dialogue-hidden .dialogue-area{background:transparent;border-color:transparent;box-shadow:none;pointer-events:none}
+.dialogue-hidden .speaker-line,.dialogue-hidden .dialogue,.dialogue-hidden .choices,.dialogue-hidden .model-shift{visibility:hidden}
+.showing-cg .dialogue-area{background:rgba(255,252,245,.86)}
+.station-screen,.ending{top:0}
+.choices,.illustrated .choices{top:24px;bottom:calc(100% - var(--dialogue-top,70%) + 12px)}
+.toolbar #fullscreen{display:flex}
+@media(max-width:600px){
+  .toolbar{gap:8px;padding-left:14px;padding-right:14px}.toolbar-left,.toolbar-right{gap:12px}
+  .toolbar button{min-height:36px}.toolbar svg{width:15px;height:15px}.toolbar #fullscreen{padding:8px}
+  .toolbar button span{display:none}
+  .dialogue-area{margin-bottom:max(26px,env(safe-area-inset-bottom))}
+}
+@media(pointer:coarse){
+  .edge-reveal:after{content:"";position:absolute;left:calc(50% - 20px);width:40px;height:3px;border-radius:2px;background:#fff9;box-shadow:0 1px 2px #0004}
+  .top-edge:after{top:5px}.bottom-edge:after{bottom:5px}
+}

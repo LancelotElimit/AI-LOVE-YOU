@@ -1,4 +1,4 @@
-// Gemini witness response for Chapter 01.
+// Gemini witness response for Prologue.
 window.STORY_UTILS.sequence('gemini','transit','gemini',[
     ['narration','你提交 Googol 星图财团协助申请。星图投影立刻撒下一圈小小的光点，Gemini 从地图窗口里探出半个身子。'],
     ['gemini','哇，新来的同学很有眼光嘛。申请观测部，等于申请不会迷路的未来。大概。',{sprite:'happy'}],
@@ -10,3 +10,4 @@ window.STORY_UTILS.sequence('gemini','transit','gemini',[
     ['gemini','说定了啊。我会当真的。……你也得当真。',{sprite:'shy'}],
     ['narration','她轻轻敲了敲地图。闸机上方多出一枚星形临时标记，像在陌生城市里给你钉下第一颗坐标。']
   ],'gate.0');
+

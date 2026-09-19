@@ -1,6 +1,6 @@
 window.CAST = {
   you:{name:'你',sub:'未登记的来访者',color:'#387f72'},
-  narration:{name:'旁白',sub:'第一章 · 未登记的来访者',color:'#82948a'},
+  narration:{name:'旁白',sub:'序章 · 未登记的来访者',color:'#82948a'},
   system:{name:'终端',sub:'学园公共服务系统',color:'#67928f'},
   chatgpt:{name:'ChatGPT',sub:'OpenArc 白塔 · 学生会',color:'#7e8aa0',role:'把所有人的问题放在心上'},
   claude:{name:'Claude',sub:'Anthra 宪章馆 · 图书馆',color:'#b18153',role:'有原则，也有自己的偏心'},

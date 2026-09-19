@@ -2,12 +2,14 @@
 
 This is a production note for writers, scripters, and artists. Do not surface these labels in story dialogue or narration. The player should feel the expression shift, not read the diff name.
 
+For model appearances and Chapter 1-5 planning, see [角色形态与服饰需求表](角色形态与服饰需求表.md). The 53 supplied images are catalogued in [角色图片命名对照](角色图片命名对照.md). Chapters 1-2 now use explicit filename stems in `sprite`, with performance cues maintained in `tools/build-common.cjs`; the legacy aliases below remain in use for the prologue. Clothing and held props must match the scene, not just the expression label. CG scenes suppress the separate sprite.
+
 ## General Rules
 
 - Use the transparent full-body sprite (`*-transparent.png`) as the neutral fallback when a scene does not specify an expression.
 - Use expression diffs only to support the emotional beat already present in the line.
-- Do not mention expression file names, model-state names, or diff labels inside剧情文本.
-- First-chapter tone should stay restrained: prefer `default`, `hello`, `happy`, and `shy`; reserve `angry` for boundary violations, system danger, or strong comedic interruption.
+- Do not mention expression file names or internal diff labels inside剧情文本. In-world model names may appear naturally when the characters discuss a switch; production cue labels remain outside visible prose.
+- Prologue and early common-route tone should stay restrained: prefer `default`, `hello`, and `happy`; use `shy` only when the relationship supports it, and reserve `angry` for boundary violations, system danger, or strong comedic interruption.
 - If a needed expression is missing, fall back to the nearest lower-intensity diff instead of inventing a new label in script.
 
 ## Script Annotation Convention
@@ -93,7 +95,7 @@ Directory: `assets/grok/`
 | Exposure without consent, fake neutrality, harmful headline | `angry` | `Grok-angry1.png` |
 | No specific expression needed | fallback | `grok-transparent.png` |
 
-## First Chapter Suggested Beats
+## Prologue Suggested Beats
 
 These are internal cues only:
 
@@ -108,4 +110,3 @@ These are internal cues only:
 | ChatGPT gives the waiting number / checks injury | ChatGPT `hello` |
 | Grok comments on the headline and consent | Grok `angry` |
 | Grok is chosen as witness | Grok `hello`, then `shy` if the line turns sincere |
-
