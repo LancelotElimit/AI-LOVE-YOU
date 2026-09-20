@@ -1,4 +1,4 @@
-// Original local mock-up scores. Replace these arrangements with mastered audio when available.
+// Original synthesized scores and explicitly selected local audio tracks.
 window.SCORES = (() => {
   const make = (name,bpm,root,melody,chords,voice='sine',sparse=false) => ({name,bpm,root,melody,chords,voice,sparse});
   const major=[[0,7,12,16],[-3,4,9,12],[-7,0,5,9],[-5,2,7,14]];
@@ -24,6 +24,11 @@ window.SCORES = (() => {
     B15:make('页码之间',64,48,[19,null,null,null,13,null,null,19,12,null,null,null,10,null,null,null],minor,'sine',true),
     B16:make('沿着旧街走',100,48,[12,14,16,null,19,16,14,null,12,9,12,null,14,16,19,null],major,'triangle'),
     B17:make('这张也留下',74,48,[16,null,19,21,19,null,16,null,14,12,null,9,12,null,null,null],major,'sine',true),
+    B18:make('今天向你开放',114,48,[12,16,19,null,21,19,16,null,14,17,21,null,19,16,12,null],major,'triangle'),
+    B19:make('旧终端仍在亮',66,45,[12,null,null,19,15,null,14,null,12,null,7,null,10,null,null,null],minor,'sine',true),
+    B20:make('保留这一行',126,43,[12,7,12,15,14,7,14,17,15,10,15,19,17,12,14,7],minor,'triangle'),
+    'B20-Duel':{name:'对抗演示 · 用户选曲',src:'assets/bgm/yuai_fixed.mp3',loop:true},
+    B21:{name:'恶搞投影 · 用户选曲',src:'assets/bgm/pipaqu_fixed.mp3',loop:true},
     'B12-Map':make('窗外多一条路 · 星图',108,50,[19,21,null,24,21,19,null,16,14,16,null,19,16,14,null,null],major)
   };
 })();

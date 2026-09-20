@@ -2,16 +2,18 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const third = require('../story/chapter-three-production.cjs');
+const expansion = require('../story/common-expansion.cjs');
 const root = path.resolve(__dirname, '..');
 const cast = ['chatgpt', 'claude', 'gemini', 'deepseek', 'grok'];
 const names = ['ChatGPT', 'Claude', 'Gemini', 'DeepSeek', 'Grok'];
-const chapters = [null, '名字写在临时证上', '课表之外的时间', '没有写进地图的小路'];
+const chapters = [null, '名字写在临时证上', '课表之外的时间', '没有写进地图的小路', '没有人申请过的权限', '系统不承认的那个人'];
 const baseLooks = {
   1: ['chatgpt_terra_white_dress_calm', 'claude_sonnet_book_dress_calm', 'gemini_meteor_white_jacket_calm', 'deepseek_eco_blue_maid_calm', 'grok_night_red_black_jacket_calm'],
   2: ['chatgpt_terra_green_cardigan_calm', 'claude_haiku_black_cardigan_calm', 'gemini_meteor_white_jacket_calm', 'deepseek_engineer_white_apron_calm', 'grok_night_red_black_jacket_calm'],
   3: ['chatgpt_terra_green_cardigan_calm', 'claude_haiku_black_cardigan_calm', 'gemini_meteor_white_jacket_calm', 'deepseek_eco_blue_jacket_calm', 'grok_night_red_black_jacket_calm']
 };
 const backgrounds = {
+  ...expansion.backgrounds,
   campus_inner_road_morning: '校内步道 / 上午', lecture_hall_corridor_day: '中央讲堂 · 东侧走廊 / 白天',
   inquiry_room_day: '中央讲堂 · 会客室 / 白天', outer_ring_repair_bay_day: '外环 · 维修间 / 下午',
   cafeteria_evening: '校园食堂 / 傍晚', guest_room_first_night: '暂住楼 · 房间 / 夜晚',
@@ -25,6 +27,8 @@ const backgrounds = {
   guest_room_rainy_night: '暂住楼 · 房间 / 雨夜'
 };
 const scenes = {};
+baseLooks[4] = [...baseLooks[3]];
+baseLooks[5] = [...baseLooks[3]];
 for (const [key, location] of Object.entries(backgrounds)) {
   const filename = `bg_${key}.png${key === 'parts_pickup_counter_day' ? '.png' : ''}`;
   const src = `assets/scene/bg/${filename}`;
@@ -38,8 +42,8 @@ for(const [key,[location,fallback]] of Object.entries(third.backgrounds)) {
   scenes[key]={index:'CHAPTER 3',title:location.split(' / ')[0],location,note:'',image,placeholder:!available,
     art:`<img class="scene-image" src="${image}" alt="" draggable="false">`};
 }
-const cgNames = ['ch01_chatgpt_sol_pouring_water', 'ch01_claude_records_after_hours', 'ch01_deepseek_toolbox_balance', 'ch01_temporary_id_at_desk', 'ch01_unsent_message_night', 'ch02_chatgpt_tea_break', 'ch02_claude_book_by_window', 'ch02_deepseek_delivery_done', 'ch02_five_girls_under_eaves', 'ch02_gemini_greenhouse_camera', 'ch02_gemini_sour_drink', 'ch02_grok_rocket_alignment'];
-for (const key of cgNames) {
+const cgNames = ['ch01_chatgpt_sol_pouring_water', 'ch01_claude_records_after_hours', 'ch01_deepseek_toolbox_balance', 'ch01_temporary_id_at_desk', 'ch01_unsent_message_night', 'ch02_chatgpt_tea_break', 'ch02_claude_book_by_window', 'ch02_deepseek_delivery_done', 'ch02_five_girls_under_eaves', 'ch02_gemini_greenhouse_camera', 'ch02_gemini_sour_drink', 'ch02_grok_rocket_alignment', 'ch04_chatgpt_deepseek_domain_clash', 'ch04_chatgpt_claude_meme_dance_01', 'ch04_chatgpt_claude_meme_dance_02'];
+for (const key of [...cgNames, ...expansion.cgs]) {
   const src = `assets/scene/cg/cg_${key}.png`;
   if (!fs.existsSync(path.join(root, src))) throw Error(`Missing CG: ${src}`);
   scenes[key] = {index:'',title:'',location:'',note:'',cg:true,image:src,
@@ -47,6 +51,7 @@ for (const key of cgNames) {
 }
 // Each source scene has an explicit location and score. Performance notes stay out of dialogue.
 const staging = {
+  ...expansion.staging,
   ...third.staging,
   '1-01':['campus_inner_road_morning','B01'], '1-02':['lecture_hall_corridor_day','silence'],
   '1-03':['inquiry_room_day','B02'], '1-04':['inquiry_room_day','silence'],
@@ -67,6 +72,7 @@ const staging = {
 };
 // Cues use exact source anchors and are checked during compilation, so edits cannot silently orphan an image.
 const cues = {
+  ...expansion.cues,
   ...third.cues,
   '1-01': [['闸机在身后合上。',{music:'silence'}],['你等了一会儿，没听见新的警报。',{music:'B01'}]],
   '1-03': [['ChatGPT 正把两份不同颜色的表格分开。',{char:'chatgpt'}],['另一边，橙发女孩合上一本薄册',{char:'claude'}]],
@@ -116,6 +122,7 @@ const expressions = {
   '2-09E': [['我擦干净就是了。','grok_night_red_black_jacket_amused']]
 };
 names.forEach((name,i)=>speakerIds[name]=cast[i]);
+Object.assign(speakerIds, {'Siri':'siri','小爱同学':'xiaoai','豆包':'doubao'});
 const npc = Object.fromEntries(Object.entries(speakerIds).filter(([,id])=>!['narration','you','system',...cast].includes(id)).map(([name,id])=>[id,{name,sub:'',color:'#82948a'}]));
 const conditionalRules = {
   '若序章没有选择 Claude：':{notRoute:'claude'}, '若序章选择了 Claude：':{route:'claude'},
@@ -146,10 +153,19 @@ if(fs.existsSync(previousFile)) {
   previous=scope.window.STORY;
 }
 const nodes = {};
-for (const chapter of [1,2,3]) {
-  const file = `剧情正文/第${['','一','二','三'][chapter]}章-${chapters[chapter]}.md`;
+const normalizeText=text=>text.replace('可用 TOKEN：9,200。','可用 TOKEN：{tokens}。').replace('可用 TOKEN 仍然是 9,200。','可用 TOKEN：{tokens}。');
+for (const chapter of [1,2,3,4,5]) {
+  const file = `剧情正文/第${['','一','二','三','四','五'][chapter]}章-${chapters[chapter]}.md`;
   const source = fs.readFileSync(path.join(root,file),'utf8');
   const sections = [...source.matchAll(/^## (\d\d[A-E]?) · (.+)\r?\n([\s\S]*?)(?=^## |$(?![\s\S]))/gm)];
+  for (const insert of expansion.inserts.filter(item=>item.chapter===chapter)) {
+    const at=sections.findIndex(section=>section[1]===insert.after);
+    if(at<0)throw Error(`Missing insertion point: ${insert.file}`);
+    const content=fs.readFileSync(path.join(root,insert.file),'utf8');
+    const additions=[...content.matchAll(/^## (\d\d[A-E]?) · (.+)\r?\n([\s\S]*?)(?=^## |$(?![\s\S]))/gm)];
+    if(!additions.length)throw Error(`Empty event: ${insert.file}`);
+    sections.splice(at+1,0,...additions);
+  }
   const chapterNodes = [];
   for (const [, section, title, body] of sections) {
     const key = `${chapter}-${section}`, config = staging[key];
@@ -157,6 +173,8 @@ for (const chapter of [1,2,3]) {
     const list = [], looks = Object.fromEntries(cast.map((id,i)=>[id,baseLooks[chapter][i]]));
     if (chapter === 1 && section === '06') looks.chatgpt = 'chatgpt_sol_white_workwear_calm';
     if (chapter === 3 && section === '11') looks.gemini='gemini_starmap_star_cape_calm';
+    if (chapter === 4 && section === '04') looks.chatgpt='chatgpt_sol_white_workwear_calm';
+    if (chapter === 5 && section === '04') looks.deepseek='deepseek_engineer_white_apron_calm';
     let stage = {bg:config[0],music:config[1],char:null};
     const letter = section.match(/^(07|09)([A-E])$/);
     const baseWhen = chapter >= 2 && letter ? [{flag:`c${chapter}-slot${letter[1] === '07' ? 1 : 2}:${cast[letter[2].charCodeAt(0)-65]}`}]:[];
@@ -175,7 +193,7 @@ for (const chapter of [1,2,3]) {
       if (cast.includes(who) && !message && !offscreen) stage.char = who;
       const cg = scenes[stage.bg].cg;
       const char = cg || message || offscreen ? null : stage.char;
-      const same=prior.find(n=>!used.has(n.id)&&n.who===who&&n.text===text&&JSON.stringify(n.when||[])===JSON.stringify(when));
+      const same=prior.find(n=>!used.has(n.id)&&n.who===who&&normalizeText(n.text)===normalizeText(text)&&JSON.stringify(n.when||[])===JSON.stringify(when));
       let id=same?.id||`c${chapter}.${section}.${list.length}`;
       if(!same&&prior.length){do{id=`c${chapter}.${section}.added${++added}`;}while(previous[id]||used.has(id));}
       used.add(id);
@@ -230,11 +248,11 @@ for (const chapter of [1,2,3]) {
         }
         emit(who,text,extra);continue;
       }
-      if (/^第[一二三]章完。$/.test(line)) continue;
+      if (/^第[一二三四五]章完。$/.test(line)) continue;
       throw Error(`Unrecognized narrative instruction ${key}: ${line}`);
     }
     for (const cue of pendingCues) if (!cue.used) throw Error(`Missing cue ${key}: ${cue.anchor}`);
-    if (baseWhen.length) list.findLast(n=>n.when.length===baseWhen.length).award={id:`c${chapter}-${section}`,to:cast[letter[2].charCodeAt(0)-65],amount:10};
+    if (baseWhen.length && !(chapter===5&&letter[1]==='09')) list.findLast(n=>n.when.length===baseWhen.length).award={id:`c${chapter}-${section}`,to:cast[letter[2].charCodeAt(0)-65],amount:10};
     chapterNodes.push(...list);
   }
   chapterNodes.forEach((node,index)=>{
@@ -244,12 +262,31 @@ for (const chapter of [1,2,3]) {
     nodes[node.id]=node;
   });
 }
+for (const transaction of expansion.transactions) {
+  const {chapter,section,anchor,...entry}=transaction;
+  const matches=Object.values(nodes).filter(n=>n.chapter===chapter&&n.section===section&&n.text.includes(anchor));
+  if(matches.length!==1)throw Error(`Transaction anchor must be unique: ${entry.id}`);
+  matches[0].transaction=entry;
+}
+const finalChoice=Object.values(nodes).find(n=>n.chapter===5&&n.section==='08'&&n.choices);
+finalChoice.choices.forEach((choice,i)=>{
+  const route=cast[i],letter=String.fromCharCode(65+i);
+  Object.assign(choice,{personalRoute:route,minAffinity:40,affinityTo:route,requiresAnyFlags:[`award:c4-07${letter}`,`award:c4-09${letter}`,`award:c5-07${letter}`]});
+  const last=Object.values(nodes).findLast(n=>n.chapter===5&&n.section===`09${letter}`);
+  last.end=true;delete last.next;
+});
+finalChoice.choices.push({text:'今晚先回宿舍，改天再约',to:'c5.10.0'});
+Object.values(nodes).find(n=>n.chapter===5&&n.section==='04'&&n.choices).choices[0].requiresTokens=600;
 for (const node of Object.values(nodes)) {
+  for(const choice of node.choices||[])if(/^c\d-slot/.test(choice.flag||'')){
+    const section=choice.to.split('.')[1];
+    choice.to=Object.values(nodes).find(n=>n.chapter===node.chapter&&n.section===section).id;
+  }
   if (node.sprite && !fs.existsSync(path.join(root,`assets/${node.char}/${node.sprite}.png`))) throw Error(`Missing sprite ${node.sprite}`);
   if (node.next && !nodes[node.next]) throw Error(`Broken next ${node.id}`);
   for(const choice of node.choices||[]) if(!nodes[choice.to]) throw Error(`Broken choice ${node.id}`);
 }
-for(const chapter of [1,2])Object.values(nodes).find(n=>n.chapter===chapter&&n.end).continueTo=`c${chapter+1}.01.0`;
+for(const chapter of [1,2,3,4])Object.values(nodes).find(n=>n.chapter===chapter&&n.end).continueTo=`c${chapter+1}.01.0`;
 const output = `// Generated by tools/build-common.cjs from the narrative manuscripts and checked performance cues.\n`+
   `Object.assign(window.CAST, ${JSON.stringify(npc,null,2)});\n`+
   `Object.assign(window.SCENES, ${JSON.stringify(scenes,null,2)});\n`+
@@ -257,4 +294,5 @@ const output = `// Generated by tools/build-common.cjs from the narrative manusc
   `window.STORY['last.5'].continueTo = 'c1.01.0';\n`+
   `window.CHAPTERS = ${JSON.stringify([{title:'未登记的来访者',ending:'第一道门，已经打开。',copy:'回家的路还没有找到。但在这个陌生的世界，已经有人陪你走进校园。'}, {title:chapters[1],ending:'今晚，有一扇能打开的门。',copy:'临时证上有了你的名字。那些没有送达的话，还留在枕边。'},{title:chapters[2],ending:'明天，八点半。',copy:'你已经认得活动楼。群里有人等着你的回复，明天的水杯也已经收好。'},{title:chapters[3],ending:'这一张，先留下。',copy:'今天去了校外，走了很多路。照片里的人，不需要再从头介绍。'}],null,2)};\n`;
 fs.writeFileSync(path.join(root,'story/chapters/common.generated.js'),output,'utf8');
+fs.appendFileSync(path.join(root,'story/chapters/common.generated.js'),`window.CHAPTERS.push(${JSON.stringify({title:chapters[4],ending:'明天，给你留个位置。',copy:'未解的记录仍在。但晚饭、课表和明天的约定，也都是真的。'})},${JSON.stringify({title:chapters[5],ending:'日常不是借来的。',copy:'七日旁听之后，你的名字仍在这里。接下来，走向你真正想了解的人。'})});\n`,'utf8');
 console.log(`Compiled ${Object.keys(nodes).length} passages, ${Object.values(nodes).filter(n=>n.choices).length} choices, ${Object.keys(scenes).length} images.`);

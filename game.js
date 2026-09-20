@@ -42,13 +42,35 @@
   }
   const icons = () => window.lucide?.createIcons();
   const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const blank = () => ({version:1,node:'intro.0',playerName:'',tokens:10000,route:null,affinity:{chatgpt:0,claude:0,gemini:0,deepseek:0,grok:0},intent:null,flags:[],history:[],finished:false});
+  const blank = () => ({version:1,node:'intro.0',playerName:'',tokens:10000,route:null,personalRoute:null,transactions:[],affinity:{chatgpt:0,claude:0,gemini:0,deepseek:0,grok:0},intent:null,flags:[],history:[],finished:false});
   const current = () => STORY[state.node];
   const chapterInfo = () => window.CHAPTERS?.[current().chapter||0];
   function eligible(node){return (node.when||[]).every(c=>(!c.route||state.route===c.route)&&(!c.notRoute||state.route!==c.notRoute)&&(!c.flag||state.flags.includes(c.flag))&&(!c.notFlag||!state.flags.includes(c.notFlag)));}
   function resolveNode(id){const visited=new Set();while(id&&STORY[id]&&!eligible(STORY[id])){if(visited.has(id))return null;visited.add(id);id=STORY[id].next;}return id&&STORY[id]?id:null;}
   function actualWho(node){return node.who==='$route'?state.route:node.who;}
-  function named(text,saved=state){return text.replaceAll('{name}',saved.playerName||'旅人');}
+  function named(text,saved=state){return text.replaceAll('{name}',saved.playerName||'旅人').replaceAll('{tokens}',saved.tokens.toLocaleString('en-US'));}
+  function availableChoices(){return (current().choices||[]).filter(c=>(!c.minAffinity||state.affinity[c.affinityTo]>=c.minAffinity)&&(!c.requiresAnyFlags||c.requiresAnyFlags.some(flag=>state.flags.includes(flag))));}
+  function transact(entry,quiet=false){
+    const flag=`transaction:${entry.id}`;
+    if(state.flags.includes(flag)||(entry.requires&&!state.flags.includes(entry.requires)))return;
+    state.transactions??=[];
+    let amount=entry.amount;
+    if(entry.id==='c5-refund')amount=-(state.transactions.find(t=>t.id==='c3-disputed-fee')?.amount||0);
+    amount=Math.max(-state.tokens,amount);
+    state.tokens+=amount;state.flags.push(flag);
+    state.transactions.push({id:entry.id,label:entry.label,amount,balance:state.tokens});
+    if(!quiet)toast(`${entry.label} ${amount>=0?'+':''}${amount} TK${amount!==entry.amount&&entry.amount<0?' · 不足部分由临时生补助抵扣':''}`);
+  }
+  function migrateState(){
+    state.personalRoute??=null;
+    if(!state.transactions){
+      state.transactions=[];
+      const fee=Object.values(STORY).find(n=>n.transaction?.id==='c3-disputed-fee');
+      const chapter=current().chapter||0;
+      if(fee&&(state.history.some(h=>h.id===fee.id)||chapter>3||(chapter===3&&Number(current().section.slice(0,2))>5)))transact(fee.transaction,true);
+    }
+    if(current().transaction)transact(current().transaction,true);
+  }
   function actualText(node){return named(ROUTE_LINES[state.route]?.[node.id]||node.text);}
   function speakerName(who){return who==='you'?(state.playerName||'你'):(CAST[who]?.name||'旁白');}
   function toast(text){clearTimeout(toastTimer);$('toast').textContent=text;$('toast').classList.add('visible');toastTimer=setTimeout(()=>$('toast').classList.remove('visible'),2700);}
@@ -61,18 +83,47 @@
       if(!AudioContext)throw new Error('Web Audio unavailable');
       this.ctx=new AudioContext();this.music=this.ctx.createGain();this.effects=this.ctx.createGain();
       this.music.connect(this.ctx.destination);this.effects.connect(this.ctx.destination);
+      this.files=new Set();this.file=null;this.fileFadeUntil=0;
       this.cue=null;this.setCue('prologue');
       this.step=0;this.nextTime=this.ctx.currentTime+.12;this.volumes();
       this.timer=setInterval(()=>this.schedule(),200);
+      this.fileTimer=setInterval(()=>this.updateFiles(),50);
     }
-    volumes(){const t=this.ctx.currentTime;this.music.gain.setTargetAtTime(settings.sound?settings.music:0,t,.12);this.effects.gain.setTargetAtTime(settings.sound?settings.sfx:0,t,.02);}
-    async resume(){if(this.ctx.state==='suspended')await this.ctx.resume();if(this.nextTime<this.ctx.currentTime)this.nextTime=this.ctx.currentTime+.08;}
+    volumes(){const t=this.ctx.currentTime;this.music.gain.setTargetAtTime(settings.sound?settings.music:0,t,.12);this.effects.gain.setTargetAtTime(settings.sound?settings.sfx:0,t,.02);if(settings.sound&&this.file)this.file.failed=false;this.updateFiles();}
+    async resume(){this.updateFiles();if(this.ctx.state==='suspended')await this.ctx.resume();if(this.nextTime<this.ctx.currentTime)this.nextTime=this.ctx.currentTime+.08;}
+    updateFiles(){
+      for(const track of this.files){
+        const progress=Math.min(1,(performance.now()-track.start)/track.duration);
+        track.gain=track.from+(track.to-track.from)*progress;
+        if(track.to===0&&progress===1){track.audio.pause();track.audio.removeAttribute('src');track.audio.load();this.files.delete(track);continue;}
+        track.audio.volume=Math.max(0,Math.min(1,settings.music*track.gain));
+        if(!settings.sound||document.hidden){track.audio.pause();continue;}
+        if(track.audio.paused&&!track.pending&&!track.failed){
+          track.pending=true;
+          track.audio.play().catch(error=>{
+            if(error.name==='AbortError')return;
+            track.failed=true;toast('本段音乐未能播放，可关闭再开启声音重试。');
+          }).finally(()=>track.pending=false);
+        }
+      }
+    }
+    stopFiles(){clearInterval(this.fileTimer);for(const track of this.files)track.audio.pause();}
     setCue(id){
       if(this.cue===id)return;
+      const previousFile=this.file;
+      if(previousFile){Object.assign(previousFile,{from:previousFile.gain,to:0,start:performance.now(),duration:1200});this.file=null;this.fileFadeUntil=performance.now()+1200;}
+      const delay=Math.max(0,(this.fileFadeUntil-performance.now())/1000);
       const time=this.ctx.currentTime,previous=this.bus;
       if(previous){previous.gain.cancelScheduledValues(time);previous.gain.setTargetAtTime(0,time,.65);setTimeout(()=>previous.disconnect(),8000);}
-      this.cue=id;this.bus=this.ctx.createGain();this.bus.connect(this.music);this.bus.gain.setValueAtTime(0,time);this.bus.gain.setTargetAtTime(1,time,.8);
-      this.step=0;this.nextTime=time+.12;
+      this.cue=id;this.bus=this.ctx.createGain();this.bus.connect(this.music);this.bus.gain.setValueAtTime(0,time);this.bus.gain.setTargetAtTime(1,time+delay,.8);
+      this.step=0;this.nextTime=time+delay+.12;
+      const score=window.SCORES?.[id];
+      if(score?.src){
+        // HTML media works from a local file without routing it through a CORS-sensitive media source.
+        const audio=new Audio(score.src);audio.loop=score.loop!==false;audio.volume=0;
+        this.file={audio,gain:0,from:0,to:1,start:performance.now(),duration:800};
+        this.files.add(this.file);this.updateFiles();
+      }
     }
     note(midi,time,duration,volume,voice='sine'){
       const base=this.ctx.createOscillator(),harm=this.ctx.createOscillator(),gain=this.ctx.createGain(),hg=this.ctx.createGain();
@@ -85,7 +136,7 @@
     schedule(){
       if(this.ctx.state!=='running'||!settings.sound)return;
       const score=window.SCORES?.[this.cue];
-      if(!score)return;
+      if(!score||score.src)return;
       if(this.nextTime<this.ctx.currentTime)this.nextTime=this.ctx.currentTime+.08;
       while(this.nextTime<this.ctx.currentTime+.65){
         const bar=Math.floor(this.step/16)%4,chord=score.chords[bar],pulse=score.sparse?8:4;
@@ -144,8 +195,9 @@
     if(!STORY[id]){toast('这段故事暂时没有连接。');return;}
     clearTimeout(toastTimer);$('toast').classList.remove('visible');
     state.node=id;const node=current();
+    if(node.transaction)transact(node.transaction);
     if(node.award&&!state.flags.includes(`award:${node.award.id}`)){state.affinity[node.award.to]+=node.award.amount;state.flags.push(`award:${node.award.id}`);}
-    if(node.grant){state.tokens+=node.grant;toast(`维修报酬 +${node.grant} TK`);}
+    if(node.grant)transact({id:`grant:${node.id}`,amount:node.grant,label:'维修报酬'});
     state.history.push({id,who:actualWho(node),text:actualText(node)});
     persist();render(false);
   }
@@ -209,18 +261,19 @@
     else if(skipping){scheduleSkip();}
   }
   function renderChoices(){
-    const choices=current().choices;$('choices').innerHTML='<header>你决定……</header>';
+    const choices=availableChoices();$('choices').innerHTML='<header>你决定……</header>';
     choices.forEach((choice,i)=>{
-      const button=document.createElement('button');button.className='choice';button.disabled=!!choice.cost&&state.tokens<choice.cost;
+      const button=document.createElement('button');button.className='choice';button.disabled=state.tokens<Math.max(choice.cost||0,choice.requiresTokens||0);
       button.innerHTML=`<span class="num">0${i+1}</span><span class="choice-copy"><strong>${escape(choice.text)}</strong><small>${escape(choice.detail||'')}${button.disabled?' · 余额不足':''}</small></span><i data-lucide="arrow-up-right"></i>`;
       button.addEventListener('click',()=>choose(i));$('choices').append(button);
     });$('choices').classList.remove('hidden');$('game').classList.add('choosing');icons();
   }
   function choose(index){
     if(dialogueHidden)return;
-    const choice=current().choices?.[index];if(atTitle||!choice||isTyping||$('modal').open||(choice.cost||0)>state.tokens)return;
+    const choice=availableChoices()[index];if(atTitle||!choice||isTyping||$('modal').open||Math.max(choice.cost||0,choice.requiresTokens||0)>state.tokens)return;
     activateAudio(true);state.history.push({id:state.node,who:'choice',text:choice.text});
     if(choice.route)state.route=choice.route;
+    if(choice.personalRoute)state.personalRoute=choice.personalRoute;
     if(choice.cost)state.tokens-=choice.cost;
     if(choice.affinity&&(choice.affinityTo||state.route))state.affinity[choice.affinityTo||state.route]+=choice.affinity;
     if(choice.flag&&!state.flags.includes(choice.flag))state.flags.push(choice.flag);
@@ -258,7 +311,7 @@
     $('setting-motion').addEventListener('change',e=>{settings.reduceMotion=e.target.checked;applySettings();});
     bind('restart-button',()=>confirmRestart());bind('about-button',showAbout);
   }
-  function showAbout(){openModal('AI Love You',`<div class="about"><p>序章 · 未登记的来访者<br>第一章 · 名字写在临时证上<br>第二章 · 课表之外的时间<br>第三章 · 没有写进地图的小路</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>人物、组织与能力均为虚构改编。</p><p>角色、背景与插画由你提供。音乐为本地合成的原创暂定配乐；图标使用 Lucide（ISC）。</p></div>`,'COMMON ROUTE');}
+  function showAbout(){openModal('AI Love You',`<div class="about"><p>${window.CHAPTERS.map((chapter,i)=>`${i?'第'+['','一','二','三','四','五'][i]+'章':'序章'} · ${escape(chapter.title)}`).join('<br>')}</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>人物、组织与能力均为虚构改编。第六章个人线正文尚未开放。</p><p>角色、背景与插画由你提供。配乐包含本地合成原创曲及用户提供的对战选曲；图标使用 Lucide（ISC）。</p></div>`,'COMMON ROUTE');}
   function showRelationships(){
     const rows=Object.keys(ROUTE_LINES).map(id=>{
       const value=state.affinity[id],status=value>=40?'逐渐亲近':value>=20?'多了一点熟悉':value>=10?'开始了解':value>0?'记住了彼此':'初识';
@@ -277,10 +330,12 @@
   }
   function validSave(entry){
     const s=entry?.state;
+    if(s?.personalRoute!=null&&!Object.hasOwn(ROUTE_LINES,s.personalRoute))return false;
+    if(s?.transactions!==undefined&&(!Array.isArray(s.transactions)||s.transactions.length>1000||s.transactions.some(t=>!t||typeof t.id!=='string'||!Number.isFinite(t.amount)||!Number.isFinite(t.balance))))return false;
     if(s&&s.playerName!==undefined&&s.playerName!==''&&!validName(s.playerName))return false;
     return s&&s.version===1&&Object.hasOwn(STORY,s.node)&&Number.isFinite(s.tokens)&&s.tokens>=0&&s.tokens<=1e8&&Array.isArray(s.history)&&s.history.length<=5000&&s.history.every(h=>h&&typeof h.text==='string'&&h.text.length<10000)&&Array.isArray(s.flags)&&typeof s.finished==='boolean'&&['home','explore',null].includes(s.intent)&&s.affinity&&['chatgpt','claude','gemini','deepseek','grok'].every(k=>Number.isFinite(s.affinity[k]))&&(s.route===null||Object.hasOwn(ROUTE_LINES,s.route))&&(!s.finished||STORY[s.node].end)&&(s.route!==null||['intro','crossing','arrival'].includes(s.node.split('.')[0]));
   }
-  function restore(entry){if(!validSave(entry)){toast('这份存档无法读取');return;}stopTimers();stopPlayback();state=structuredClone(entry.state);if(state.playerName===undefined)state.playerName='旅人';closeModal();leaveTitle();persist();render(true);if(state.finished)finish();toast('已回到那一刻');}
+  function restore(entry){if(!validSave(entry)){toast('这份存档无法读取');return;}stopTimers();stopPlayback();state=structuredClone(entry.state);if(state.playerName===undefined)state.playerName='旅人';migrateState();closeModal();leaveTitle();persist();render(true);if(state.finished)finish();toast('已回到那一刻');}
   function saveTo(slot){if(!write(`slot${slot}`,{state:structuredClone(state),date:Date.now()})){toast('浏览器未允许本地存储，请导出存档备份');return;}toast(`已保存到位置 ${slot}`);showSaves('save');}
   function showSaves(mode){
     const fragment=document.createElement('div');
@@ -302,6 +357,11 @@
     const chapter=current().chapter||0,info=chapterInfo(),next=current().continueTo;
     const witness=CAST[state.route]?.name||'未选择';
     $('ending').innerHTML=`<span class="eyebrow">${chapter?'CHAPTER '+chapter:'PROLOGUE'} / COMPLETE</span><h2>${info.ending}</h2><p class="end-copy">${info.copy}</p><div class="end-stats"><div><small>同行见证人</small><strong>${witness}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div></div><div class="end-rule"></div><p class="end-teaser">${next?'下一章 · '+window.CHAPTERS[STORY[next].chapter].title:'共同篇 · 未完待续'}</p><div class="modal-actions">${next?'<button class="modal-button primary" id="end-continue"><i data-lucide="arrow-right"></i>继续故事</button>':''}<button class="modal-button" id="end-save"><i data-lucide="save"></i>保存旅程</button>${chapter===0?'<button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button>':''}<button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">${next?'共同篇 · 未锁定个人路线':`第${['','一','二','三'][chapter]||chapter}章完 · 后续章节待续`}</p>`;
+    if(chapter===5){
+      const route=state.personalRoute&&CAST[state.personalRoute].name;
+      $('ending').querySelector('.end-teaser').textContent=route?`第六章 · ${route} 个人线（待续）`:'共同篇结束 · 暂未选择个人路线';
+      $('ending').querySelector('.end-footer').textContent=route?'已确定个人路线 · 第六章尚未开放':'可读取选择前的存档，继续另一种约定';
+    }
     $('ending').classList.remove('hidden');bind('end-save',()=>showSaves('save'));bind('end-history',showHistory);
     if(chapter===0)bind('end-replay',()=>confirmRestart('arrival.0'));
     if(next)bind('end-continue',()=>{state.finished=false;enter(next);activateAudio();$('advance').focus({preventScroll:true});});
@@ -340,12 +400,12 @@
     if(/INPUT|TEXTAREA|SELECT|BUTTON|A/.test(document.activeElement?.tagName)&&[' ','Enter'].includes(e.key))return;
     if(dialogueHidden){if([' ','Enter','Escape'].includes(e.key)){e.preventDefault();setDialogueHidden(false);}return;}
     if(e.key===' '||e.key==='Enter'){e.preventDefault();activateAudio(true);advance();}
-    else if(/^[1-5]$/.test(e.key))choose(Number(e.key)-1);
+    else if(/^[1-6]$/.test(e.key))choose(Number(e.key)-1);
     else if(e.key.toLowerCase()==='a')toggleAuto();else if(e.key.toLowerCase()==='h')showHistory();else if(e.key.toLowerCase()==='s')showSaves('save');else if(e.key.toLowerCase()==='l')showSaves('load');else if(e.key==='Escape'&&!document.fullscreenElement)showSettings();
   });
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopPlayback();soundEngine?.ctx.suspend().catch(()=>{});}else if(settings.sound)soundEngine?.resume().catch(()=>{});});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){stopPlayback();soundEngine?.updateFiles();soundEngine?.ctx.suspend().catch(()=>{});}else if(settings.sound)soundEngine?.resume().catch(()=>{});});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(titleTimer);else if(atTitle)startTitleSlideshow();});
-  window.addEventListener('pagehide',()=>{persist();clearInterval(soundEngine?.timer);clearInterval(titleTimer);});
+  window.addEventListener('pagehide',()=>{persist();clearInterval(soundEngine?.timer);soundEngine?.stopFiles();clearInterval(titleTimer);});
   $('character').addEventListener('error',()=>toast('角色图片加载失败，请保留 assets 文件夹。'));
   const stageObserver=new ResizeObserver(()=>{
     const rect=$('stage').getBoundingClientRect(),dialogue=$('dialogue-area').getBoundingClientRect();

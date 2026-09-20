@@ -22,7 +22,7 @@ const fresh=node=>({state:{version:1,node,playerName:'林澈',tokens:10000,route
 for(const morning of cast)for(const afternoon of cast)for(const answer of [0,1]) {
   const state=fresh('c3.01.0').state;let id=state.node,steps=0,slots=0;
   while(id) {
-    assert.ok(++steps<600,'Traversal loop');const node=STORY[id];
+    assert.ok(++steps<600,'Traversal loop');const node=STORY[id];if(node.chapter>3)break;
     if(!eligible(node,state)){id=node.next;continue;}
     covered.add(id);assert.ok(SCENES[node.bg],node.id);
     assert.ok(node.music==='silence'||SCORES[node.music],node.id);
@@ -47,7 +47,7 @@ for(const bg of ['ch03_old_street_day','ch03_bookstall_day','ch03_old_bridge_eve
   assert.equal(SCENES[bg].image,`assets/scene/bg/bg_${bg}.png`);
   assert.equal(SCENES[bg].placeholder,false,`${bg} must use the supplied artwork`);
 }
-for(const node of nodes.filter(n=>Number(n.section.slice(0,2))>=3&&Number(n.section.slice(0,2))<=11)) {
+for(const node of nodes.filter(n=>n.section!=='11A'&&Number(n.section.slice(0,2))>=3&&Number(n.section.slice(0,2))<=11)) {
   assert.ok(node.bg.startsWith('ch03_'),`${node.id} must stay outside campus`);
 }
 console.log(`Chapter 3: 50 branch combinations, ${covered.size} reachable passages, affection retained, stable rebuild.`);
@@ -85,7 +85,7 @@ console.log(`Chapter 3: 50 branch combinations, ${covered.size} reachable passag
       },{morning,afternoon,answer,key});
       assert.equal(STORY[result.state.node].chapter,3);assert.equal(result.slots,2);assert.equal(result.state.route,'claude');
       for(const [i,who] of cast.entries())assert.equal(result.state.affinity[who],10*(Number(i===0)+Number(i===4)+Number(i===morning)+Number(i===afternoon)));
-      assert.equal(await page.locator('#end-continue').count(),0);assert.match(await page.locator('.end-footer').textContent(),/第三章完/);
+      assert.equal(await page.locator('#end-continue').count(),1);assert.match(await page.locator('.end-teaser').textContent(),/没有人申请过的权限/);
       await page.reload();await page.locator('#title-continue').click();assert.ok(await page.locator('#ending').isVisible());
     }
     fs.mkdirSync(path.join(root,'qa'),{recursive:true});

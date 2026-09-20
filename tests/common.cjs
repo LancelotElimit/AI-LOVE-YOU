@@ -44,8 +44,8 @@ for (const witness of cast) for(const morning of cast) for(const afternoon of ca
 const commonNodes=Object.values(STORY).filter(n=>n.chapter&&n.chapter<=2);
 assert.equal(covered.size,commonNodes.length,'Every common passage must be reachable across legitimate choices');
 const cgs=[...new Set([...covered].map(id=>STORY[id].bg).filter(bg=>SCENES[bg].cg))];
-assert.equal(cgs.length,12);
-console.log(`250 complete route combinations: ${covered.size} passages, 12 CGs, isolated affection, two free periods.`);
+assert.equal(cgs.length,13);
+console.log(`250 complete route combinations: ${covered.size} passages, 13 CGs, isolated affection, two free periods.`);
 async function seed(page,entry) {
   await page.evaluate(entry=>sessionStorage.setItem('common-test-seed',JSON.stringify(entry)),entry);
   await page.reload();await page.locator('#title-continue').click();
