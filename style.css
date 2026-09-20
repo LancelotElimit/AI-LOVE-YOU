@@ -94,6 +94,9 @@ dialog{border:1px solid #dbe3dc;border-radius:7px;color:#294038;padding:28px;wid
 .title-background{background:none}
 .title-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1s ease}
 .title-slide.current{opacity:1}
+.character-wrap img{border:0;outline:0;box-shadow:none;background:transparent;filter:none}
+.character-wrap img[hidden],.character-wrap img:not([src]){display:none!important}
+.game .character-wrap.empty{visibility:hidden;opacity:0!important;transition:none;animation:none}
 .title-screen:before{background:
   linear-gradient(90deg,rgba(12,25,39,.82) 0%,rgba(18,34,50,.62) 28%,rgba(18,34,50,.08) 63%,rgba(10,20,31,.18) 100%),
   linear-gradient(180deg,rgba(8,18,29,.48) 0%,rgba(8,18,29,0) 34%,rgba(8,18,29,.08) 58%,rgba(8,18,29,.9) 100%)}

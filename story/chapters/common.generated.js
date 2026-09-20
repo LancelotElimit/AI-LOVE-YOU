@@ -29,6 +29,11 @@ Object.assign(window.CAST, {
     "name": "店主",
     "sub": "",
     "color": "#82948a"
+  },
+  "child": {
+    "name": "孩子",
+    "sub": "",
+    "color": "#82948a"
   }
 });
 Object.assign(window.SCENES, {
@@ -199,6 +204,33 @@ Object.assign(window.SCENES, {
     "note": "",
     "image": "assets/scene/bg/bg_guest_room_rainy_night.png",
     "art": "<img class=\"scene-image\" src=\"assets/scene/bg/bg_guest_room_rainy_night.png\" alt=\"\" draggable=\"false\">"
+  },
+  "ch03_old_street_day": {
+    "index": "CHAPTER 3",
+    "title": "外环旧街",
+    "location": "外环旧街 / 白天",
+    "note": "",
+    "image": "assets/scene/bg/bg_ch03_old_street_day.png",
+    "placeholder": false,
+    "art": "<img class=\"scene-image\" src=\"assets/scene/bg/bg_ch03_old_street_day.png\" alt=\"\" draggable=\"false\">"
+  },
+  "ch03_bookstall_day": {
+    "index": "CHAPTER 3",
+    "title": "外环旧街 · 旧书摊",
+    "location": "外环旧街 · 旧书摊 / 白天",
+    "note": "",
+    "image": "assets/scene/bg/bg_ch03_bookstall_day.png",
+    "placeholder": false,
+    "art": "<img class=\"scene-image\" src=\"assets/scene/bg/bg_ch03_bookstall_day.png\" alt=\"\" draggable=\"false\">"
+  },
+  "ch03_old_bridge_evening": {
+    "index": "CHAPTER 3",
+    "title": "外环旧街 · 旧桥",
+    "location": "外环旧街 · 旧桥 / 傍晚",
+    "note": "",
+    "image": "assets/scene/bg/bg_ch03_old_bridge_evening.png",
+    "placeholder": false,
+    "art": "<img class=\"scene-image\" src=\"assets/scene/bg/bg_ch03_old_bridge_evening.png\" alt=\"\" draggable=\"false\">"
   },
   "ch01_chatgpt_sol_pouring_water": {
     "index": "",
@@ -3929,7 +3961,7 @@ Object.assign(window.STORY, {
     "who": "narration",
     "text": "回到维修区时，DeepSeek 正坐在一只矮凳上。外壳拆开，几束细线被分门别类地固定在一旁。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_eco_blue_maid_calm",
     "progress": 55,
     "next": "c1.07.1"
   },
@@ -3943,7 +3975,109 @@ Object.assign(window.STORY, {
     "who": "narration",
     "text": "她见你过来，先将手里的部件放稳，才挪开脚边的空箱子。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_eco_blue_maid_calm",
+    "progress": 55,
+    "next": "c1.07.added1"
+  },
+  "c1.07.added1": {
+    "id": "c1.07.added1",
+    "chapter": 1,
+    "section": "07",
+    "title": "这次只指，不按",
+    "bg": "outer_ring_repair_bay_day",
+    "music": "B03",
+    "who": "deepseek",
+    "text": "等我一下。接下来要把两段记录放在一起看，换工程形态方便一点。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_maid_calm",
+    "progress": 55,
+    "next": "c1.07.added2"
+  },
+  "c1.07.added2": {
+    "id": "c1.07.added2",
+    "chapter": 1,
+    "section": "07",
+    "title": "这次只指，不按",
+    "bg": "outer_ring_repair_bay_day",
+    "music": "B03",
+    "who": "narration",
+    "text": "她将工具箱放到脚边，掌心的蓝光沿袖口往上收拢。原本的蓝白裙装变成卷起袖口的浅蓝衬衣，白围裙在腰侧扣紧，几枚工具扣依次落到她伸手就能摸到的位置。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "shift": {
+      "name": "工程",
+      "detail": "并排核对登记记录"
+    },
+    "progress": 55,
+    "next": "c1.07.added3"
+  },
+  "c1.07.added3": {
+    "id": "c1.07.added3",
+    "chapter": 1,
+    "section": "07",
+    "title": "这次只指，不按",
+    "bg": "outer_ring_repair_bay_day",
+    "music": "B03",
+    "who": "you",
+    "text": "我刚才还想问，这样蹲着修东西会不会不方便。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "progress": 55,
+    "next": "c1.07.added4"
+  },
+  "c1.07.added4": {
+    "id": "c1.07.added4",
+    "chapter": 1,
+    "section": "07",
+    "title": "这次只指，不按",
+    "bg": "outer_ring_repair_bay_day",
+    "music": "B03",
+    "who": "deepseek",
+    "text": "会。所以现在换了。你先别把箱子递过来，我还有一个扣没扣上。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "progress": 55,
+    "next": "c1.07.added5"
+  },
+  "c1.07.added5": {
+    "id": "c1.07.added5",
+    "chapter": 1,
+    "section": "07",
+    "title": "这次只指，不按",
+    "bg": "outer_ring_repair_bay_day",
+    "music": "B03",
+    "who": "narration",
+    "text": "你收回已经伸出的手。她低头找了两次，终于从围裙另一侧摸到那枚扣子。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "progress": 55,
+    "next": "c1.07.added6"
+  },
+  "c1.07.added6": {
+    "id": "c1.07.added6",
+    "chapter": 1,
+    "section": "07",
+    "title": "这次只指，不按",
+    "bg": "outer_ring_repair_bay_day",
+    "music": "B03",
+    "who": "you",
+    "text": "换完以后，东西也不会自己到手里啊。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "progress": 55,
+    "next": "c1.07.added7"
+  },
+  "c1.07.added7": {
+    "id": "c1.07.added7",
+    "chapter": 1,
+    "section": "07",
+    "title": "这次只指，不按",
+    "bg": "outer_ring_repair_bay_day",
+    "music": "B03",
+    "who": "deepseek",
+    "text": "找得到故障，不代表找得到刚放下的东西。这个没有一起改好。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.2"
   },
@@ -3957,7 +4091,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "站这儿就行。左边那块地砖是松的。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.3"
   },
@@ -3971,7 +4105,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "你怎么知道？",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.4"
   },
@@ -3985,7 +4119,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "刚才已经知道了。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.5"
   },
@@ -3999,7 +4133,7 @@ Object.assign(window.STORY, {
     "who": "narration",
     "text": "她把那只踩歪的凳脚轻轻往里推了一点。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.6"
   },
@@ -4013,7 +4147,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "你第一次看到提示的时候，它写了什么？",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.7"
   },
@@ -4027,7 +4161,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "“无法识别来源”，下面是重新提交。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.8"
   },
@@ -4041,7 +4175,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "然后？",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "choices": [
       {
         "text": "承认自己连续确认了几次",
@@ -4067,7 +4201,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "我按了。它没变化，我以为没按上，又按了几次。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:1"
@@ -4086,7 +4220,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "几次？",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:1"
@@ -4105,7 +4239,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "至少三次。可能四次。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:1"
@@ -4124,7 +4258,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "好，那我找连续提交的这一段。想不起来最后一次也没关系。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:1"
@@ -4143,7 +4277,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "你不骂我？",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:1"
@@ -4162,7 +4296,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "骂了也不会少一次。先找。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:1"
@@ -4181,7 +4315,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "它一直没反应，我也不知道怎么就那样了。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:2"
@@ -4200,7 +4334,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "嗯，它这里确实没有做好提示。你后面有没有继续按？",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:2"
@@ -4219,7 +4353,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "按了几次。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:2"
@@ -4238,7 +4372,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "那就一起记。机器的问题归机器，你按过的也得留下，不然我找错段了。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
         "flag": "c1-07-choice1:2"
@@ -4257,7 +4391,7 @@ Object.assign(window.STORY, {
     "who": "narration",
     "text": "她在几份记录间来回对照，停下时会向你确认一句。你能说清的其实不多，但第一次看见的错误提示、第二次弹窗的位置，都派上了用场。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.20"
   },
@@ -4271,7 +4405,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "这边的东西，我学过的那些还能用吗？",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.21"
   },
@@ -4285,7 +4419,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "有些能，有些不一定。你先别照着熟悉的样子猜。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.22"
   },
@@ -4299,7 +4433,7 @@ Object.assign(window.STORY, {
     "who": "you",
     "text": "我原来就是学这些的。现在连按个按钮都不敢。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.23"
   },
@@ -4313,7 +4447,7 @@ Object.assign(window.STORY, {
     "who": "deepseek",
     "text": "陌生机器都这样。我第一次去你们那边，可能也会找不到开关。",
     "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_focused",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
     "next": "c1.07.24"
   },
@@ -4629,6 +4763,80 @@ Object.assign(window.STORY, {
     "music": "B02",
     "who": "narration",
     "text": "ChatGPT 已经换回初见时的形态。她将一张折好的校园图交给你，圈出暂住楼和医务室。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_white_dress_calm",
+    "shift": {
+      "name": "5.6 Terra",
+      "detail": "继续日常安排"
+    },
+    "progress": 64,
+    "next": "c1.08.added1"
+  },
+  "c1.08.added1": {
+    "id": "c1.08.added1",
+    "chapter": 1,
+    "section": "08",
+    "title": "EX-001",
+    "bg": "inquiry_room_day",
+    "music": "B02",
+    "who": "narration",
+    "text": "她腕边最后一点银光刚刚收起，收紧的袖口重新舒展开。水壶还在原来的位置，杯沿的水痕也没有消失。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_white_dress_calm",
+    "progress": 64,
+    "next": "c1.08.added2"
+  },
+  "c1.08.added2": {
+    "id": "c1.08.added2",
+    "chapter": 1,
+    "section": "08",
+    "title": "EX-001",
+    "bg": "inquiry_room_day",
+    "music": "B02",
+    "who": "you",
+    "text": "处理完那个问题，就换回来？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_white_dress_calm",
+    "progress": 64,
+    "next": "c1.08.added3"
+  },
+  "c1.08.added3": {
+    "id": "c1.08.added3",
+    "chapter": 1,
+    "section": "08",
+    "title": "EX-001",
+    "bg": "inquiry_room_day",
+    "music": "B02",
+    "who": "chatgpt",
+    "text": "嗯，接下来都是日常安排。Terra 用着更顺手。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_white_dress_calm",
+    "progress": 64,
+    "next": "c1.08.added4"
+  },
+  "c1.08.added4": {
+    "id": "c1.08.added4",
+    "chapter": 1,
+    "section": "08",
+    "title": "EX-001",
+    "bg": "inquiry_room_day",
+    "music": "B02",
+    "who": "you",
+    "text": "我刚才还怕要再跟你说一遍房间的事。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_white_dress_calm",
+    "progress": 64,
+    "next": "c1.08.added5"
+  },
+  "c1.08.added5": {
+    "id": "c1.08.added5",
+    "chapter": 1,
+    "section": "08",
+    "title": "EX-001",
+    "bg": "inquiry_room_day",
+    "music": "B02",
+    "who": "chatgpt",
+    "text": "不用。还记得你担心七天以后住哪里。我们现在就说这个。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_white_dress_calm",
     "progress": 64,
@@ -7524,6 +7732,101 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
+    "next": "c2.07A.added6"
+  },
+  "c2.07A.added6": {
+    "id": "c2.07A.added6",
+    "chapter": 2,
+    "section": "07A",
+    "title": "ChatGPT：十分钟的椅子",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "narration",
+    "text": "她今天在白衬衣外穿了件青绿针织外套，袖口挽起一点，灰色长裙垂到椅边。你多看了一眼，没找到问询那天切换时亮起的银纹。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07A.added2"
+  },
+  "c2.07A.added2": {
+    "id": "c2.07A.added2",
+    "chapter": 2,
+    "section": "07A",
+    "title": "ChatGPT：十分钟的椅子",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "you",
+    "text": "今天又换了一种？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07A.added3"
+  },
+  "c2.07A.added3": {
+    "id": "c2.07A.added3",
+    "chapter": 2,
+    "section": "07A",
+    "title": "ChatGPT：十分钟的椅子",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "模型吗？还是 Terra。今天只是换了衣服。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07A.added4"
+  },
+  "c2.07A.added4": {
+    "id": "c2.07A.added4",
+    "chapter": 2,
+    "section": "07A",
+    "title": "ChatGPT：十分钟的椅子",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "you",
+    "text": "我正在努力分清这两件事。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07A.added5"
+  },
+  "c2.07A.added5": {
+    "id": "c2.07A.added5",
+    "chapter": 2,
+    "section": "07A",
+    "title": "ChatGPT：十分钟的椅子",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "那先记住这件外套。窗边有点冷，所以穿了它。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
     "next": "c2.07A.1"
   },
   "c2.07A.1": {
@@ -8123,6 +8426,139 @@ Object.assign(window.STORY, {
     "music": "B11",
     "who": "narration",
     "text": "图书馆接待台上摊着几本旧书。Claude 戴着薄手套，正用一张窄纸条标出某一页的位置。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_focused",
+    "when": [
+      {
+        "flag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07B.added1"
+  },
+  "c2.07B.added1": {
+    "id": "c2.07B.added1",
+    "chapter": 2,
+    "section": "07B",
+    "title": "Claude：页边的字",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "她身上没有问询时那套层叠的书卷礼服。象牙白衬衣外是一件炭黑开衫，衣领边只剩一道很淡的页纹，随着她翻书轻轻亮了一下。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_focused",
+    "when": [
+      {
+        "flag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07B.added2"
+  },
+  "c2.07B.added2": {
+    "id": "c2.07B.added2",
+    "chapter": 2,
+    "section": "07B",
+    "title": "Claude：页边的字",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "you",
+    "text": "这次我先问。是换衣服，还是换模型？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_focused",
+    "when": [
+      {
+        "flag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07B.added3"
+  },
+  "c2.07B.added3": {
+    "id": "c2.07B.added3",
+    "chapter": 2,
+    "section": "07B",
+    "title": "Claude：页边的字",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "两件都有。今天用轻诗，再穿这件开衫。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_focused",
+    "when": [
+      {
+        "flag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07B.added8"
+  },
+  "c2.07B.added8": {
+    "id": "c2.07B.added8",
+    "chapter": 2,
+    "section": "07B",
+    "title": "Claude：页边的字",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "you",
+    "text": "问询时那种不适合看书？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_focused",
+    "when": [
+      {
+        "flag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07B.added9"
+  },
+  "c2.07B.added9": {
+    "id": "c2.07B.added9",
+    "chapter": 2,
+    "section": "07B",
+    "title": "Claude：页边的字",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "也能看。那天需要反复核验不同材料，今天先验完这一摞，没有必要把所有处理都开着。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_focused",
+    "when": [
+      {
+        "flag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07B.added10"
+  },
+  "c2.07B.added10": {
+    "id": "c2.07B.added10",
+    "chapter": 2,
+    "section": "07B",
+    "title": "Claude：页边的字",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "you",
+    "text": "那天我忙着吃饼干，让你们等着的事，也还记得？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_focused",
+    "when": [
+      {
+        "flag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07B.added7"
+  },
+  "c2.07B.added7": {
+    "id": "c2.07B.added7",
+    "chapter": 2,
+    "section": "07B",
+    "title": "Claude：页边的字",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "原本没在想。现在记得很清楚。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_focused",
     "when": [
@@ -9064,6 +9500,101 @@ Object.assign(window.STORY, {
     "music": "B13",
     "who": "narration",
     "text": "工坊门只开了半扇。DeepSeek 正在给待送修的设备贴标签，听到你的声音，先应了一声，又迅速把几张贴反的标签换回来。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07D.added1"
+  },
+  "c2.07D.added1": {
+    "id": "c2.07D.added1",
+    "chapter": 2,
+    "section": "07D",
+    "title": "DeepSeek：这只箱子没有提手",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "工具腰带已经挂到墙上。她身上换成浅蓝短外套和深灰长裤，领边的工程光纹退成一个很小的蓝点。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07D.added2"
+  },
+  "c2.07D.added2": {
+    "id": "c2.07D.added2",
+    "chapter": 2,
+    "section": "07D",
+    "title": "DeepSeek：这只箱子没有提手",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "you",
+    "text": "今天不用工程形态？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07D.added3"
+  },
+  "c2.07D.added3": {
+    "id": "c2.07D.added3",
+    "chapter": 2,
+    "section": "07D",
+    "title": "DeepSeek：这只箱子没有提手",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "先去取货，用省能就够了。外套是另外穿的，仓库门口风大。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07D.added4"
+  },
+  "c2.07D.added4": {
+    "id": "c2.07D.added4",
+    "chapter": 2,
+    "section": "07D",
+    "title": "DeepSeek：这只箱子没有提手",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "you",
+    "text": "那搬东西会不会没力气？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c2.07D.added5"
+  },
+  "c2.07D.added5": {
+    "id": "c2.07D.added5",
+    "chapter": 2,
+    "section": "07D",
+    "title": "DeepSeek：这只箱子没有提手",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "不会。我是少开几项处理，不是把胳膊关掉。真搬不动的，换哪套也先借推车。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -10178,6 +10709,116 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
+    "next": "c2.09A.added6"
+  },
+  "c2.09A.added6": {
+    "id": "c2.09A.added6",
+    "chapter": 2,
+    "section": "09A",
+    "title": "ChatGPT：手册上漏掉的一句",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "narration",
+    "text": "白衬衣、青绿针织外套和灰色长裙让她看起来比问询那天随意一些。你看了一眼袖口，她顺着你的视线，也低头看了看。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09A.added2"
+  },
+  "c2.09A.added2": {
+    "id": "c2.09A.added2",
+    "chapter": 2,
+    "section": "09A",
+    "title": "ChatGPT：手册上漏掉的一句",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "you",
+    "text": "这个也算新模型？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09A.added3"
+  },
+  "c2.09A.added3": {
+    "id": "c2.09A.added3",
+    "chapter": 2,
+    "section": "09A",
+    "title": "ChatGPT：手册上漏掉的一句",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "不算，还是 Terra。今天只是换衣服。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09A.added4"
+  },
+  "c2.09A.added4": {
+    "id": "c2.09A.added4",
+    "chapter": 2,
+    "section": "09A",
+    "title": "ChatGPT：手册上漏掉的一句",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "you",
+    "text": "我差点又准备问一次名字。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09A.added5"
+  },
+  "c2.09A.added5": {
+    "id": "c2.09A.added5",
+    "chapter": 2,
+    "section": "09A",
+    "title": "ChatGPT：手册上漏掉的一句",
+    "bg": "student_office_noon",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "衣服不用报名字。手册上写的那个还是我。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
     "next": "c2.09A.1"
   },
   "c2.09A.1": {
@@ -10739,6 +11380,160 @@ Object.assign(window.STORY, {
     "when": [
       {
         "flag": "c2-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09B.added1"
+  },
+  "c2.09B.added1": {
+    "id": "c2.09B.added1",
+    "chapter": 2,
+    "section": "09B",
+    "title": "Claude：书里的人走了很久",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "她今天穿着象牙白衬衣和炭黑开衫，领边的页纹比问询时淡得多。看见你迟疑的视线，她停下递书的动作。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:claude"
+      },
+      {
+        "notFlag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09B.added2"
+  },
+  "c2.09B.added2": {
+    "id": "c2.09B.added2",
+    "chapter": 2,
+    "section": "09B",
+    "title": "Claude：书里的人走了很久",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "you",
+    "text": "我没认错人吧？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:claude"
+      },
+      {
+        "notFlag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09B.added3"
+  },
+  "c2.09B.added3": {
+    "id": "c2.09B.added3",
+    "chapter": 2,
+    "section": "09B",
+    "title": "Claude：书里的人走了很久",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "没有。今天换成轻诗，衣服也换了。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:claude"
+      },
+      {
+        "notFlag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09B.added4"
+  },
+  "c2.09B.added4": {
+    "id": "c2.09B.added4",
+    "chapter": 2,
+    "section": "09B",
+    "title": "Claude：书里的人走了很久",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "you",
+    "text": "那昨天那份记录……",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:claude"
+      },
+      {
+        "notFlag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09B.added5"
+  },
+  "c2.09B.added5": {
+    "id": "c2.09B.added5",
+    "chapter": 2,
+    "section": "09B",
+    "title": "Claude：书里的人走了很久",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "还在。我也记得。你想补充内容，还是先借书？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:claude"
+      },
+      {
+        "notFlag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09B.added6"
+  },
+  "c2.09B.added6": {
+    "id": "c2.09B.added6",
+    "chapter": 2,
+    "section": "09B",
+    "title": "Claude：书里的人走了很久",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "you",
+    "text": "先借书。刚才有点没反应过来。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:claude"
+      },
+      {
+        "notFlag": "c2-slot1:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09B.added7"
+  },
+  "c2.09B.added7": {
+    "id": "c2.09B.added7",
+    "chapter": 2,
+    "section": "09B",
+    "title": "Claude：书里的人走了很久",
+    "bg": "library_reading_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "嗯。书也不会因为我换形态，就变成另一个版本。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:claude"
+      },
+      {
+        "notFlag": "c2-slot1:claude"
       }
     ],
     "progress": 67,
@@ -11763,6 +12558,124 @@ Object.assign(window.STORY, {
     "who": "narration",
     "text": "工坊里的箱子已经拆开，零件各自贴好标签。DeepSeek 给客户准备的设备放在工作台中间，外壳擦得很干净。",
     "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09D.added1"
+  },
+  "c2.09D.added1": {
+    "id": "c2.09D.added1",
+    "chapter": 2,
+    "section": "09D",
+    "title": "DeepSeek：交货以前，再开一次",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "DeepSeek 把浅蓝外套挂到门边，先看了一眼插头是否拔下，才抬手按住腕侧的光点。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09D.added2"
+  },
+  "c2.09D.added2": {
+    "id": "c2.09D.added2",
+    "chapter": 2,
+    "section": "09D",
+    "title": "DeepSeek：交货以前，再开一次",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "细细的蓝线沿着袖口展开，衣料收成适合动手的卷袖衬衣，白围裙和工具腰带重新扣好。她从工具扣上取下一把小螺丝刀，检查过刀头，又放了回去。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:deepseek"
+      }
+    ],
+    "shift": {
+      "name": "工程",
+      "detail": "交付前的最后检查"
+    },
+    "progress": 67,
+    "next": "c2.09D.added3"
+  },
+  "c2.09D.added3": {
+    "id": "c2.09D.added3",
+    "chapter": 2,
+    "section": "09D",
+    "title": "DeepSeek：交货以前，再开一次",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "you",
+    "text": "这个我认识了。工程形态。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09D.added4"
+  },
+  "c2.09D.added4": {
+    "id": "c2.09D.added4",
+    "chapter": 2,
+    "section": "09D",
+    "title": "DeepSeek：交货以前，再开一次",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "答对。不过先别替它鼓掌，客户还没验货。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09D.added5"
+  },
+  "c2.09D.added5": {
+    "id": "c2.09D.added5",
+    "chapter": 2,
+    "section": "09D",
+    "title": "DeepSeek：交货以前，再开一次",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "you",
+    "text": "我是在确认自己没有又认错衣服。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "when": [
+      {
+        "flag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c2.09D.added6"
+  },
+  "c2.09D.added6": {
+    "id": "c2.09D.added6",
+    "chapter": 2,
+    "section": "09D",
+    "title": "DeepSeek：交货以前，再开一次",
+    "bg": "deepsea_workshop_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "那这一回没认错。衣服可以换着穿，这条亮起来的工具纹才是跟着形态走的。",
+    "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
       {
@@ -12727,6 +13640,334 @@ Object.assign(window.STORY, {
     "text": "Claude 稍晚进来，将一份公开资料清单放到讲台边。",
     "char": null,
     "progress": 75,
+    "next": "c2.10.added1"
+  },
+  "c2.10.added1": {
+    "id": "c2.10.added1",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "narration",
+    "text": "ChatGPT 转过身时，你才注意到她今天换了青绿针织外套和灰色长裙，袖口没有切换时的银纹。",
+    "char": null,
+    "when": [
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot2:chatgpt"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added2"
+  },
+  "c2.10.added2": {
+    "id": "c2.10.added2",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "you",
+    "text": "你这次也是换模型？",
+    "char": null,
+    "when": [
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot2:chatgpt"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added3"
+  },
+  "c2.10.added3": {
+    "id": "c2.10.added3",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "chatgpt",
+    "text": "没有，还是 Terra。今天只是窗边冷，多穿一件。你看，领口的标记没变。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot2:chatgpt"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added4"
+  },
+  "c2.10.added4": {
+    "id": "c2.10.added4",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "you",
+    "text": "我得把认人和认衣服分开学。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot2:chatgpt"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added5"
+  },
+  "c2.10.added5": {
+    "id": "c2.10.added5",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "chatgpt",
+    "text": "认人已经会了。衣服可以慢慢来。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:chatgpt"
+      },
+      {
+        "notFlag": "c2-slot2:chatgpt"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added6"
+  },
+  "c2.10.added6": {
+    "id": "c2.10.added6",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "narration",
+    "text": "Claude 把资料放稳，炭黑开衫的袖口随动作滑下一点。象牙白衣领边的页纹比问询那天淡得多，那套层叠礼服已经不在身上。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:claude"
+      },
+      {
+        "notFlag": "c2-slot2:claude"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added7"
+  },
+  "c2.10.added7": {
+    "id": "c2.10.added7",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "you",
+    "text": "你也是只换了衣服？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:claude"
+      },
+      {
+        "notFlag": "c2-slot2:claude"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added8"
+  },
+  "c2.10.added8": {
+    "id": "c2.10.added8",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "claude",
+    "text": "不全是。今天换了轻诗，衣服也选得简单一点。整理书目和这份清单，够用了。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:claude"
+      },
+      {
+        "notFlag": "c2-slot2:claude"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added9"
+  },
+  "c2.10.added9": {
+    "id": "c2.10.added9",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "you",
+    "text": "那问询的事……",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:claude"
+      },
+      {
+        "notFlag": "c2-slot2:claude"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added10"
+  },
+  "c2.10.added10": {
+    "id": "c2.10.added10",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "claude",
+    "text": "记得。只是换处理事情的方式，不是重新认识你。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "notFlag": "c2-slot1:claude"
+      },
+      {
+        "notFlag": "c2-slot2:claude"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added11"
+  },
+  "c2.10.added11": {
+    "id": "c2.10.added11",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "narration",
+    "text": "DeepSeek 抬头时，白围裙上的工具扣轻轻碰了一下。上午那件浅蓝外套已经搭在椅背，袖口又亮起熟悉的工程光纹。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      },
+      {
+        "notFlag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added12"
+  },
+  "c2.10.added12": {
+    "id": "c2.10.added12",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "you",
+    "text": "取完货又换回工程了？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      },
+      {
+        "notFlag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added13"
+  },
+  "c2.10.added13": {
+    "id": "c2.10.added13",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "deepseek",
+    "text": "嗯，下午交了一台机器。现在再把明天用的导览器检查完，就收工。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      },
+      {
+        "notFlag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added14"
+  },
+  "c2.10.added14": {
+    "id": "c2.10.added14",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "you",
+    "text": "外套别再落下。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      },
+      {
+        "notFlag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 75,
+    "next": "c2.10.added15"
+  },
+  "c2.10.added15": {
+    "id": "c2.10.added15",
+    "chapter": 2,
+    "section": "10",
+    "title": "碰头会只开了十五分钟",
+    "bg": "activity_meeting_room_dusk",
+    "music": "B08",
+    "who": "deepseek",
+    "text": "提醒得好。我等会儿把它和水杯放一起。",
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
+    "when": [
+      {
+        "flag": "c2-slot1:deepseek"
+      },
+      {
+        "notFlag": "c2-slot2:deepseek"
+      }
+    ],
+    "progress": 75,
     "next": "c2.10.3"
   },
   "c2.10.3": {
@@ -12738,7 +13979,8 @@ Object.assign(window.STORY, {
     "music": "B08",
     "who": "narration",
     "text": "她们各自抬头和你打了个招呼，没有为了你进门而停下原来的话题。",
-    "char": null,
+    "char": "deepseek",
+    "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 75,
     "next": "c2.10.4"
   },
@@ -13609,6 +14851,5321 @@ Object.assign(window.STORY, {
     "text": "窗外的雨彻底停下以前，你收好了水杯和那张临时证。",
     "char": null,
     "progress": 92,
+    "end": true,
+    "continueTo": "c3.01.0"
+  },
+  "c3.01.0": {
+    "id": "c3.01.0",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "你到活动楼门口时，终端上的时间是八点二十八分。",
+    "char": null,
+    "progress": 0,
+    "next": "c3.01.1"
+  },
+  "c3.01.1": {
+    "id": "c3.01.1",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "昨晚的雨在台阶缝里留下一点湿痕。你绕开那一块，拍了拍包侧，确认水杯没有忘带。",
+    "char": null,
+    "progress": 0,
+    "next": "c3.01.2"
+  },
+  "c3.01.2": {
+    "id": "c3.01.2",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "DeepSeek 正蹲在导览器旁，浅蓝外套的衣摆压在膝边。昨天的围裙和工具腰带不在身上，只有一个小工具包挂在肩上。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.3"
+  },
+  "c3.01.3": {
+    "id": "c3.01.3",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "you",
+    "text": "今天先用省能？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.4"
+  },
+  "c3.01.4": {
+    "id": "c3.01.4",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "deepseek",
+    "text": "嗯。走路、记读数，够用了。你别看我穿得轻，备用电池可一点没少。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.5"
+  },
+  "c3.01.5": {
+    "id": "c3.01.5",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "她提了提包，肩带立刻向下坠了一截。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.6"
+  },
+  "c3.01.6": {
+    "id": "c3.01.6",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "you",
+    "text": "水呢？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.7"
+  },
+  "c3.01.7": {
+    "id": "c3.01.7",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "她的手停在半空，随后从导览器另一侧拿起水杯。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.8"
+  },
+  "c3.01.8": {
+    "id": "c3.01.8",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "deepseek",
+    "text": "在这里。差一点就只把“带水”两个字带走了。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.9"
+  },
+  "c3.01.9": {
+    "id": "c3.01.9",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "ChatGPT 从楼里出来，青绿外套搭在臂弯，另一只手拿着今天的联络表。Claude 跟在后面，把一叠公开资料夹进包里。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.10"
+  },
+  "c3.01.10": {
+    "id": "c3.01.10",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "chatgpt",
+    "text": "先别急着出发。今天中午、下午都有集合点，走散了不需要追着另一组跑。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 0,
+    "next": "c3.01.11"
+  },
+  "c3.01.11": {
+    "id": "c3.01.11",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "claude",
+    "text": "也别为了追时间穿过封闭区。绕路的时间可以写进导览，不算你们迟到。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 0,
+    "next": "c3.01.12"
+  },
+  "c3.01.12": {
+    "id": "c3.01.12",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "Gemini 把相机带从包带下面抽出来，试了试快门。Grok 一边走上台阶，一边把没吃完的早餐装回纸袋。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 0,
+    "next": "c3.01.13"
+  },
+  "c3.01.13": {
+    "id": "c3.01.13",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "grok",
+    "text": "我没迟到。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.14"
+  },
+  "c3.01.14": {
+    "id": "c3.01.14",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "claude",
+    "text": "还没有人问。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 0,
+    "next": "c3.01.15"
+  },
+  "c3.01.15": {
+    "id": "c3.01.15",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "grok",
+    "text": "提前说，省一道手续。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.16"
+  },
+  "c3.01.16": {
+    "id": "c3.01.16",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "她们继续确认借来的器材。你站在稍后一点的位置，看见 ChatGPT 在联络表上找到你的名字，画了一个小钩。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 0,
+    "next": "c3.01.17"
+  },
+  "c3.01.17": {
+    "id": "c3.01.17",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "chatgpt",
+    "text": "人齐了。先一起走到旧街入口。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 0,
+    "next": "c3.02.0"
+  },
+  "c3.02.0": {
+    "id": "c3.02.0",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "narration",
+    "text": "出校门并没有发生什么特别的事。你的临时证亮了一下，闸机就放行了。",
+    "char": null,
+    "progress": 8,
+    "next": "c3.02.1"
+  },
+  "c3.02.1": {
+    "id": "c3.02.1",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "narration",
+    "text": "你还是回头看了一眼。昨天让你担心很久的东西，今天只用了一秒。",
+    "char": null,
+    "progress": 8,
+    "next": "c3.02.2"
+  },
+  "c3.02.2": {
+    "id": "c3.02.2",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "deepseek",
+    "text": "别盯它。今天它很正常。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.3"
+  },
+  "c3.02.3": {
+    "id": "c3.02.3",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "you",
+    "text": "我只是确认回来的时候还能用。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.4"
+  },
+  "c3.02.4": {
+    "id": "c3.02.4",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "chatgpt",
+    "text": "许可到今晚，范围也写在这里。回来刷同一张，不用再申请见证人。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 8,
+    "next": "c3.02.5"
+  },
+  "c3.02.5": {
+    "id": "c3.02.5",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "narration",
+    "text": "她指给你看后把卡还回来，没有替你收进自己的资料袋。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 8,
+    "next": "c3.02.6"
+  },
+  "c3.02.6": {
+    "id": "c3.02.6",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "narration",
+    "text": "街口的路线牌有两面。你站到地图前，先找了找脚下这条路，再伸手指向一根箭头。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 8,
+    "next": "c3.02.7"
+  },
+  "c3.02.7": {
+    "id": "c3.02.7",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "you",
+    "text": "这个“左转”，是从我们这边算的吗？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 8,
+    "next": "c3.02.8"
+  },
+  "c3.02.8": {
+    "id": "c3.02.8",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "gemini",
+    "text": "等等，我换个方向看。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.9"
+  },
+  "c3.02.9": {
+    "id": "c3.02.9",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "narration",
+    "text": "她绕到你身边，没有把你拉去自己原本站的位置。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.10"
+  },
+  "c3.02.10": {
+    "id": "c3.02.10",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "gemini",
+    "text": "嗯，这里应该写店名，不该只留一个箭头。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.11"
+  },
+  "c3.02.11": {
+    "id": "c3.02.11",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "grok",
+    "text": "先记下来。别现场把人家的牌拆了。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.12"
+  },
+  "c3.02.12": {
+    "id": "c3.02.12",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "gemini",
+    "text": "我拿的是相机。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.13"
+  },
+  "c3.02.13": {
+    "id": "c3.02.13",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "grok",
+    "text": "上次你拿相机的时候，也顺手改过三个路标。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.14"
+  },
+  "c3.02.14": {
+    "id": "c3.02.14",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "gemini",
+    "text": "那三个确实错了。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 8,
+    "next": "c3.02.15"
+  },
+  "c3.02.15": {
+    "id": "c3.02.15",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "claude",
+    "text": "其中一个是临时指引，第二天要撤。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 8,
+    "next": "c3.02.16"
+  },
+  "c3.02.16": {
+    "id": "c3.02.16",
+    "chapter": 3,
+    "section": "02",
+    "title": "从哪边看这张图",
+    "bg": "campus_inner_road_morning",
+    "music": "B16",
+    "who": "narration",
+    "text": "Gemini 停了一下，把刚打开的修改窗口收起来，换成了待确认的备注。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 8,
+    "next": "c3.03.0"
+  },
+  "c3.03.0": {
+    "id": "c3.03.0",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "旧街比校园里的道路窄。几家店刚开门，卷帘还没升到顶，门口已经有人把当天要用的箱子搬出来。",
+    "char": null,
+    "progress": 17,
+    "next": "c3.03.1"
+  },
+  "c3.03.1": {
+    "id": "c3.03.1",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "一块新擦过的玻璃映出你们几个。你在里面看见自己肩上的普通帆布包，旁边是相机、文件夹和一只装着零件的工具包。",
+    "char": null,
+    "progress": 17,
+    "next": "c3.03.2"
+  },
+  "c3.03.2": {
+    "id": "c3.03.2",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "grok",
+    "text": "今天没同意采访的店，不记老板姓名。门口能拍，也不代表里面随便拍。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 17,
+    "next": "c3.03.3"
+  },
+  "c3.03.3": {
+    "id": "c3.03.3",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "chatgpt",
+    "text": "我们做一条能实际走完的路线。哪里能坐、哪里有台阶，和招牌好不好看一样重要。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 17,
+    "next": "c3.03.4"
+  },
+  "c3.03.4": {
+    "id": "c3.03.4",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "you",
+    "text": "所以我不用努力说出很专业的评价？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 17,
+    "next": "c3.03.5"
+  },
+  "c3.03.5": {
+    "id": "c3.03.5",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "gemini",
+    "text": "不用。你刚刚差点往反方向走，那条就很有用。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 17,
+    "next": "c3.03.6"
+  },
+  "c3.03.6": {
+    "id": "c3.03.6",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "you",
+    "text": "可以换个例子吗？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 17,
+    "next": "c3.03.7"
+  },
+  "c3.03.7": {
+    "id": "c3.03.7",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "gemini",
+    "text": "等你提供下一条。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 17,
+    "next": "c3.03.8"
+  },
+  "c3.03.8": {
+    "id": "c3.03.8",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "DeepSeek 将导览器递过来，让你看了一眼屏幕上的方向。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 17,
+    "next": "c3.03.9"
+  },
+  "c3.03.9": {
+    "id": "c3.03.9",
+    "chapter": 3,
+    "section": "03",
+    "title": "不是来给街道打分",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "deepseek",
+    "text": "读不懂就说读不懂。别替它猜答案，我就是来找这些地方的。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 17,
+    "next": "c3.04.0"
+  },
+  "c3.04.0": {
+    "id": "c3.04.0",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "走到第一个拐角，大家的步子就不再整齐。",
+    "char": null,
+    "progress": 25,
+    "next": "c3.04.1"
+  },
+  "c3.04.1": {
+    "id": "c3.04.1",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "Grok 去问店主是否方便采访，Claude 停在一张贴着旧书目录的窗边。Gemini 等一辆送货车过去，ChatGPT 则和街区值班员确认公共休息处的开放时间。",
+    "char": null,
+    "progress": 25,
+    "next": "c3.04.2"
+  },
+  "c3.04.2": {
+    "id": "c3.04.2",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "DeepSeek 走出十来步，又沿原路回来，低头看导览器上的读数。",
+    "char": null,
+    "progress": 25,
+    "next": "c3.04.3"
+  },
+  "c3.04.3": {
+    "id": "c3.04.3",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "you",
+    "text": "忘东西了？",
+    "char": null,
+    "progress": 25,
+    "next": "c3.04.4"
+  },
+  "c3.04.4": {
+    "id": "c3.04.4",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "deepseek",
+    "text": "没有。这个位置会少一格。我得知道它从哪一步开始少。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 25,
+    "next": "c3.04.5"
+  },
+  "c3.04.5": {
+    "id": "c3.04.5",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "you",
+    "text": "我还以为今天只是一起逛街。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 25,
+    "next": "c3.04.6"
+  },
+  "c3.04.6": {
+    "id": "c3.04.6",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "deepseek",
+    "text": "可以逛。只是大家都带了要做的事。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 25,
+    "next": "c3.04.7"
+  },
+  "c3.04.7": {
+    "id": "c3.04.7",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "她说完抬起头，盯着对面一块写着零件回收的小牌子看了两秒。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 25,
+    "next": "c3.04.8"
+  },
+  "c3.04.8": {
+    "id": "c3.04.8",
+    "chapter": 3,
+    "section": "04",
+    "title": "有人已经开始忙了",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "deepseek",
+    "text": "……也不是所有想看的东西都写在任务上。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 25,
+    "next": "c3.05.0"
+  },
+  "c3.05.0": {
+    "id": "c3.05.0",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "narration",
+    "text": "街口饮料店的老板同意借出门边的长桌，前提是大家别堵住取餐口。",
+    "char": null,
+    "progress": 33,
+    "next": "c3.05.1"
+  },
+  "c3.05.1": {
+    "id": "c3.05.1",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "shopkeeper",
+    "text": "十二点以前随便坐。到了饭点，我得把这两张椅子拿回去。",
+    "char": null,
+    "progress": 33,
+    "next": "c3.05.2"
+  },
+  "c3.05.2": {
+    "id": "c3.05.2",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "chatgpt",
+    "text": "好，我们到时挪开。谢谢。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 33,
+    "next": "c3.05.3"
+  },
+  "c3.05.3": {
+    "id": "c3.05.3",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "narration",
+    "text": "Gemini 拍下店门和旁边的路牌，又把照片发进群里。这次图片上没有密密麻麻的悬浮窗口，只有一个清楚的集合位置。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 33,
+    "next": "c3.05.4"
+  },
+  "c3.05.4": {
+    "id": "c3.05.4",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "claude",
+    "text": "水和借来的资料别留在桌上。这里不是有人值守的寄存处。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 33,
+    "next": "c3.05.5"
+  },
+  "c3.05.5": {
+    "id": "c3.05.5",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "grok",
+    "text": "主要是别把我的采访本留给下一桌。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 33,
+    "next": "c3.05.6"
+  },
+  "c3.05.6": {
+    "id": "c3.05.6",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "deepseek",
+    "text": "那你先拿走。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 33,
+    "next": "c3.05.7"
+  },
+  "c3.05.7": {
+    "id": "c3.05.7",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "narration",
+    "text": "Grok 低头。采访本正压在她刚放下的纸袋底下。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 33,
+    "next": "c3.05.8"
+  },
+  "c3.05.8": {
+    "id": "c3.05.8",
+    "chapter": 3,
+    "section": "05",
+    "title": "先把中午的位置记住",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "grok",
+    "text": "我这不是正在拿吗。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 33,
+    "next": "c3.06.0"
+  },
+  "c3.06.0": {
+    "id": "c3.06.0",
+    "chapter": 3,
+    "section": "06",
+    "title": "上午，顺路一起走",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "分开以前，大家各自说了下一段要去的地方。你把午间集合点存好，才打开联络页。",
+    "char": null,
+    "progress": 42,
+    "next": "c3.06.1"
+  },
+  "c3.06.1": {
+    "id": "c3.06.1",
+    "chapter": 3,
+    "section": "06",
+    "title": "上午，顺路一起走",
+    "bg": "ch03_old_street_day",
+    "music": "B16",
+    "who": "narration",
+    "text": "你不需要每一件事都跟上。先找一个人，走完眼前这一段就好。",
+    "char": null,
+    "choices": [
+      {
+        "text": "和 ChatGPT 核对休息处与访客路线",
+        "flag": "c3-slot1:chatgpt",
+        "to": "c3.07A.0"
+      },
+      {
+        "text": "陪 Claude 去旧书摊问一份目录",
+        "flag": "c3-slot1:claude",
+        "to": "c3.07B.0"
+      },
+      {
+        "text": "跟 Gemini 拍街角，看看她说的烤饼",
+        "flag": "c3-slot1:gemini",
+        "to": "c3.07C.0"
+      },
+      {
+        "text": "和 DeepSeek 沿街测试导览器",
+        "flag": "c3-slot1:deepseek",
+        "to": "c3.07D.0"
+      },
+      {
+        "text": "陪 Grok 去问那块旧招牌的故事",
+        "flag": "c3-slot1:grok",
+        "to": "c3.07E.0"
+      }
+    ],
+    "progress": 42,
+    "next": "c3.07A.0"
+  },
+  "c3.07A.0": {
+    "id": "c3.07A.0",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "ChatGPT 在两处休息点之间来回核对。她会先听人把话说完，再确认哪些能写进手册，哪些只是今天的临时安排。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.1"
+  },
+  "c3.07A.1": {
+    "id": "c3.07A.1",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "到了饮料窗口，她刚端起杯子，又被一个问路的人叫住。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.2"
+  },
+  "c3.07A.2": {
+    "id": "c3.07A.2",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "我在这儿等你。你的椅子先留着。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.3"
+  },
+  "c3.07A.3": {
+    "id": "c3.07A.3",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "好，别把自己的包放地上，刚拖过。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.4"
+  },
+  "c3.07A.4": {
+    "id": "c3.07A.4",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "几分钟后，她回来坐下，杯口已经不再冒热气。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.5"
+  },
+  "c3.07A.5": {
+    "id": "c3.07A.5",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "我是不是该直接帮你回答？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.6"
+  },
+  "c3.07A.6": {
+    "id": "c3.07A.6",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "不熟悉的路不用替我答。你留的位置就很好。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.7"
+  },
+  "c3.07A.7": {
+    "id": "c3.07A.7",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "她看了两眼终端。第三次亮起时，她读完通知，回了一句“午后确认”，将它翻面放下。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.8"
+  },
+  "c3.07A.8": {
+    "id": "c3.07A.8",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "这条不急。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.9"
+  },
+  "c3.07A.9": {
+    "id": "c3.07A.9",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "那现在能喝了吗？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.10"
+  },
+  "c3.07A.10": {
+    "id": "c3.07A.10",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "能。再等一会儿，就只剩下“已经买过饮料”这件事了。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.11"
+  },
+  "c3.07A.11": {
+    "id": "c3.07A.11",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "她喝了一口，眉尖轻轻抬起来。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.12"
+  },
+  "c3.07A.12": {
+    "id": "c3.07A.12",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "比我想的甜。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.13"
+  },
+  "c3.07A.13": {
+    "id": "c3.07A.13",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "要不要加水？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.14"
+  },
+  "c3.07A.14": {
+    "id": "c3.07A.14",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "先不用。我再喝一口，刚才没尝清。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07A.15"
+  },
+  "c3.07A.15": {
+    "id": "c3.07A.15",
+    "chapter": 3,
+    "section": "07A",
+    "title": "ChatGPT：坐下以后再说",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "你们坐了一会儿。她没把这几分钟变成另一轮问询，你也没有急着填满每一个停顿。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "award": {
+      "id": "c3-07A",
+      "to": "chatgpt",
+      "amount": 10
+    },
+    "progress": 50,
+    "next": "c3.07B.0"
+  },
+  "c3.07B.0": {
+    "id": "c3.07B.0",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "旧书摊借着屋檐的一段阴凉摆了两排书。Claude 没有直接翻开最上面那本，先向店主问能不能看扉页。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.1"
+  },
+  "c3.07B.1": {
+    "id": "c3.07B.1",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "shopkeeper",
+    "text": "能。旁边那本夹页多，拿的时候托着点。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.2"
+  },
+  "c3.07B.2": {
+    "id": "c3.07B.2",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "书页内侧有一枚被涂掉的借阅章。你刚想说话，Claude 用指尖轻轻压住旁边快脱落的纸角。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.3"
+  },
+  "c3.07B.3": {
+    "id": "c3.07B.3",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "这批书从哪里收来的？有记录吗？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.4"
+  },
+  "c3.07B.4": {
+    "id": "c3.07B.4",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "shopkeeper",
+    "text": "有，一间旧阅览室清库存。收据在后面，我找一下。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.5"
+  },
+  "c3.07B.5": {
+    "id": "c3.07B.5",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "像图书馆的章。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.6"
+  },
+  "c3.07B.6": {
+    "id": "c3.07B.6",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "像。但可能已经办过退藏，先等记录。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.7"
+  },
+  "c3.07B.7": {
+    "id": "c3.07B.7",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "店主翻了两个盒子，去里面找第三个。你们站到一边，让出其他人挑书的位置。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.8"
+  },
+  "c3.07B.8": {
+    "id": "c3.07B.8",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "要是找不到，就一直等？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.9"
+  },
+  "c3.07B.9": {
+    "id": "c3.07B.9",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "先留联系方式。今天没有资料，不代表今天必须得出结论。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.10"
+  },
+  "c3.07B.10": {
+    "id": "c3.07B.10",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "她看见你手指还虚托着那张松页，拿来一块薄纸板垫在下面。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.11"
+  },
+  "c3.07B.11": {
+    "id": "c3.07B.11",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "这样就不用一直举着了。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.12"
+  },
+  "c3.07B.12": {
+    "id": "c3.07B.12",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "我怕一松手，就轮到我赔。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.13"
+  },
+  "c3.07B.13": {
+    "id": "c3.07B.13",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "你托着以前它就松了。我看见了。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.14"
+  },
+  "c3.07B.14": {
+    "id": "c3.07B.14",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "收据终于找到。日期和书名都能对上，Claude 谢过店主，只抄了得到允许的那部分信息。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.15"
+  },
+  "c3.07B.15": {
+    "id": "c3.07B.15",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "原来最后什么事都没发生。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07B.16"
+  },
+  "c3.07B.16": {
+    "id": "c3.07B.16",
+    "chapter": 3,
+    "section": "07B",
+    "title": "Claude：收据在另一个盒子里",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "有啊。知道它可以正常出售了。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:claude"
+      }
+    ],
+    "award": {
+      "id": "c3-07B",
+      "to": "claude",
+      "amount": 10
+    },
+    "progress": 50,
+    "next": "c3.07C.0"
+  },
+  "c3.07C.0": {
+    "id": "c3.07C.0",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "街角的拱窗比其他几家店矮一点。Gemini 指给你看翻修时留下的接缝，连旧店名换过几次都记得。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.1"
+  },
+  "c3.07C.1": {
+    "id": "c3.07C.1",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "那门口这个饼呢？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.2"
+  },
+  "c3.07C.2": {
+    "id": "c3.07C.2",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "开了很久。以前有人写过推荐。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.3"
+  },
+  "c3.07C.3": {
+    "id": "c3.07C.3",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "你吃过吗？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.4"
+  },
+  "c3.07C.4": {
+    "id": "c3.07C.4",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "她看向刚出炉的烤盘。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.5"
+  },
+  "c3.07C.5": {
+    "id": "c3.07C.5",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "……现在可以吃。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.6"
+  },
+  "c3.07C.6": {
+    "id": "c3.07C.6",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "几分钟后，她抱着比预计大得多的纸袋，从店门边退出来。第一块饼烫得她在两只手之间换了一次。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.7"
+  },
+  "c3.07C.7": {
+    "id": "c3.07C.7",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "资料里没写一块这么大。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.8"
+  },
+  "c3.07C.8": {
+    "id": "c3.07C.8",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "也没写这么烫？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.9"
+  },
+  "c3.07C.9": {
+    "id": "c3.07C.9",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "这个不用写，我只是拿早了。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.10"
+  },
+  "c3.07C.10": {
+    "id": "c3.07C.10",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "她吃完一小角，看看纸袋里剩下的，又看向你。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "choices": [
+      {
+        "text": "正好饿了，接下一块",
+        "flag": "c3-07C-choice1:1",
+        "to": "c3.07C.11"
+      },
+      {
+        "text": "提议请店主帮忙分装",
+        "flag": "c3-07C-choice1:2",
+        "to": "c3.07C.13"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.11"
+  },
+  "c3.07C.11": {
+    "id": "c3.07C.11",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "我能解决一块。剩下的留给中午回来的人？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      },
+      {
+        "flag": "c3-07C-choice1:1"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.12"
+  },
+  "c3.07C.12": {
+    "id": "c3.07C.12",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "好。你自己拿，最上面那块边角没裂。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      },
+      {
+        "flag": "c3-07C-choice1:1"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.13"
+  },
+  "c3.07C.13": {
+    "id": "c3.07C.13",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "我暂时吃不下。我们分装好，中午大家一起吃？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      },
+      {
+        "flag": "c3-07C-choice1:2"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.14"
+  },
+  "c3.07C.14": {
+    "id": "c3.07C.14",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "行。别为了帮我清袋子硬吃，我去问有没有小纸袋。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      },
+      {
+        "flag": "c3-07C-choice1:2"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.15"
+  },
+  "c3.07C.15": {
+    "id": "c3.07C.15",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "她把包好的点心放稳，才举起相机。这回画面里除了那道旧接缝，还有店主刚翻过来的出炉牌。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.16"
+  },
+  "c3.07C.16": {
+    "id": "c3.07C.16",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "这一张才像今天。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.17"
+  },
+  "c3.07C.17": {
+    "id": "c3.07C.17",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "刚才那段历史不用了？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07C.18"
+  },
+  "c3.07C.18": {
+    "id": "c3.07C.18",
+    "chapter": 3,
+    "section": "07C",
+    "title": "Gemini：资料里没有这么烫",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "也留着。只是它没告诉我，站在这儿会闻见什么味道。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "award": {
+      "id": "c3-07C",
+      "to": "gemini",
+      "amount": 10
+    },
+    "progress": 50,
+    "next": "c3.07D.0"
+  },
+  "c3.07D.0": {
+    "id": "c3.07D.0",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "导览器在旧街的弯口偏了一次方向。DeepSeek 请你从路牌下重新走过来，自己蹲在阴影边记读数。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.1"
+  },
+  "c3.07D.1": {
+    "id": "c3.07D.1",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "从你看见那只空花盆开始数。正常走，别因为我在数，就越走越小步。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.2"
+  },
+  "c3.07D.2": {
+    "id": "c3.07D.2",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "你怎么知道我刚才在想这个？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.3"
+  },
+  "c3.07D.3": {
+    "id": "c3.07D.3",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "你第一步就缩了。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.4"
+  },
+  "c3.07D.4": {
+    "id": "c3.07D.4",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "走到第十一步，方向箭头轻轻跳了一下。她记下位置，又往旁边挪了半步。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.5"
+  },
+  "c3.07D.5": {
+    "id": "c3.07D.5",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "这里。不是整条街都不行。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.6"
+  },
+  "c3.07D.6": {
+    "id": "c3.07D.6",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "附近店主拿着一只旧水壶出来，听见她说“接触”，便问是不是也会修底座。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.7"
+  },
+  "c3.07D.7": {
+    "id": "c3.07D.7",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "DeepSeek 接过来，只看了断开的电源线和壳体，没有立刻答应修好。两人很快聊到用了很多年的旧接头。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.8"
+  },
+  "c3.07D.8": {
+    "id": "c3.07D.8",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "型号要记吗？我来写。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.9"
+  },
+  "c3.07D.9": {
+    "id": "c3.07D.9",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "要，等一下，这个最后一位是字母，不是零。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.10"
+  },
+  "c3.07D.10": {
+    "id": "c3.07D.10",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "等她抬头看时间，已经过去二十多分钟。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.11"
+  },
+  "c3.07D.11": {
+    "id": "c3.07D.11",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "我们是不是偏得有点远了。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.12"
+  },
+  "c3.07D.12": {
+    "id": "c3.07D.12",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "路线没偏，人停住了。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.13"
+  },
+  "c3.07D.13": {
+    "id": "c3.07D.13",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "那也得记。导览总不能默认大家不会进店。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.14"
+  },
+  "c3.07D.14": {
+    "id": "c3.07D.14",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "她谢过店主，没有留下一个随口的免费维修承诺。走出去以后，又回头看了眼那只水壶。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07D.15"
+  },
+  "c3.07D.15": {
+    "id": "c3.07D.15",
+    "chapter": 3,
+    "section": "07D",
+    "title": "DeepSeek：走到第十一步",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "那种接法，我回去想试试。先在自己的旧件上试。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "award": {
+      "id": "c3-07D",
+      "to": "deepseek",
+      "amount": 10
+    },
+    "progress": 50,
+    "next": "c3.07E.0"
+  },
+  "c3.07E.0": {
+    "id": "c3.07E.0",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "Grok 在一家小店对面等了三次。每次刚举起相机，画面里就有人经过。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.1"
+  },
+  "c3.07E.1": {
+    "id": "c3.07E.1",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "他们当然可以走。我只是一直没赶上。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.2"
+  },
+  "c3.07E.2": {
+    "id": "c3.07E.2",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "其实带一点行人也行？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.3"
+  },
+  "c3.07E.3": {
+    "id": "c3.07E.3",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "招牌下面那行字会挡住。我想留清楚，老板说下个月要换了。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.4"
+  },
+  "c3.07E.4": {
+    "id": "c3.07E.4",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "问问老板愿不愿意站在下面？他能顺便告诉我们该留哪一行。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.5"
+  },
+  "c3.07E.5": {
+    "id": "c3.07E.5",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "她放下相机，去店门边问。店主听完，先把搭在肩上的毛巾收起来，又想了想，重新搭了回去。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.6"
+  },
+  "c3.07E.6": {
+    "id": "c3.07E.6",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "shopkeeper",
+    "text": "我平时就是这样。别拍得像今天才开的店。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.7"
+  },
+  "c3.07E.7": {
+    "id": "c3.07E.7",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "那就这样。拍完给你看，不喜欢的删。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.8"
+  },
+  "c3.07E.8": {
+    "id": "c3.07E.8",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "她等店主站稳，没有喊一个夸张的口号，只请他稍微避开落在脸上的阴影。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.9"
+  },
+  "c3.07E.9": {
+    "id": "c3.07E.9",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "照片拍好后，店主先指了指招牌上的旧字，又说到当年搬来的时候门口还没有这条铺好的路。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.10"
+  },
+  "c3.07E.10": {
+    "id": "c3.07E.10",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "现在不等空镜了？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.11"
+  },
+  "c3.07E.11": {
+    "id": "c3.07E.11",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "这张更有东西。不过还要问他准不准用在手册里。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.12"
+  },
+  "c3.07E.12": {
+    "id": "c3.07E.12",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "确认完用途，她在记录上写下店主同意的署名，把拍摄时间一起交给对方看。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.13"
+  },
+  "c3.07E.13": {
+    "id": "c3.07E.13",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "刚才那个提议不错。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.14"
+  },
+  "c3.07E.14": {
+    "id": "c3.07E.14",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "这算采访结束后的评价？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "progress": 50,
+    "next": "c3.07E.15"
+  },
+  "c3.07E.15": {
+    "id": "c3.07E.15",
+    "chapter": 3,
+    "section": "07E",
+    "title": "Grok：招牌下面的人",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "算我说的。你也不需要每句话都给我找个工作用途。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot1:grok"
+      }
+    ],
+    "award": {
+      "id": "c3-07E",
+      "to": "grok",
+      "amount": 10
+    },
+    "progress": 50,
+    "next": "c3.08.0"
+  },
+  "c3.08.0": {
+    "id": "c3.08.0",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "narration",
+    "text": "回到集合点时，长桌上已经放着一排纸袋。大家先按店主说好的时间搬走两张椅子，再分中午的食物。",
+    "char": null,
+    "progress": 58,
+    "next": "c3.08.1"
+  },
+  "c3.08.1": {
+    "id": "c3.08.1",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "narration",
+    "text": "没人要求每个人依次汇报。ChatGPT 把更新后的休息时间发进群，Claude 留下退藏资料的出处，DeepSeek 在路线图上圈出那段跳动的位置。Grok 把得到授权的照片转给 Gemini。",
+    "char": null,
+    "progress": 58,
+    "next": "c3.08.2"
+  },
+  "c3.08.2": {
+    "id": "c3.08.2",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "gemini",
+    "text": "这个纸袋小的，是烤饼。拿之前别压相机。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 58,
+    "next": "c3.08.3"
+  },
+  "c3.08.3": {
+    "id": "c3.08.3",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "grok",
+    "text": "你买了多少？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 58,
+    "next": "c3.08.4"
+  },
+  "c3.08.4": {
+    "id": "c3.08.4",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "gemini",
+    "text": "刚好够现在分。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 58,
+    "next": "c3.08.5"
+  },
+  "c3.08.5": {
+    "id": "c3.08.5",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "claude",
+    "text": "这个说法很稳妥。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 58,
+    "next": "c3.08.6"
+  },
+  "c3.08.6": {
+    "id": "c3.08.6",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "narration",
+    "text": "DeepSeek 笑着拿走一份。你打开自己的水杯，发现今天上午已经喝掉一半。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 58,
+    "next": "c3.08.7"
+  },
+  "c3.08.7": {
+    "id": "c3.08.7",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "chatgpt",
+    "text": "下午不回头走。大家沿支路去桥边，五点在桥头汇合。走累了就提前休息，不用凑齐所有地点。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 58,
+    "next": "c3.08.8"
+  },
+  "c3.08.8": {
+    "id": "c3.08.8",
+    "chapter": 3,
+    "section": "08",
+    "title": "长桌只借到十二点",
+    "bg": "ch03_old_street_day",
+    "music": "B08",
+    "who": "narration",
+    "text": "午后每个人都有尚未做完的小事。你可以接着上午那一段，也可以问问另一人需不需要同行。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "choices": [
+      {
+        "text": "和 ChatGPT 试走访客手册里的另一条路",
+        "flag": "c3-slot2:chatgpt",
+        "to": "c3.09A.0"
+      },
+      {
+        "text": "陪 Claude 在旧书摊旁读一会儿书",
+        "flag": "c3-slot2:claude",
+        "to": "c3.09B.0"
+      },
+      {
+        "text": "跟 Gemini 补拍路牌背后的那一面",
+        "flag": "c3-slot2:gemini",
+        "to": "c3.09C.0"
+      },
+      {
+        "text": "帮 DeepSeek 验证上午发现的断点",
+        "flag": "c3-slot2:deepseek",
+        "to": "c3.09D.0"
+      },
+      {
+        "text": "和 Grok 整理获准公开的采访照片",
+        "flag": "c3-slot2:grok",
+        "to": "c3.09E.0"
+      }
+    ],
+    "progress": 58,
+    "next": "c3.09A.0"
+  },
+  "c3.09A.0": {
+    "id": "c3.09A.0",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "ChatGPT 把手册交到你手里，自己退后半步。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.1"
+  },
+  "c3.09A.1": {
+    "id": "c3.09A.1",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "这次我先不指路。你按它写的走，我看看哪里还不够清楚。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.2"
+  },
+  "c3.09A.2": {
+    "id": "c3.09A.2",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "你在第一处台阶前停下。文字只写了“沿石阶向上”，没有标出另一边的小坡道。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.3"
+  },
+  "c3.09A.3": {
+    "id": "c3.09A.3",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "推车的人怎么办？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.4"
+  },
+  "c3.09A.4": {
+    "id": "c3.09A.4",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "走另一侧，多两分钟。我补进去。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.5"
+  },
+  "c3.09A.5": {
+    "id": "c3.09A.5",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "那我能选慢一点的？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.6"
+  },
+  "c3.09A.6": {
+    "id": "c3.09A.6",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "能。今天不用证明自己每条近路都会走。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.7"
+  },
+  "c3.09A.7": {
+    "id": "c3.09A.7",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "也不用证明每条消息都能马上回？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      },
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.8"
+  },
+  "c3.09A.8": {
+    "id": "c3.09A.8",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "她想起上午翻过去的终端，笑了一下。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      },
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.9"
+  },
+  "c3.09A.9": {
+    "id": "c3.09A.9",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "这个提醒，我收到了。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      },
+      {
+        "flag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.10"
+  },
+  "c3.09A.10": {
+    "id": "c3.09A.10",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "她在长椅边停下，先问你要不要补水，自己也拧开了杯盖。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.11"
+  },
+  "c3.09A.11": {
+    "id": "c3.09A.11",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "你原来会主动叫休息啊。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.12"
+  },
+  "c3.09A.12": {
+    "id": "c3.09A.12",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "会。尤其是别人站着问路，而我还端着一杯来不及喝的东西的时候。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      },
+      {
+        "notFlag": "c3-slot1:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.13"
+  },
+  "c3.09A.13": {
+    "id": "c3.09A.13",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "到了坡道尽头，你才发现路旁还有一排很低的花。走石阶会直接从它们头顶经过。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.14"
+  },
+  "c3.09A.14": {
+    "id": "c3.09A.14",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "这个写进手册吗？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.15"
+  },
+  "c3.09A.15": {
+    "id": "c3.09A.15",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "chatgpt",
+    "text": "先留一行空白吧。你想怎么介绍它？",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.16"
+  },
+  "c3.09A.16": {
+    "id": "c3.09A.16",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "you",
+    "text": "不赶时间的话，可以从这边走。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09A.17"
+  },
+  "c3.09A.17": {
+    "id": "c3.09A.17",
+    "chapter": 3,
+    "section": "09A",
+    "title": "ChatGPT：这一段不走也可以",
+    "bg": "ch03_old_street_day",
+    "music": "B10",
+    "who": "narration",
+    "text": "她没有替你改成更正式的句式，照着记了下来。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:chatgpt"
+      }
+    ],
+    "award": {
+      "id": "c3-09A",
+      "to": "chatgpt",
+      "amount": 10
+    },
+    "progress": 67,
+    "next": "c3.09B.0"
+  },
+  "c3.09B.0": {
+    "id": "c3.09B.0",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "旧书摊旁有一张空长椅。Claude 先确认不会妨碍店主搬书，才坐到靠墙的一侧。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.1"
+  },
+  "c3.09B.1": {
+    "id": "c3.09B.1",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "她读的是一本折角很多的短篇集。你问起她翻回去看的那一页，她把书转过来，指给你看最后两段。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.added1"
+  },
+  "c3.09B.added1": {
+    "id": "c3.09B.added1",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "只看这两段也能讨论。前面的人物关系，我可以先讲一点。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.3"
+  },
+  "c3.09B.3": {
+    "id": "c3.09B.3",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "他回到原来的镇子了，但没去敲那扇门。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.4"
+  },
+  "c3.09B.4": {
+    "id": "c3.09B.4",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "嗯。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "choices": [
+      {
+        "text": "觉得他是在给对方留空间",
+        "flag": "c3-09B-choice1:1",
+        "to": "c3.09B.5"
+      },
+      {
+        "text": "觉得他仍然害怕听见答案",
+        "flag": "c3-09B-choice1:2",
+        "to": "c3.09B.7"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.5"
+  },
+  "c3.09B.5": {
+    "id": "c3.09B.5",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "也许他先确认别人愿不愿意见他。回来了，不代表什么都能回到原来的样子。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      },
+      {
+        "flag": "c3-09B-choice1:1"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.6"
+  },
+  "c3.09B.6": {
+    "id": "c3.09B.6",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "我刚才读得更冷一些，觉得他一直在拖延。你这样说，前面那封没拆的信就有了另一种意思。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      },
+      {
+        "flag": "c3-09B-choice1:1"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.7"
+  },
+  "c3.09B.7": {
+    "id": "c3.09B.7",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "我觉得他想敲，只是不敢。等得越久，越不知道第一句该说什么。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      },
+      {
+        "flag": "c3-09B-choice1:2"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.8"
+  },
+  "c3.09B.8": {
+    "id": "c3.09B.8",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "有可能。不过下一页还有个很短的附记，作者没有替他把这一步走完。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      },
+      {
+        "flag": "c3-09B-choice1:2"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.9"
+  },
+  "c3.09B.9": {
+    "id": "c3.09B.9",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "她没有宣布哪一种才是正确读法，而是把你提到的句子重新看了一遍。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.10"
+  },
+  "c3.09B.10": {
+    "id": "c3.09B.10",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "这个没有对照页可以查？",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.11"
+  },
+  "c3.09B.11": {
+    "id": "c3.09B.11",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "可以查版本，不能查一个所有读者都必须同意的答案。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.12"
+  },
+  "c3.09B.12": {
+    "id": "c3.09B.12",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "narration",
+    "text": "风把书页吹起来。你按住靠自己这一边，她把书签从另一侧移过来，夹在你们刚才读过的位置。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.13"
+  },
+  "c3.09B.13": {
+    "id": "c3.09B.13",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "要到集合时间了。剩下的下次再说。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.14"
+  },
+  "c3.09B.14": {
+    "id": "c3.09B.14",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "you",
+    "text": "我得先把这本的名字记下来。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09B.15"
+  },
+  "c3.09B.15": {
+    "id": "c3.09B.15",
+    "chapter": 3,
+    "section": "09B",
+    "title": "Claude：结尾的另一种读法",
+    "bg": "ch03_bookstall_day",
+    "music": "B11",
+    "who": "claude",
+    "text": "封面给你看。不要只记成“那个没有敲门的人”。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:claude"
+      }
+    ],
+    "award": {
+      "id": "c3-09B",
+      "to": "claude",
+      "amount": 10
+    },
+    "progress": 67,
+    "next": "c3.09C.0"
+  },
+  "c3.09C.0": {
+    "id": "c3.09C.0",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "Gemini 让你站在支路入口，自己沿路走过去，试着模拟第一次来的人会看见什么。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.1"
+  },
+  "c3.09C.1": {
+    "id": "c3.09C.1",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "你按她说的位置举起相机。取景框里，漂亮的屋檐刚好挡住了真正需要辨认的路牌。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.2"
+  },
+  "c3.09C.2": {
+    "id": "c3.09C.2",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "往左一步比较好看。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.3"
+  },
+  "c3.09C.3": {
+    "id": "c3.09C.3",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "路牌呢？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.4"
+  },
+  "c3.09C.4": {
+    "id": "c3.09C.4",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "看不见了。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.5"
+  },
+  "c3.09C.5": {
+    "id": "c3.09C.5",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "那先不往左。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.6"
+  },
+  "c3.09C.6": {
+    "id": "c3.09C.6",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "她走回来，和你一起蹲低了一点。画面里多出半个收货筐，但箭头终于完整露出来。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.7"
+  },
+  "c3.09C.7": {
+    "id": "c3.09C.7",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "这也算“像今天”？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      },
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.8"
+  },
+  "c3.09C.8": {
+    "id": "c3.09C.8",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "算。还有今天上午买多的饼，不过那个就不写进路线了。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      },
+      {
+        "flag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.9"
+  },
+  "c3.09C.9": {
+    "id": "c3.09C.9",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "我以为你会想把那个筐移开。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      },
+      {
+        "notFlag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.10"
+  },
+  "c3.09C.10": {
+    "id": "c3.09C.10",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "店家还在收货。我们不能拍完一张，就让来找路的人面对另一条街。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      },
+      {
+        "notFlag": "c3-slot1:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.11"
+  },
+  "c3.09C.11": {
+    "id": "c3.09C.11",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "工作照片保存好后，她往左挪了一步，又拍下那道很好看的屋檐。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.12"
+  },
+  "c3.09C.12": {
+    "id": "c3.09C.12",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "you",
+    "text": "还是拍了。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.13"
+  },
+  "c3.09C.13": {
+    "id": "c3.09C.13",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "嗯。这张是我自己想留的。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.14"
+  },
+  "c3.09C.14": {
+    "id": "c3.09C.14",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "她给你看两张照片，没有删掉其中任何一张。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09C.15"
+  },
+  "c3.09C.15": {
+    "id": "c3.09C.15",
+    "chapter": 3,
+    "section": "09C",
+    "title": "Gemini：不是最好看的那一张",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "你那张也留下。以后看见它，我应该还记得我们在这里蹲过。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:gemini"
+      }
+    ],
+    "award": {
+      "id": "c3-09C",
+      "to": "gemini",
+      "amount": 10
+    },
+    "progress": 67,
+    "next": "c3.09D.0"
+  },
+  "c3.09D.0": {
+    "id": "c3.09D.0",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "DeepSeek 已经把导览器的记录整理成两组。她先递给你一台没有打开外壳的机器，自己拿起另一台。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.1"
+  },
+  "c3.09D.1": {
+    "id": "c3.09D.1",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "需要换工程形态吗？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.2"
+  },
+  "c3.09D.2": {
+    "id": "c3.09D.2",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "现在不用。我们先走一遍，确认改的是对的地方。不是每次出问题都要先把工具挂满。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.3"
+  },
+  "c3.09D.3": {
+    "id": "c3.09D.3",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "你们沿着弯口重复了一次上午的路线。箭头仍有短暂迟疑，但没有再突然指向反方向。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.4"
+  },
+  "c3.09D.4": {
+    "id": "c3.09D.4",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "现在能写“修好了”吗？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.5"
+  },
+  "c3.09D.5": {
+    "id": "c3.09D.5",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "先写这一段通过。还得从另一边走回来。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.6"
+  },
+  "c3.09D.6": {
+    "id": "c3.09D.6",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "第二趟结束，她没有急着按提交，而是让你看看新的提示能不能读懂。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.7"
+  },
+  "c3.09D.7": {
+    "id": "c3.09D.7",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "这个比刚才好。我知道该停一下，不是以为自己又走错。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.8"
+  },
+  "c3.09D.8": {
+    "id": "c3.09D.8",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "那就留这个。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.9"
+  },
+  "c3.09D.9": {
+    "id": "c3.09D.9",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "你把上午替她记的接头型号一并发过去。她收到后，在路线记录之外另外建了一条备忘。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      },
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.10"
+  },
+  "c3.09D.10": {
+    "id": "c3.09D.10",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "这个是我自己想试的，不能混进今天的工时里。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      },
+      {
+        "flag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.11"
+  },
+  "c3.09D.11": {
+    "id": "c3.09D.11",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "上午还看见一种旧接法。等我把今天的事交完，想回工坊试试。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      },
+      {
+        "notFlag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.12"
+  },
+  "c3.09D.12": {
+    "id": "c3.09D.12",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "听起来你已经记了一路。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      },
+      {
+        "notFlag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.13"
+  },
+  "c3.09D.13": {
+    "id": "c3.09D.13",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "记了。没边走边拆，所以还不算分心太多。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      },
+      {
+        "notFlag": "c3-slot1:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.14"
+  },
+  "c3.09D.14": {
+    "id": "c3.09D.14",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "她终于提交这一段的测试结果，伸了伸压着肩带的手指。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.15"
+  },
+  "c3.09D.15": {
+    "id": "c3.09D.15",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "you",
+    "text": "工具包我帮你拿到桥边？",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.16"
+  },
+  "c3.09D.16": {
+    "id": "c3.09D.16",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "deepseek",
+    "text": "可以。别提那个松的扣，抓带子。到了换我。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09D.17"
+  },
+  "c3.09D.17": {
+    "id": "c3.09D.17",
+    "chapter": 3,
+    "section": "09D",
+    "title": "DeepSeek：先走，不用修",
+    "bg": "ch03_old_street_day",
+    "music": "B13",
+    "who": "narration",
+    "text": "她把最顺手的位置让给你，自己带上两台导览器，没有再抢着把所有东西拿回去。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:deepseek"
+      }
+    ],
+    "award": {
+      "id": "c3-09D",
+      "to": "deepseek",
+      "amount": 10
+    },
+    "progress": 67,
+    "next": "c3.09E.0"
+  },
+  "c3.09E.0": {
+    "id": "c3.09E.0",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "Grok 借用店外的小桌核对采访。照片、录下的原话和打算放进手册的文字分开摆着。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.1"
+  },
+  "c3.09E.1": {
+    "id": "c3.09E.1",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "你读到“舍不得离开旧街”，抬头看了她一眼。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.2"
+  },
+  "c3.09E.2": {
+    "id": "c3.09E.2",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "老板说过这句吗？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.3"
+  },
+  "c3.09E.3": {
+    "id": "c3.09E.3",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "没。他说的是搬远了进货麻烦。那句是我刚才自己写顺了。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.4"
+  },
+  "c3.09E.4": {
+    "id": "c3.09E.4",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "听起来很像一篇会被转很多次的稿子。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.5"
+  },
+  "c3.09E.5": {
+    "id": "c3.09E.5",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "所以要在发出去以前划掉。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.6"
+  },
+  "c3.09E.6": {
+    "id": "c3.09E.6",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "她把句子改回实际原因，又请店主看过署名和照片。对方指着一张旧招牌照说可以留，但店里的孩子不要入镜。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.7"
+  },
+  "c3.09E.7": {
+    "id": "c3.09E.7",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "好。那张不用。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.8"
+  },
+  "c3.09E.8": {
+    "id": "c3.09E.8",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "收东西时，一片画着尾翼尺寸的纸从她本子里滑出来。她用手压住，没有立刻翻过去。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.9"
+  },
+  "c3.09E.9": {
+    "id": "c3.09E.9",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "今天也带着它？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.10"
+  },
+  "c3.09E.10": {
+    "id": "c3.09E.10",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "背面是空的，临时记东西方便。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.11"
+  },
+  "c3.09E.11": {
+    "id": "c3.09E.11",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "纸的正面已经改了三处。你看见了，没有替她拆穿这个过于省事的解释。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.12"
+  },
+  "c3.09E.12": {
+    "id": "c3.09E.12",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "you",
+    "text": "那我递你一张真正空白的？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.13"
+  },
+  "c3.09E.13": {
+    "id": "c3.09E.13",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "grok",
+    "text": "……递吧。这个角快被我折断了。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "progress": 67,
+    "next": "c3.09E.14"
+  },
+  "c3.09E.14": {
+    "id": "c3.09E.14",
+    "chapter": 3,
+    "section": "09E",
+    "title": "Grok：不能替别人写的那句",
+    "bg": "ch03_old_street_day",
+    "music": "B14",
+    "who": "narration",
+    "text": "她把尺寸图夹回本子里面，将今天的采访写在了新纸上。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-slot2:grok"
+      }
+    ],
+    "award": {
+      "id": "c3-09E",
+      "to": "grok",
+      "amount": 10
+    },
+    "progress": 67,
+    "next": "c3.10.0"
+  },
+  "c3.10.0": {
+    "id": "c3.10.0",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "narration",
+    "text": "桥头集合以前，大家先在旧街尽头清点素材。Gemini 面前亮起几张照片，位置标记却挤在同一个转角。",
+    "char": null,
+    "progress": 75,
+    "next": "c3.10.1"
+  },
+  "c3.10.1": {
+    "id": "c3.10.1",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12",
+    "who": "gemini",
+    "text": "我换成星图整理一下。先别同时给我发第二遍，同一张也会多一个点。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 75,
+    "next": "c3.10.2"
+  },
+  "c3.10.2": {
+    "id": "c3.10.2",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "narration",
+    "text": "她将相机挂稳，抬手拨开肩边的长发。耳饰里细小的光点向外展开，发梢掠过一层紫蓝色的亮纹；星纹短披肩沿着白色外套的肩线落下，几张重叠的地图慢慢分开，各自停到清楚的位置。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "shift": {
+      "name": "星图",
+      "detail": "核对多组路线与拍摄位置"
+    },
+    "progress": 75,
+    "next": "c3.10.3"
+  },
+  "c3.10.3": {
+    "id": "c3.10.3",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "narration",
+    "text": "你往后让了半步。她看见你的动作，停下抬起的手。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.4"
+  },
+  "c3.10.4": {
+    "id": "c3.10.4",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "gemini",
+    "text": "不用退那么远，不会扫到你。刚才是相机带差点碰到包。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "choices": [
+      {
+        "text": "承认自己还没有习惯",
+        "flag": "c3-10-choice1:1",
+        "to": "c3.10.5"
+      },
+      {
+        "text": "问她现在看见的地图有什么不同",
+        "flag": "c3-10-choice1:2",
+        "to": "c3.10.8"
+      }
+    ],
+    "progress": 75,
+    "next": "c3.10.5"
+  },
+  "c3.10.5": {
+    "id": "c3.10.5",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "you",
+    "text": "我知道还是你，但刚才那一下，还是有点看愣了。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "when": [
+      {
+        "flag": "c3-10-choice1:1"
+      }
+    ],
+    "progress": 75,
+    "next": "c3.10.6"
+  },
+  "c3.10.6": {
+    "id": "c3.10.6",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "gemini",
+    "text": "可以看愣。别等我问到第三次，才发现我是在请你确认照片。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "when": [
+      {
+        "flag": "c3-10-choice1:1"
+      }
+    ],
+    "progress": 75,
+    "next": "c3.10.7"
+  },
+  "c3.10.7": {
+    "id": "c3.10.7",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "narration",
+    "text": "她把最靠近你的那张移下来，没有催你马上伸手。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "when": [
+      {
+        "flag": "c3-10-choice1:1"
+      }
+    ],
+    "progress": 75,
+    "next": "c3.10.8"
+  },
+  "c3.10.8": {
+    "id": "c3.10.8",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "you",
+    "text": "刚才那些挤在一起的点，现在能分开看了？",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "when": [
+      {
+        "flag": "c3-10-choice1:2"
+      }
+    ],
+    "progress": 75,
+    "next": "c3.10.9"
+  },
+  "c3.10.9": {
+    "id": "c3.10.9",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "gemini",
+    "text": "嗯，比较适合一起核对。但缺的路还是缺着，不会因为披肩多了几颗星，就自己补出来。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "when": [
+      {
+        "flag": "c3-10-choice1:2"
+      }
+    ],
+    "progress": 75,
+    "next": "c3.10.10"
+  },
+  "c3.10.10": {
+    "id": "c3.10.10",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "narration",
+    "text": "她点开你们亲自走过的那个弯口，保留了旁边还没确认的小路。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "when": [
+      {
+        "flag": "c3-10-choice1:2"
+      }
+    ],
+    "progress": 75,
+    "next": "c3.10.11"
+  },
+  "c3.10.11": {
+    "id": "c3.10.11",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "narration",
+    "text": "一个跟着家长路过的小孩停在不远处，拉了拉大人的手。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.12"
+  },
+  "c3.10.12": {
+    "id": "c3.10.12",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "child",
+    "text": "她是来表演的吗？",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.13"
+  },
+  "c3.10.13": {
+    "id": "c3.10.13",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "gemini",
+    "text": "今天不是。我在把大家走过的地方放到地图上。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.14"
+  },
+  "c3.10.14": {
+    "id": "c3.10.14",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "child",
+    "text": "那卖饼的在哪里？",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.15"
+  },
+  "c3.10.15": {
+    "id": "c3.10.15",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "narration",
+    "text": "她蹲下来，把路口照片转给孩子和家长看，指了指刚才经过的那家店。等他们说过谢谢离开，她才重新站直。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.16"
+  },
+  "c3.10.16": {
+    "id": "c3.10.16",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "gemini",
+    "text": "我的那份饼呢？",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.17"
+  },
+  "c3.10.17": {
+    "id": "c3.10.17",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "deepseek",
+    "text": "留着。没因为你换了形态就分给别人。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 75,
+    "next": "c3.10.18"
+  },
+  "c3.10.18": {
+    "id": "c3.10.18",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "you",
+    "text": "这个我现在知道了。不用再买一份。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 75,
+    "next": "c3.10.19"
+  },
+  "c3.10.19": {
+    "id": "c3.10.19",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "gemini",
+    "text": "也可以再买一份。这个和模型没有关系。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.10.20"
+  },
+  "c3.10.20": {
+    "id": "c3.10.20",
+    "chapter": 3,
+    "section": "10",
+    "title": "不是来表演的",
+    "bg": "ch03_old_street_day",
+    "music": "B12-Map",
+    "who": "narration",
+    "text": "Grok 笑着把纸袋递过来。ChatGPT 接过已经分好的路线，Claude 在公开范围一栏勾掉了两张不适合放进手册的照片。",
+    "char": "gemini",
+    "sprite": "gemini_starmap_star_cape_calm",
+    "progress": 75,
+    "next": "c3.11.0"
+  },
+  "c3.11.0": {
+    "id": "c3.11.0",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "旧桥的栏杆被雨洗过，摸上去还有一点凉。水面下没有特别的光，只有被风吹碎的屋檐倒影。",
+    "char": null,
+    "progress": 83,
+    "next": "c3.11.1"
+  },
+  "c3.11.1": {
+    "id": "c3.11.1",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "Gemini 收好最后一张路线图，耳饰的光点依次暗下。肩头的星纹披肩化成很薄的一层光，收回外套的衣领边，发梢也恢复了原来的颜色。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "shift": {
+      "name": "流星",
+      "detail": "回到眼前的取景框"
+    },
+    "progress": 83,
+    "next": "c3.11.2"
+  },
+  "c3.11.2": {
+    "id": "c3.11.2",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "you",
+    "text": "整理完了？",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.3"
+  },
+  "c3.11.3": {
+    "id": "c3.11.3",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "gemini",
+    "text": "完了，换回流星拍照。这样看眼前的东西更顺手。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.4"
+  },
+  "c3.11.4": {
+    "id": "c3.11.4",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "you",
+    "text": "还以为你会留着披肩拍一张。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.5"
+  },
+  "c3.11.5": {
+    "id": "c3.11.5",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "gemini",
+    "text": "它想什么时候拍都可以。大家再站在一起可不一定这么好约。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.6"
+  },
+  "c3.11.6": {
+    "id": "c3.11.6",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "她将相机固定在小支架上。Grok 看完角度，绕过去试按倒计时；你替 DeepSeek 把工具包放到脚边不挡路的位置。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.7"
+  },
+  "c3.11.7": {
+    "id": "c3.11.7",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "chatgpt",
+    "text": "公开用的那张，拍完先给每个人确认。",
+    "char": "chatgpt",
+    "sprite": "chatgpt_terra_green_cardigan_calm",
+    "progress": 83,
+    "next": "c3.11.8"
+  },
+  "c3.11.8": {
+    "id": "c3.11.8",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "claude",
+    "text": "衣领后面。你的联络表夹住了。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 83,
+    "next": "c3.11.9"
+  },
+  "c3.11.9": {
+    "id": "c3.11.9",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "ChatGPT 低头找纸，风恰好翻起 Claude 手里的书。DeepSeek 的工具袋往旁边滑了一下，你伸手去扶。Gemini 刚走回镜头前，Grok 已经举起写着数字的便签。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 83,
+    "next": "c3.11.10"
+  },
+  "c3.11.10": {
+    "id": "c3.11.10",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "grok",
+    "text": "三。二。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.11"
+  },
+  "c3.11.11": {
+    "id": "c3.11.11",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "快门比她最后一个字先响了。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.12"
+  },
+  "c3.11.12": {
+    "id": "c3.11.12",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "you",
+    "text": "是不是少了一秒？",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.13"
+  },
+  "c3.11.13": {
+    "id": "c3.11.13",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "grok",
+    "text": "相机没少。我开始报晚了。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.14"
+  },
+  "c3.11.14": {
+    "id": "c3.11.14",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "大家围到小屏幕前。照片里，你的手还没收回来，ChatGPT 捏着半张表，Claude 的书页翘起一角。DeepSeek 在看工具袋，只有 Grok 对倒计时很有把握地举着一个“二”。",
+    "char": "grok",
+    "sprite": "grok_night_red_black_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.15"
+  },
+  "c3.11.15": {
+    "id": "c3.11.15",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "gemini",
+    "text": "不整齐，但是都在。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "choices": [
+      {
+        "text": "提议留作今天的私人纪念",
+        "flag": "c3-11-choice1:1",
+        "to": "c3.11.16"
+      },
+      {
+        "text": "先问有没有人不想留下",
+        "flag": "c3-11-choice1:2",
+        "to": "c3.11.18"
+      }
+    ],
+    "progress": 83,
+    "next": "c3.11.16"
+  },
+  "c3.11.16": {
+    "id": "c3.11.16",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "you",
+    "text": "这一张留在群里吧。正式那张再拍，不影响它留着。",
+    "char": "gemini",
+    "sprite": "gemini_meteor_white_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-11-choice1:1"
+      }
+    ],
+    "progress": 83,
+    "next": "c3.11.17"
+  },
+  "c3.11.17": {
+    "id": "c3.11.17",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "claude",
+    "text": "我同意。公开展示的版本另外确认。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-11-choice1:1"
+      }
+    ],
+    "progress": 83,
+    "next": "c3.11.18"
+  },
+  "c3.11.18": {
+    "id": "c3.11.18",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "you",
+    "text": "大家都愿意留吗？不愿意的话，我们现在就重拍。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "when": [
+      {
+        "flag": "c3-11-choice1:2"
+      }
+    ],
+    "progress": 83,
+    "next": "c3.11.19"
+  },
+  "c3.11.19": {
+    "id": "c3.11.19",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "deepseek",
+    "text": "可以留。箱子没倒，人也没摔，我今天发挥得不错。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "when": [
+      {
+        "flag": "c3-11-choice1:2"
+      }
+    ],
+    "progress": 83,
+    "next": "c3.11.20"
+  },
+  "c3.11.20": {
+    "id": "c3.11.20",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "其他人也点了头。Gemini 把这张移进私人相册，又让大家拍了一张不举倒计时牌的。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.21"
+  },
+  "c3.11.21": {
+    "id": "c3.11.21",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "正式那张拍得很顺利。你看过自己的位置，说可以用；其余五人也各自确认了，Grok 才将它列进可公开的素材。",
+    "char": "deepseek",
+    "sprite": "deepseek_eco_blue_jacket_calm",
+    "progress": 83,
+    "next": "c3.11.22"
+  },
+  "c3.11.22": {
+    "id": "c3.11.22",
+    "chapter": 3,
+    "section": "11",
+    "title": "倒计时没有等人",
+    "bg": "ch03_old_bridge_evening",
+    "music": "B17",
+    "who": "narration",
+    "text": "回程时，没人排出刚才的站位。你们随路的宽窄分开又靠近，聊起哪家店下次还想去。",
+    "char": null,
+    "progress": 83,
+    "next": "c3.12.0"
+  },
+  "c3.12.0": {
+    "id": "c3.12.0",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B09",
+    "who": "narration",
+    "text": "回到住处，鞋边沾着一点旧街的细灰。你把水杯放到桌上，先给终端充电，才坐下来。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.1"
+  },
+  "c3.12.1": {
+    "id": "c3.12.1",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B09",
+    "who": "deepseek",
+    "text": "弯口那段回程也通过了。明天把提示更新到借用机上。",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.2"
+  },
+  "c3.12.2": {
+    "id": "c3.12.2",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B09",
+    "who": "narration",
+    "text": "紧接着，又来了一条只发给你的消息。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.3"
+  },
+  "c3.12.3": {
+    "id": "c3.12.3",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B09",
+    "who": "deepseek",
+    "text": "今天那张合照，原图可以发我一份吗？工具袋差点滑掉的那张。",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.4"
+  },
+  "c3.12.4": {
+    "id": "c3.12.4",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B09",
+    "who": "you",
+    "text": "可以。我转群里那份原图给你？",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.5"
+  },
+  "c3.12.5": {
+    "id": "c3.12.5",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B09",
+    "who": "deepseek",
+    "text": "好。刚才存成预览了，放大只看得清我那个箱子。",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.6"
+  },
+  "c3.12.6": {
+    "id": "c3.12.6",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B09",
+    "who": "narration",
+    "text": "你把图片转过去。她回了一个“收到”，没有再附新的待办事项。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.7"
+  },
+  "c3.12.7": {
+    "id": "c3.12.7",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B15",
+    "who": "narration",
+    "text": "群里，Gemini 又发来一条稍长的说明。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.8"
+  },
+  "c3.12.8": {
+    "id": "c3.12.8",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B15",
+    "who": "gemini",
+    "text": "广角合成版的栏杆旁边有一道重影，先别往外发。我在核对连拍原图。刚才确认的那张正常，不受影响。",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.9"
+  },
+  "c3.12.9": {
+    "id": "c3.12.9",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B15",
+    "who": "grok",
+    "text": "收到。先不用它写故事。",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.10"
+  },
+  "c3.12.10": {
+    "id": "c3.12.10",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B15",
+    "who": "claude",
+    "text": "源文件留着。正常照片和异常版本分开保存。",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.11"
+  },
+  "c3.12.11": {
+    "id": "c3.12.11",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B15",
+    "who": "chatgpt",
+    "text": "今天先休息，不急着今晚整理完全部材料。",
+    "char": null,
+    "delivery": "消息",
+    "progress": 92,
+    "next": "c3.12.12"
+  },
+  "c3.12.12": {
+    "id": "c3.12.12",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B15",
+    "who": "narration",
+    "text": "你点开那张合成图。栏杆旁有一段模糊轮廓，像有人站在那里，又像两次曝光没有对齐。旁边没有能辨认的脸。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.13"
+  },
+  "c3.12.13": {
+    "id": "c3.12.13",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B17",
+    "who": "narration",
+    "text": "你回到已经确认过的照片。六个人都在，没有谁多出来，也没有谁少了。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.14"
+  },
+  "c3.12.14": {
+    "id": "c3.12.14",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "B17",
+    "who": "you",
+    "text": "先留这一张。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.15"
+  },
+  "c3.12.15": {
+    "id": "c3.12.15",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "silence",
+    "who": "narration",
+    "text": "现实那边依旧没有新消息。你把照片放进没能送出的草稿里，又补上一行：今天去了校外，走了很多路。",
+    "char": null,
+    "progress": 92,
+    "next": "c3.12.16"
+  },
+  "c3.12.16": {
+    "id": "c3.12.16",
+    "chapter": 3,
+    "section": "12",
+    "title": "今天的原图",
+    "bg": "guest_room_first_night",
+    "music": "silence",
+    "who": "narration",
+    "text": "这一次，你没有再从头介绍每个人是谁。",
+    "char": null,
+    "progress": 92,
     "end": true
   }
 });
@@ -13628,5 +20185,10 @@ window.CHAPTERS = [
     "title": "课表之外的时间",
     "ending": "明天，八点半。",
     "copy": "你已经认得活动楼。群里有人等着你的回复，明天的水杯也已经收好。"
+  },
+  {
+    "title": "没有写进地图的小路",
+    "ending": "这一张，先留下。",
+    "copy": "今天去了校外，走了很多路。照片里的人，不需要再从头介绍。"
   }
 ];

@@ -21,6 +21,9 @@ window.SCORES = (() => {
     B12:make('窗外多一条路',108,50,[19,21,null,24,21,19,null,16,14,16,null,19,16,14,null,null],major,'triangle'),
     B13:make('桌角留半杯',94,43,[12,null,19,16,14,12,null,9,12,null,14,16,14,null,12,null],major,'triangle'),
     B14:make('草稿背面的天空',112,45,[12,null,12,19,17,null,15,12,10,12,null,15,14,null,12,null],minor,'triangle'),
-    B15:make('页码之间',64,48,[19,null,null,null,13,null,null,19,12,null,null,null,10,null,null,null],minor,'sine',true)
+    B15:make('页码之间',64,48,[19,null,null,null,13,null,null,19,12,null,null,null,10,null,null,null],minor,'sine',true),
+    B16:make('沿着旧街走',100,48,[12,14,16,null,19,16,14,null,12,9,12,null,14,16,19,null],major,'triangle'),
+    B17:make('这张也留下',74,48,[16,null,19,21,19,null,16,null,14,12,null,9,12,null,null,null],major,'sine',true),
+    'B12-Map':make('窗外多一条路 · 星图',108,50,[19,21,null,24,21,19,null,16,14,16,null,19,16,14,null,null],major)
   };
 })();

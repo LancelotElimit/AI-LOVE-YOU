@@ -25,3 +25,13 @@ window.SCENES = (() => {
   };
 })();
 
+// Reuse supplied illustrations while keeping the prologue's location labels and save IDs.
+for (const [scene,file] of Object.entries({
+  room:'bg_guest_room_first_night.png',
+  transit:'bg_outer_ring_repair_bay_day.png',
+  campus:'bg_campus_inner_road_morning.png'
+})) {
+  const image=`assets/scene/bg/${file}`;
+  Object.assign(window.SCENES[scene],{image,art:`<img class="scene-image" src="${image}" alt="" draggable="false">`});
+}
+

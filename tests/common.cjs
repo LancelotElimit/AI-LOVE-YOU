@@ -29,7 +29,7 @@ for (const node of Object.values(STORY)) {
 for (const witness of cast) for(const morning of cast) for(const afternoon of cast) for(const answer of [0,1]) {
   const state=fresh(witness).state;let id='c1.01.0',steps=0,slots=0;
   while(id) {
-    assert.ok(++steps<1500,'Traversal loop');const node=STORY[id];
+    assert.ok(++steps<1500,'Traversal loop');const node=STORY[id];if(node.chapter>2)break;
     if (!eligible(node,state)){id=node.next;continue;}
     covered.add(id);
     if(node.award&&!state.flags.includes(`award:${node.award.id}`)){state.affinity[node.award.to]+=node.award.amount;state.flags.push(`award:${node.award.id}`);}
@@ -41,7 +41,7 @@ for (const witness of cast) for(const morning of cast) for(const afternoon of ca
   assert.equal(slots,2);assert.equal(state.route,witness);
   for(const heroine of cast) assert.equal(state.affinity[heroine],10*Number(heroine===morning)+10*Number(heroine===afternoon));
 }
-const commonNodes=Object.values(STORY).filter(n=>n.chapter);
+const commonNodes=Object.values(STORY).filter(n=>n.chapter&&n.chapter<=2);
 assert.equal(covered.size,commonNodes.length,'Every common passage must be reachable across legitimate choices');
 const cgs=[...new Set([...covered].map(id=>STORY[id].bg).filter(bg=>SCENES[bg].cg))];
 assert.equal(cgs.length,12);
@@ -75,7 +75,7 @@ async function readState(page){return page.evaluate(key=>JSON.parse(localStorage
         let slots=0;const chapters=[];
         for(let i=0;i<1000;i++) {
           const save=JSON.parse(localStorage.getItem(key+'.autosave')).state;
-          if(save.finished){chapters.push(STORY[save.node].chapter);const next=document.querySelector('#end-continue');if(next){next.click();continue;}return {save,slots,chapters};}
+          if(save.finished){const chapter=STORY[save.node].chapter;chapters.push(chapter);const next=document.querySelector('#end-continue');if(next&&chapter<2){next.click();continue;}return {save,slots,chapters};}
           const choices=[...document.querySelectorAll('#choices button')];
           if(!document.querySelector('#choices').classList.contains('hidden')) choices[choices.length===5?(++slots===1?morning:afternoon):answer].click();
           else document.querySelector('#advance').click();
@@ -84,7 +84,7 @@ async function readState(page){return page.evaluate(key=>JSON.parse(localStorage
       assert.deepEqual(result.chapters,[1,2]);assert.equal(result.slots,2);assert.equal(result.save.route,'deepseek');
       for(let i=0;i<cast.length;i++)assert.equal(result.save.affinity[cast[i]],10*Number(i===morning)+10*Number(i===afternoon));
       assert.ok(result.save.history.some(h=>h.who==='attendant'));
-      await page.reload();await page.locator('#title-continue').click();assert.ok(await page.locator('#ending').isVisible());assert.equal(await page.locator('#end-continue').count(),0);
+      await page.reload();await page.locator('#title-continue').click();assert.ok(await page.locator('#ending').isVisible());assert.equal(await page.locator('#end-continue').count(),1);
     }
     fs.mkdirSync(path.join(root,'qa'),{recursive:true});
     const shots = [

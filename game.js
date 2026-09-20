@@ -14,7 +14,8 @@
   let isTyping=false,auto=false,skipping=false,fullText='',characterId=undefined,characterSprite=undefined,currentBg=null;
   let soundEngine=null;
   let dialogueHidden=false,titleTimer,titleIndex=0;
-  const titlePictures=['chatgpt_tea_break','deepseek_delivery_done','gemini_greenhouse_camera','grok_rocket_alignment'];
+  const titlePictures=['chatgpt_tea_break','claude_book_by_window','deepseek_delivery_done','gemini_greenhouse_camera','grok_rocket_alignment'];
+  let spriteRequest=0;
   function startTitleSlideshow(){
     clearInterval(titleTimer);
     if(document.hidden)return;
@@ -175,11 +176,12 @@
     const sprite=node.sprite||'default';
     if(characterId!==cid||characterSprite!==sprite){
       characterId=cid;characterSprite=sprite;
-      const img=$('character');$('character-wrap').classList.toggle('empty',!cid);
+      const img=$('character'),request=++spriteRequest;img.hidden=true;$('character-wrap').classList.toggle('empty',!cid);
       if(cid){
         const filename=spriteFile(cid,sprite);
         img.src=`assets/${cid}/${filename}`;
         img.alt=`${CAST[cid].name} ${sprite==='default'?'默认':sprite}表情立绘`;
+        img.decode().then(()=>{if(request===spriteRequest)img.hidden=false;}).catch(()=>{});
       }else{img.removeAttribute('src');img.alt='';}
     }
     $('game').classList.toggle('has-character',!!cid);$('game').classList.toggle('portal-active',!!node.portal);
@@ -256,7 +258,7 @@
     $('setting-motion').addEventListener('change',e=>{settings.reduceMotion=e.target.checked;applySettings();});
     bind('restart-button',()=>confirmRestart());bind('about-button',showAbout);
   }
-  function showAbout(){openModal('AI Love You',`<div class="about"><p>序章 · 未登记的来访者<br>第一章 · 名字写在临时证上<br>第二章 · 课表之外的时间</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>人物、组织与能力均为虚构改编。</p><p>角色、背景与插画由你提供。音乐为本地合成的原创暂定配乐；图标使用 Lucide（ISC）。</p></div>`,'COMMON ROUTE');}
+  function showAbout(){openModal('AI Love You',`<div class="about"><p>序章 · 未登记的来访者<br>第一章 · 名字写在临时证上<br>第二章 · 课表之外的时间<br>第三章 · 没有写进地图的小路</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>人物、组织与能力均为虚构改编。</p><p>角色、背景与插画由你提供。音乐为本地合成的原创暂定配乐；图标使用 Lucide（ISC）。</p></div>`,'COMMON ROUTE');}
   function showRelationships(){
     const rows=Object.keys(ROUTE_LINES).map(id=>{
       const value=state.affinity[id],status=value>=40?'逐渐亲近':value>=20?'多了一点熟悉':value>=10?'开始了解':value>0?'记住了彼此':'初识';
@@ -299,7 +301,7 @@
     stopTimers();stopPlayback();state.finished=true;persist();$('choices').classList.add('hidden');$('game').classList.remove('choosing');$('game').classList.add('ended');$('dialogue-area').classList.add('hidden');
     const chapter=current().chapter||0,info=chapterInfo(),next=current().continueTo;
     const witness=CAST[state.route]?.name||'未选择';
-    $('ending').innerHTML=`<span class="eyebrow">${chapter?'CHAPTER '+chapter:'PROLOGUE'} / COMPLETE</span><h2>${info.ending}</h2><p class="end-copy">${info.copy}</p><div class="end-stats"><div><small>同行见证人</small><strong>${witness}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div></div><div class="end-rule"></div><p class="end-teaser">${next?'下一章 · '+window.CHAPTERS[STORY[next].chapter].title:'第三章 · 采风的约定'}</p><div class="modal-actions">${next?'<button class="modal-button primary" id="end-continue"><i data-lucide="arrow-right"></i>继续故事</button>':''}<button class="modal-button" id="end-save"><i data-lucide="save"></i>保存旅程</button>${chapter===0?'<button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button>':''}<button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">${next?'共同篇 · 未锁定个人路线':'第二章完 · 后续章节待续'}</p>`;
+    $('ending').innerHTML=`<span class="eyebrow">${chapter?'CHAPTER '+chapter:'PROLOGUE'} / COMPLETE</span><h2>${info.ending}</h2><p class="end-copy">${info.copy}</p><div class="end-stats"><div><small>同行见证人</small><strong>${witness}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div></div><div class="end-rule"></div><p class="end-teaser">${next?'下一章 · '+window.CHAPTERS[STORY[next].chapter].title:'共同篇 · 未完待续'}</p><div class="modal-actions">${next?'<button class="modal-button primary" id="end-continue"><i data-lucide="arrow-right"></i>继续故事</button>':''}<button class="modal-button" id="end-save"><i data-lucide="save"></i>保存旅程</button>${chapter===0?'<button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button>':''}<button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">${next?'共同篇 · 未锁定个人路线':`第${['','一','二','三'][chapter]||chapter}章完 · 后续章节待续`}</p>`;
     $('ending').classList.remove('hidden');bind('end-save',()=>showSaves('save'));bind('end-history',showHistory);
     if(chapter===0)bind('end-replay',()=>confirmRestart('arrival.0'));
     if(next)bind('end-continue',()=>{state.finished=false;enter(next);activateAudio();$('advance').focus({preventScroll:true});});
