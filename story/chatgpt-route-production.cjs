@@ -35,7 +35,7 @@ module.exports={
     '08':{initial:{bg:'student_office_noon',sprite:terra,music:'B02'},cues:[
       cue('切换成 Sol 的白色工装',{sprite:sol}),
       cue('第一轮演练失败了',{music:'B19'}),
-      cue('直到夜里所有人离开',{bg:'gpt_borrow_shoulder',cg:true,music:'B05'}),
+      cue('门关上，椅子却拉了两次才坐进去',{bg:'gpt_borrow_shoulder',cg:true,music:'B05'}),
       cue('今天来找你的事，原本就是约会',{music:'B23'})
     ]},
     '09':{initial:{bg:'gpt_root_hall',sprite:'chatgpt_sol_white_workwear_calm',music:'B20'},cues:[
@@ -49,7 +49,7 @@ module.exports={
     '10':{initial:{bg:'gpt_root_hall',sprite:sol,music:'B20'},cues:[
       cue('从 Sol 切换到 Astra',{sprite:astra}),
       cue('来自世界初生时的接口第一次全部向她开放',{music:'B28'}),
-      cue('那一刻你明白，陪她不是每次都答应她多撑一会儿',{music:'B20'}),
+      cue('你已经把计时器打开',{music:'B20'}),
       cue('七十三秒时',{bg:'gpt_disconnect',cg:true,music:'B18'}),
       cue('白披风收拢，完整根权限关闭',{bg:'gpt_root_hall',cg:false,sprite:'chatgpt_terra_white_dress_tired',music:'B08'}),
       cue('游戏社的田还亮着',{bg:'gpt_game_night',music:'B10'}),

@@ -30,7 +30,7 @@ module.exports={
       cue('第三次通话',{bg:'cl_real_dawn',cg:false,music:'B15'})
     ]},
     '09':{initial:{bg:'cl_crossworld_call',cg:true,sprite:calm,music:'B24'},cues:[
-      cue('那份看似完整的旧记录',{music:'B05'}),
+      cue('她说这句话时没有看你',{music:'B05'}),
       cue('另一个频道传来一份旧计划',{bg:'cl_real_dawn',cg:false,music:'B15'}),
       cue('我不接受独自留在控制端',{bg:'cl_crossworld_call',cg:true,music:'B11'}),
       cue('旧世界的时间参数',{bg:'cl_crossworld_call',cg:true,music:'B24'}),

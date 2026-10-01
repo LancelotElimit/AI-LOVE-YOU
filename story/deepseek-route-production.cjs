@@ -32,7 +32,7 @@ module.exports={
     ]},
     '09':{initial:{bg:'deepsea_workshop_day',sprite:hesitant,music:'B02'},cues:[
       cue('周末，公司第一次',{bg:'ds_workshop_evening',sprite:eco,music:'B13'}),
-      cue('现在我可以喜欢你',{sprite:shy,music:'B23'})
+      cue('现在我可以喜欢你了吧',{sprite:shy,music:'B23'})
     ]},
     '10':{initial:{bg:'ds_workshop_evening',sprite:eco,music:'B02'},cues:[]},
     'END-GOOD':{initial:{bg:'deepsea_workshop_day',sprite:'deepseek_engineer_white_apron_happy',music:'B18'},cues:[

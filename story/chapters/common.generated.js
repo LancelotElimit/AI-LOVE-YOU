@@ -2310,17 +2310,17 @@ Object.assign(window.STORY, {
     "text": "会客室的窗户开了一半。风把窗边几张空白表格掀起一角，又落下。",
     "char": null,
     "progress": 18,
-    "next": "c1.03.1"
+    "next": "c1.03.added1"
   },
-  "c1.03.1": {
-    "id": "c1.03.1",
+  "c1.03.added1": {
+    "id": "c1.03.added1",
     "chapter": 1,
     "section": "03",
     "title": "把记得的说出来",
     "bg": "inquiry_room_day",
     "music": "B02",
     "who": "narration",
-    "text": "桌上没有隔着人的高挡板。靠你这一侧放着水杯，旁边是一张写着“需要暂停时请告知”的纸。",
+    "text": "靠你这一侧放着水杯，旁边是一张写着“需要暂停时请告知”的纸。你原本准备站着解释，见到椅子反而不知道该先坐还是先报名字。",
     "char": null,
     "progress": 18,
     "next": "c1.03.2"
@@ -2683,17 +2683,17 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 18,
-    "next": "c1.03.27"
+    "next": "c1.03.added2"
   },
-  "c1.03.27": {
-    "id": "c1.03.27",
+  "c1.03.added2": {
+    "id": "c1.03.added2",
     "chapter": 1,
     "section": "03",
     "title": "把记得的说出来",
     "bg": "inquiry_room_day",
     "music": "B02",
     "who": "narration",
-    "text": "房间里没有人笑。Claude 偶尔问一句时间或顺序，ChatGPT 则把你提到的几个地点记在另一张纸上。",
+    "text": "你说完“屏幕像水”便停住了，等着有人问你是不是做梦。Claude 却只问那时房间还亮不亮。你回想起桌上的台灯，才发现自己还能记起那么多小事。",
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 18,
@@ -2978,17 +2978,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 18,
-    "next": "c1.03.44"
+    "next": "c1.03.added3"
   },
-  "c1.03.44": {
-    "id": "c1.03.44",
+  "c1.03.added3": {
+    "id": "c1.03.added3",
     "chapter": 1,
     "section": "03",
     "title": "把记得的说出来",
     "bg": "inquiry_room_day",
     "music": "B02",
     "who": "narration",
-    "text": "她划去刚才的推定值，没有催你给出一个更整齐的答案。",
+    "text": "她划去刚才的推定值。你本来已经准备好说“大概五分钟”，见她真的留下空白，便把那句猜测咽了回去。",
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "when": [
@@ -3162,17 +3162,17 @@ Object.assign(window.STORY, {
     "char": "chatgpt",
     "sprite": "chatgpt_terra_white_dress_calm",
     "progress": 27,
-    "next": "c1.04.9"
+    "next": "c1.04.added1"
   },
-  "c1.04.9": {
-    "id": "c1.04.9",
+  "c1.04.added1": {
+    "id": "c1.04.added1",
     "chapter": 1,
     "section": "04",
     "title": "没有发件人的消息",
     "bg": "inquiry_room_day",
     "music": "silence",
     "who": "narration",
-    "text": "两人对视了一眼，没有交换一个让你看不懂的暗号。ChatGPT 只是将来访安排往后翻了一页。",
+    "text": "两人对视了一眼。你立刻坐直，以为她们知道消息是谁发的；ChatGPT 接下来问的，却还是你的手机有没有响过。你只好把视线从她们脸上移开。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_white_dress_calm",
     "progress": 27,
@@ -3348,17 +3348,17 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 27,
-    "next": "c1.04.20"
+    "next": "c1.04.added2"
   },
-  "c1.04.20": {
-    "id": "c1.04.20",
+  "c1.04.added2": {
+    "id": "c1.04.added2",
     "chapter": 1,
     "section": "04",
     "title": "没有发件人的消息",
     "bg": "inquiry_room_day",
     "music": "silence",
     "who": "claude",
-    "text": "目前没有足够信息判断指谁。",
+    "text": "你有想到谁吗？",
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 27,
@@ -3376,17 +3376,17 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 27,
-    "next": "c1.04.22"
+    "next": "c1.04.added3"
   },
-  "c1.04.22": {
-    "id": "c1.04.22",
+  "c1.04.added3": {
+    "id": "c1.04.added3",
     "chapter": 1,
     "section": "04",
     "title": "没有发件人的消息",
     "bg": "inquiry_room_day",
     "music": "silence",
     "who": "claude",
-    "text": "所以更不能随便填一个。",
+    "text": "先都记着。现在挑一个名字，后面反而容易只往她身上找。",
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 27,
@@ -3762,17 +3762,17 @@ Object.assign(window.STORY, {
     "text": "你可以先喝水。她要看一会儿。",
     "char": null,
     "progress": 36,
-    "next": "c1.05.26"
+    "next": "c1.05.added1"
   },
-  "c1.05.26": {
-    "id": "c1.05.26",
+  "c1.05.added1": {
+    "id": "c1.05.added1",
     "chapter": 1,
     "section": "05",
     "title": "刚才那个你",
     "bg": "inquiry_room_day",
     "music": "B10-Sol",
     "who": "narration",
-    "text": "你坐回去。ChatGPT 的视线已经落到申请材料上，她没有因为换了形态，就立刻知道所有答案。",
+    "text": "你坐回去。ChatGPT 的视线已经落到申请材料上，同一页来回翻了三次。你盯着她袖口，直到 Claude 将水杯往你这边推，才发现自己已经看了太久。",
     "char": "chatgpt",
     "sprite": "chatgpt_sol_white_workwear_focused",
     "progress": 36,
@@ -4165,17 +4165,17 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
-    "next": "c1.07.added7"
+    "next": "c1.07.added8"
   },
-  "c1.07.added7": {
-    "id": "c1.07.added7",
+  "c1.07.added8": {
+    "id": "c1.07.added8",
     "chapter": 1,
     "section": "07",
     "title": "这次只指，不按",
     "bg": "outer_ring_repair_bay_day",
     "music": "B03",
     "who": "deepseek",
-    "text": "找得到故障，不代表找得到刚放下的东西。这个没有一起改好。",
+    "text": "我平时放右边的……这条围裙口袋怎么又在左边。",
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
@@ -4384,17 +4384,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 55,
-    "next": "c1.07.14"
+    "next": "c1.07.added9"
   },
-  "c1.07.14": {
-    "id": "c1.07.14",
+  "c1.07.added9": {
+    "id": "c1.07.added9",
     "chapter": 1,
     "section": "07",
     "title": "这次只指，不按",
     "bg": "outer_ring_repair_bay_day",
     "music": "B03",
     "who": "deepseek",
-    "text": "骂了也不会少一次。先找。",
+    "text": "你刚才已经被吓过了。先找，我还有别的机器要交。",
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
@@ -4535,17 +4535,17 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
-    "next": "c1.07.23"
+    "next": "c1.07.added10"
   },
-  "c1.07.23": {
-    "id": "c1.07.23",
+  "c1.07.added10": {
+    "id": "c1.07.added10",
     "chapter": 1,
     "section": "07",
     "title": "这次只指，不按",
     "bg": "outer_ring_repair_bay_day",
     "music": "B03",
     "who": "deepseek",
-    "text": "陌生机器都这样。我第一次去你们那边，可能也会找不到开关。",
+    "text": "那你先看我做一次。下次再遇到这个提示，至少知道先找记录。",
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 55,
@@ -5080,17 +5080,17 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 64,
-    "next": "c1.08.21"
+    "next": "c1.08.added6"
   },
-  "c1.08.21": {
-    "id": "c1.08.21",
+  "c1.08.added6": {
+    "id": "c1.08.added6",
     "chapter": 1,
     "section": "08",
     "title": "EX-001",
     "bg": "inquiry_room_day",
     "music": "B02",
     "who": "narration",
-    "text": "你握着卡，点了点头。这不是你最想听到的答案，但至少不是一个随口给出的保证。",
+    "text": "你握着卡，想再问一句“多久”。她刚才已经说不知道，再问大概也不会变快。你把卡放进口袋，又摸了一下，怕它像原来的学生证一样不见。",
     "char": "claude",
     "sprite": "claude_sonnet_book_dress_calm",
     "progress": 64,
@@ -5575,17 +5575,17 @@ Object.assign(window.STORY, {
     "text": "EX-001。",
     "char": null,
     "progress": 82,
-    "next": "c1.10.5"
+    "next": "c1.10.added1"
   },
-  "c1.10.5": {
-    "id": "c1.10.5",
+  "c1.10.added1": {
+    "id": "c1.10.added1",
     "chapter": 1,
     "section": "10",
     "title": "今晚有一扇能打开的门",
     "bg": "ch01_temporary_id_at_desk",
     "music": "B05",
     "who": "narration",
-    "text": "念出这个号码，并没有让你忽然变得像这里的学生。",
+    "text": "卡片放在桌上，和领来的校园图很相配。你的手机却不相配，旧宿舍那张壁纸一亮，刚才勉强安定下来的心又往下沉。",
     "char": null,
     "progress": 82,
     "next": "c1.10.6"
@@ -5666,17 +5666,17 @@ Object.assign(window.STORY, {
     "text": "窗外有人在楼下叫室友，声音从一头传到另一头。更远的地方，教学楼一层层熄了灯。",
     "char": null,
     "progress": 82,
-    "next": "c1.10.12"
+    "next": "c1.10.added2"
   },
-  "c1.10.12": {
-    "id": "c1.10.12",
+  "c1.10.added2": {
+    "id": "c1.10.added2",
     "chapter": 1,
     "section": "10",
     "title": "今晚有一扇能打开的门",
     "bg": "ch01_unsent_message_night",
     "music": "silence",
     "who": "narration",
-    "text": "你没有立刻睡着。过了很久，手指才从手机边缘松开。",
+    "text": "你把铃声音量调到最大，怕睡着时错过回信。过了一会儿，又确认了充电线。屏幕还是那句发送失败，你却一直没舍得关机。",
     "char": null,
     "progress": 82,
     "next": "c1.11.0"
@@ -5823,17 +5823,17 @@ Object.assign(window.STORY, {
     "text": "墙上没有宿舍的课程表，床边也没有那张被椅背磨破的海报。你躺了一会儿，直到楼下传来推车经过的声音，才伸手去拿手机。",
     "char": null,
     "progress": 0,
-    "next": "c2.01.2"
+    "next": "c2.01.added1"
   },
-  "c2.01.2": {
-    "id": "c2.01.2",
+  "c2.01.added1": {
+    "id": "c2.01.added1",
     "chapter": 2,
     "section": "01",
     "title": "早餐售罄",
     "bg": "guest_room_morning",
     "music": "silence",
     "who": "narration",
-    "text": "昨晚的消息没有发出去。",
+    "text": "昨晚的消息没有发出去。你先看了日期，再看时间。这里是早上，原来的宿舍现在该亮着还是暗着，你算了半天也没算出来。",
     "char": null,
     "progress": 0,
     "next": "c2.01.3"
@@ -6192,17 +6192,17 @@ Object.assign(window.STORY, {
     "text": "材料在课程页。老师一般上课才放，别急。",
     "char": null,
     "progress": 8,
-    "next": "c2.02.9"
+    "next": "c2.02.added1"
   },
-  "c2.02.9": {
-    "id": "c2.02.9",
+  "c2.02.added1": {
+    "id": "c2.02.added1",
     "chapter": 2,
     "section": "02",
     "title": "先问椅子有没有人",
     "bg": "public_classroom_day",
     "music": "silence",
     "who": "narration",
-    "text": "对方说完继续补自己的笔记，没有问你是不是新闻里那个访客。",
+    "text": "对方说完继续补自己的笔记。你已经想好“是，我就是那个访客”该怎么说，等了片刻才发现，人家根本没打算问。",
     "char": null,
     "progress": 8,
     "next": "c2.02.10"
@@ -6619,17 +6619,17 @@ Object.assign(window.STORY, {
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
-    "next": "c2.03.18"
+    "next": "c2.03.added1"
   },
-  "c2.03.18": {
-    "id": "c2.03.18",
+  "c2.03.added1": {
+    "id": "c2.03.added1",
     "chapter": 2,
     "section": "03",
     "title": "玻璃后面的女孩",
     "bg": "observation_greenhouse_day",
     "music": "B12",
     "who": "gemini",
-    "text": "也不算。至少帮我确认它还在误导人。",
+    "text": "……展览是看不了。你要不先进来看看？只是别拍，那边还堆着没拆的箱子。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
@@ -6901,17 +6901,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 17,
-    "next": "c2.03.33"
+    "next": "c2.03.added2"
   },
-  "c2.03.33": {
-    "id": "c2.03.33",
+  "c2.03.added2": {
+    "id": "c2.03.added2",
     "chapter": 2,
     "section": "03",
     "title": "玻璃后面的女孩",
     "bg": "observation_greenhouse_day",
     "music": "B12",
     "who": "narration",
-    "text": "她把刚拍的照片放大，挑掉一张焦点不稳的，又重新摆正相机。",
+    "text": "她翻回先前拍的照片，挑掉一张焦点不稳的，又重新摆正相机。你往旁边挪了挪，才发现那架梯子只有一只脚垫着纸板。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
@@ -7249,17 +7249,17 @@ Object.assign(window.STORY, {
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
-    "next": "c2.03A.18"
+    "next": "c2.03A.added1"
   },
-  "c2.03A.18": {
-    "id": "c2.03A.18",
+  "c2.03A.added1": {
+    "id": "c2.03A.added1",
     "chapter": 2,
     "section": "03A",
     "title": "旧楼的下课铃",
     "bg": "ch02_unmapped_school_hall",
     "music": "B12",
     "who": "gemini",
-    "text": "有。但这块门锁今天换过。我没有亲手推过它，就把“知道”当成了“来过”。",
+    "text": "有啊，所以我刚才还觉得不可能错。早知道先看你那张图的年份了。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
@@ -7305,17 +7305,17 @@ Object.assign(window.STORY, {
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
-    "next": "c2.03A.22"
+    "next": "c2.03A.added2"
   },
-  "c2.03A.22": {
-    "id": "c2.03A.22",
+  "c2.03A.added2": {
+    "id": "c2.03A.added2",
     "chapter": 2,
     "section": "03A",
     "title": "旧楼的下课铃",
     "bg": "ch02_unmapped_school_hall",
     "music": "B12",
     "who": "gemini",
-    "text": "适合下课以后来。这个区别要写清楚。",
+    "text": "你才第二天，就开始挑地方了？先把今天的课找对吧。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
@@ -7333,17 +7333,17 @@ Object.assign(window.STORY, {
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
-    "next": "c2.03A.24"
+    "next": "c2.03A.added3"
   },
-  "c2.03A.24": {
-    "id": "c2.03A.24",
+  "c2.03A.added3": {
+    "id": "c2.03A.added3",
     "chapter": 2,
     "section": "03A",
     "title": "旧楼的下课铃",
     "bg": "ch02_unmapped_school_hall",
     "music": "B12",
     "who": "gemini",
-    "text": "这次从你看得见的位置走。",
+    "text": "跟上。你要是再进错一栋，我今天就别想拍照了。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
@@ -7562,17 +7562,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 25,
-    "next": "c2.04.14"
+    "next": "c2.04.added1"
   },
-  "c2.04.14": {
-    "id": "c2.04.14",
+  "c2.04.added1": {
+    "id": "c2.04.added1",
     "chapter": 2,
     "section": "04",
     "title": "没有登出去的标题",
     "bg": "newsroom_afternoon",
     "music": "B14",
     "who": "grok",
-    "text": "不用因为这个答应下面的问题。",
+    "text": "先别谢，我还有事想问。你不想答就直说。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -7854,17 +7854,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 25,
-    "next": "c2.04.29"
+    "next": "c2.04.added2"
   },
-  "c2.04.29": {
-    "id": "c2.04.29",
+  "c2.04.added2": {
+    "id": "c2.04.added2",
     "chapter": 2,
     "section": "04",
     "title": "没有登出去的标题",
     "bg": "newsroom_afternoon",
     "music": "B14",
     "who": "grok",
-    "text": "不会。校园里还不至于只剩你一件事。",
+    "text": "不会。本来今天就要写开放日。那家伙只是觉得你的事好起标题。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -8226,17 +8226,17 @@ Object.assign(window.STORY, {
     "text": "于是回来种土豆？",
     "char": null,
     "progress": 25,
-    "next": "c2.04A.17"
+    "next": "c2.04A.added1"
   },
-  "c2.04A.17": {
-    "id": "c2.04A.17",
+  "c2.04A.added1": {
+    "id": "c2.04A.added1",
     "chapter": 2,
     "section": "04A",
     "title": "今天不打末影龙",
     "bg": "ch02_chatgpt_potato_farm",
     "music": "B10",
     "who": "chatgpt",
-    "text": "种一排能看见一排。不会突然告诉我，刚才都不算。",
+    "text": "嗯。收起来，放好，再种。这个我现在比较想做。",
     "char": null,
     "progress": 25,
     "next": "c2.04A.18"
@@ -8291,17 +8291,17 @@ Object.assign(window.STORY, {
     "text": "……我不是在阻止你放火把。",
     "char": null,
     "progress": 25,
-    "next": "c2.04A.22"
+    "next": "c2.04A.added2"
   },
-  "c2.04A.22": {
-    "id": "c2.04A.22",
+  "c2.04A.added2": {
+    "id": "c2.04A.added2",
     "chapter": 2,
     "section": "04A",
     "title": "今天不打末影龙",
     "bg": "ch02_chatgpt_potato_farm",
     "music": "B10",
     "who": "you",
-    "text": "我知道。现在这一根还在。",
+    "text": "隔壁的声音。你看，我还没放下去呢。",
     "char": null,
     "progress": 25,
     "next": "c2.04A.23"
@@ -8343,17 +8343,17 @@ Object.assign(window.STORY, {
     "text": "明天的呢？",
     "char": null,
     "progress": 25,
-    "next": "c2.04A.26"
+    "next": "c2.04A.added3"
   },
-  "c2.04A.26": {
-    "id": "c2.04A.26",
+  "c2.04A.added3": {
+    "id": "c2.04A.added3",
     "chapter": 2,
     "section": "04A",
     "title": "今天不打末影龙",
     "bg": "ch02_chatgpt_potato_farm",
     "music": "B10",
     "who": "chatgpt",
-    "text": "明天再问你。别把答应一次，当成必须一直在。",
+    "text": "明天我可能还来。你呢，下午有课吗？",
     "char": null,
     "progress": 25,
     "next": "c2.04A.27"
@@ -8500,17 +8500,17 @@ Object.assign(window.STORY, {
     "text": "昨天认识的几个人各有事情。有人在学生会整理申请，有人在图书馆值班，观测部的拍摄还没结束，工坊要采购，报社要校稿。",
     "char": null,
     "progress": 42,
-    "next": "c2.06.3"
+    "next": "c2.06.added1"
   },
-  "c2.06.3": {
-    "id": "c2.06.3",
+  "c2.06.added1": {
+    "id": "c2.06.added1",
     "chapter": 2,
     "section": "06",
     "title": "第三天，没有排满的时间",
     "bg": "campus_inner_road_morning",
     "music": "B06",
     "who": "narration",
-    "text": "你可以发消息问一声，也可以去她们公开办事的地方看看。不需要把每一次过去都写成正式的求助申请。",
+    "text": "你打开输入框，写了“请问现在方便吗”，又觉得像是要办什么大事。删到只剩“上午有空吗”，光标闪了几次，你还是没发出去。",
     "char": null,
     "choices": [
       {
@@ -8635,17 +8635,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07A.added5"
+    "next": "c2.07A.added1"
   },
-  "c2.07A.added5": {
-    "id": "c2.07A.added5",
+  "c2.07A.added1": {
+    "id": "c2.07A.added1",
     "chapter": 2,
     "section": "07A",
     "title": "ChatGPT：十分钟的椅子",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "chatgpt",
-    "text": "那先记住这件外套。窗边有点冷，所以穿了它。",
+    "text": "我总不能每天穿同一件吧。这件暖和一点，窗口那边漏风。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -8813,7 +8813,7 @@ Object.assign(window.STORY, {
       {
         "text": "问她是否想安静一会儿",
         "flag": "c2-07A-choice1:2",
-        "to": "c2.07A.14"
+        "to": "c2.07A.added7"
       }
     ],
     "progress": 50,
@@ -8922,17 +8922,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07A.14"
+    "next": "c2.07A.added7"
   },
-  "c2.07A.14": {
-    "id": "c2.07A.14",
+  "c2.07A.added7": {
+    "id": "c2.07A.added7",
     "chapter": 2,
     "section": "07A",
     "title": "ChatGPT：十分钟的椅子",
     "bg": "ch02_chatgpt_tea_break",
     "music": "B10",
     "who": "you",
-    "text": "你平时一直在听人说话。现在想安静坐着吗？",
+    "text": "我没准备好半小时的故事。可以先坐着吗？",
     "char": null,
     "when": [
       {
@@ -8964,17 +8964,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07A.16"
+    "next": "c2.07A.added8"
   },
-  "c2.07A.16": {
-    "id": "c2.07A.16",
+  "c2.07A.added8": {
+    "id": "c2.07A.added8",
     "chapter": 2,
     "section": "07A",
     "title": "ChatGPT：十分钟的椅子",
     "bg": "ch02_chatgpt_tea_break",
     "music": "B10",
     "who": "narration",
-    "text": "你没有急着补上话题。窗外有人路过，拎着的纸袋蹭过栏杆，发出轻轻的沙声。",
+    "text": "你低头喝茶，喝得太早，烫了一下。她看着你把杯子放下，悄悄吹了吹自己的那杯。",
     "char": null,
     "when": [
       {
@@ -9130,17 +9130,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07A.25"
+    "next": "c2.07A.added9"
   },
-  "c2.07A.25": {
-    "id": "c2.07A.25",
+  "c2.07A.added9": {
+    "id": "c2.07A.added9",
     "chapter": 2,
     "section": "07A",
     "title": "ChatGPT：十分钟的椅子",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "chatgpt",
-    "text": "谢谢你陪我坐会儿。",
+    "text": "你刚才那个包子，有汤还是没汤的？我明早也想买。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -9154,17 +9154,17 @@ Object.assign(window.STORY, {
       "amount": 10
     },
     "progress": 50,
-    "next": "c2.07A.26"
+    "next": "c2.07A.added10"
   },
-  "c2.07A.26": {
-    "id": "c2.07A.26",
+  "c2.07A.added10": {
+    "id": "c2.07A.added10",
     "chapter": 2,
     "section": "07A",
     "title": "ChatGPT：十分钟的椅子",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "you",
-    "text": "下次争取讲完半个故事。",
+    "text": "有汤。下次连那半个故事一起补上。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -9198,17 +9198,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07A.28"
+    "next": "c2.07A.added11"
   },
-  "c2.07A.28": {
-    "id": "c2.07A.28",
+  "c2.07A.added11": {
+    "id": "c2.07A.added11",
     "chapter": 2,
     "section": "07A",
     "title": "ChatGPT：十分钟的椅子",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "you",
-    "text": "那我先走了。茶很好喝。",
+    "text": "有汤，第一口很烫。那我先走了。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -9337,17 +9337,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07B.added9"
+    "next": "c2.07B.added4"
   },
-  "c2.07B.added9": {
-    "id": "c2.07B.added9",
+  "c2.07B.added4": {
+    "id": "c2.07B.added4",
     "chapter": 2,
     "section": "07B",
     "title": "Claude：页边的字",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "claude",
-    "text": "也能看。那天需要反复核验不同材料，今天先验完这一摞，没有必要把所有处理都开着。",
+    "text": "也能看。只是今天这几本不用反复对那么多记录，这个形态轻便一点。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_focused",
     "when": [
@@ -9703,17 +9703,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07B.16"
+    "next": "c2.07B.added5"
   },
-  "c2.07B.16": {
-    "id": "c2.07B.16",
+  "c2.07B.added5": {
+    "id": "c2.07B.added5",
     "chapter": 2,
     "section": "07B",
     "title": "Claude：页边的字",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "narration",
-    "text": "你帮她把已经核对过的书放到另一侧。真正需要判断的部分仍由她处理，你没再抢着宣布答案。",
+    "text": "你帮她把已经核对过的书放到另一侧。第二本刚拿起来，你又想说“这本肯定是”，看见那个句号便停住。她抬了抬眼，没有催你。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_focused",
     "when": [
@@ -10083,17 +10083,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07C.10"
+    "next": "c2.07C.added1"
   },
-  "c2.07C.10": {
-    "id": "c2.07C.10",
+  "c2.07C.added1": {
+    "id": "c2.07C.added1",
     "chapter": 2,
     "section": "07C",
     "title": "Gemini：地图说它开着",
     "bg": "side_street_drink_shop_day",
     "music": "B12",
     "who": "gemini",
-    "text": "好。写“店主确认”，别写成我们猜的。",
+    "text": "好，我刚才忘问周末了。你顺便帮我问一句？",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -10127,17 +10127,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c2.07C.12"
+    "next": "c2.07C.added2"
   },
-  "c2.07C.12": {
-    "id": "c2.07C.12",
+  "c2.07C.added2": {
+    "id": "c2.07C.added2",
     "chapter": 2,
     "section": "07C",
     "title": "Gemini：地图说它开着",
     "bg": "side_street_drink_shop_day",
     "music": "B12",
     "who": "gemini",
-    "text": "嗯。要不然为了找旧招牌，又漏掉现在这一家。",
+    "text": "好。我还是想看旧招牌，不过先不跑那么远了。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -11624,17 +11624,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09A.added5"
+    "next": "c2.09A.added1"
   },
-  "c2.09A.added5": {
-    "id": "c2.09A.added5",
+  "c2.09A.added1": {
+    "id": "c2.09A.added1",
     "chapter": 2,
     "section": "09A",
     "title": "ChatGPT：手册上漏掉的一句",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "chatgpt",
-    "text": "衣服不用报名字。手册上写的那个还是我。",
+    "text": "你要是忘了，手册封底还有名字。不过这件外套没写进去。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -11836,17 +11836,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09A.11"
+    "next": "c2.09A.added7"
   },
-  "c2.09A.11": {
-    "id": "c2.09A.11",
+  "c2.09A.added7": {
+    "id": "c2.09A.added7",
     "chapter": 2,
     "section": "09A",
     "title": "ChatGPT：手册上漏掉的一句",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "narration",
-    "text": "你们又试了几项。你找不到的地方，她先问你会往哪里看，没有急着指正确页码。",
+    "text": "你们又试了几项。有一项她确信在住宿页，你却翻了三遍也没找到。最后她接过去看，才发现那一行在被撕下的旧版里。你们对着缺口看了一会儿，她先笑了。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -12342,17 +12342,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09B.added7"
+    "next": "c2.09B.added8"
   },
-  "c2.09B.added7": {
-    "id": "c2.09B.added7",
+  "c2.09B.added8": {
+    "id": "c2.09B.added8",
     "chapter": 2,
     "section": "09B",
     "title": "Claude：书里的人走了很久",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "claude",
-    "text": "嗯。书也不会因为我换形态，就变成另一个版本。",
+    "text": "嗯。先看书吧，你一直举着，手不酸吗？",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -13004,7 +13004,7 @@ Object.assign(window.STORY, {
       {
         "text": "先问照片会放在哪一页",
         "flag": "c2-09C-choice1:2",
-        "to": "c2.09C.8"
+        "to": "c2.09C.added1"
       }
     ],
     "progress": 67,
@@ -13052,17 +13052,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09C.8"
+    "next": "c2.09C.added1"
   },
-  "c2.09C.8": {
-    "id": "c2.09C.8",
+  "c2.09C.added1": {
+    "id": "c2.09C.added1",
     "chapter": 2,
     "section": "09C",
     "title": "Gemini：另一边的画面",
     "bg": "observatory_terrace_afternoon",
     "music": "B12",
     "who": "you",
-    "text": "这张要告诉人往哪边走，还是介绍这里是什么地方？",
+    "text": "这张放在哪一页？我有点没看懂。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -13118,17 +13118,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09C.11"
+    "next": "c2.09C.added2"
   },
-  "c2.09C.11": {
-    "id": "c2.09C.11",
+  "c2.09C.added2": {
+    "id": "c2.09C.added2",
     "chapter": 2,
     "section": "09C",
     "title": "Gemini：另一边的画面",
     "bg": "observatory_terrace_afternoon",
     "music": "B12",
     "who": "gemini",
-    "text": "好，确实应该先说用途。",
+    "text": "好。我刚才自己也选了这张，又觉得人太多。你这么说，我就不来回换了。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -13273,17 +13273,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09C.19"
+    "next": "c2.09C.added3"
   },
-  "c2.09C.19": {
-    "id": "c2.09C.19",
+  "c2.09C.added3": {
+    "id": "c2.09C.added3",
     "chapter": 2,
     "section": "09C",
     "title": "Gemini：另一边的画面",
     "bg": "observatory_terrace_afternoon",
     "music": "B12",
     "who": "narration",
-    "text": "她最后只写上了今天的日期。",
+    "text": "她最后只写上了今天的日期。你以为这就结束了，她却又把饮料那张放大，仔细看了一遍杯子旁边露出的半只手。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -13681,17 +13681,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09D.10"
+    "next": "c2.09D.added7"
   },
-  "c2.09D.10": {
-    "id": "c2.09D.10",
+  "c2.09D.added7": {
+    "id": "c2.09D.added7",
     "chapter": 2,
     "section": "09D",
     "title": "DeepSeek：交货以前，再开一次",
     "bg": "deepsea_workshop_day",
     "music": "B13",
     "who": "narration",
-    "text": "客户来取设备，DeepSeek 解释了维修的地方和使用注意，再请对方亲手试一次。你站在一旁，没有替她报价或承诺额外服务。",
+    "text": "客户来取设备，DeepSeek 解释过使用注意，再请对方亲手试一次。你差点说“还有问题尽管来”，想起她晚上还有会，赶紧改口问纸盒要不要封好。",
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "when": [
@@ -14275,17 +14275,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09E.16"
+    "next": "c2.09E.added1"
   },
-  "c2.09E.16": {
-    "id": "c2.09E.16",
+  "c2.09E.added1": {
+    "id": "c2.09E.added1",
     "chapter": 2,
     "section": "09E",
     "title": "Grok：先别给它起名字",
     "bg": "ch02_grok_rocket_alignment",
     "music": "B14",
     "who": "narration",
-    "text": "你没有催她把“更远”讲成一个动人的故事。她也没再拿玩笑把话推开。",
+    "text": "她的手指停在模型顶端。你本想接一句“那很厉害”，又觉得还没听明白，便低头看她画的回收范围。她将那张纸转了半圈，指给你看。",
     "char": null,
     "when": [
       {
@@ -14311,17 +14311,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c2.09E.18"
+    "next": "c2.09E.added2"
   },
-  "c2.09E.18": {
-    "id": "c2.09E.18",
+  "c2.09E.added2": {
+    "id": "c2.09E.added2",
     "chapter": 2,
     "section": "09E",
     "title": "Grok：先别给它起名字",
     "bg": "ch02_grok_rocket_alignment",
     "music": "B14",
     "who": "you",
-    "text": "这些失败的也留？",
+    "text": "这张也要放进去？旁边写了那么大一个“歪”。",
     "char": null,
     "when": [
       {
@@ -14795,17 +14795,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 75,
-    "next": "c2.10.3"
+    "next": "c2.10.added16"
   },
-  "c2.10.3": {
-    "id": "c2.10.3",
+  "c2.10.added16": {
+    "id": "c2.10.added16",
     "chapter": 2,
     "section": "10",
     "title": "碰头会只开了十五分钟",
     "bg": "activity_meeting_room_dusk",
     "music": "B08",
     "who": "narration",
-    "text": "她们各自抬头和你打了个招呼，没有为了你进门而停下原来的话题。",
+    "text": "你举起手想打招呼，Gemini 正好也举手要一条数据线。DeepSeek 把线递给她，你的手便顺势落在椅背上。ChatGPT 抬头看见，指了指旁边的空位。",
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 75,
@@ -15639,17 +15639,17 @@ Object.assign(window.STORY, {
     "char": null,
     "delivery": "消息",
     "progress": 92,
-    "next": "c2.12.15"
+    "next": "c2.12.added1"
   },
-  "c2.12.15": {
-    "id": "c2.12.15",
+  "c2.12.added1": {
+    "id": "c2.12.added1",
     "chapter": 2,
     "section": "12",
     "title": "群里多出来的人",
     "bg": "guest_room_rainy_night",
     "music": "B09",
     "who": "narration",
-    "text": "你笑了一下，把手机放到桌边。",
+    "text": "你笑了一下，又输入一句“我会提前到”。看见 Grok 正在输入，你想起自己今天差点走错楼，赶紧把那句删了，只留下“明天见”。",
     "char": null,
     "progress": 92,
     "next": "c2.12.16"
@@ -15690,6 +15690,19 @@ Object.assign(window.STORY, {
     "music": "B01",
     "who": "narration",
     "text": "你到活动楼门口时，终端上的时间是八点二十八分。",
+    "char": null,
+    "progress": 0,
+    "next": "c3.01.added3"
+  },
+  "c3.01.added3": {
+    "id": "c3.01.added3",
+    "chapter": 3,
+    "section": "01",
+    "title": "八点二十八分",
+    "bg": "campus_inner_road_morning",
+    "music": "B01",
+    "who": "narration",
+    "text": "比约定早两分钟，足够喘匀气，再装作自己一路都走得很从容。",
     "char": null,
     "progress": 0,
     "next": "c3.01.1"
@@ -15997,17 +16010,17 @@ Object.assign(window.STORY, {
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 8,
-    "next": "c3.02.5"
+    "next": "c3.02.added1"
   },
-  "c3.02.5": {
-    "id": "c3.02.5",
+  "c3.02.added1": {
+    "id": "c3.02.added1",
     "chapter": 3,
     "section": "02",
     "title": "从哪边看这张图",
     "bg": "campus_inner_road_morning",
     "music": "B16",
     "who": "narration",
-    "text": "她指给你看后把卡还回来，没有替你收进自己的资料袋。",
+    "text": "她指给你看后把卡还回来。你用拇指擦了擦卡角，明明没有脏，还是觉得这样能让它少出点毛病。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 8,
@@ -16067,17 +16080,17 @@ Object.assign(window.STORY, {
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 8,
-    "next": "c3.02.10"
+    "next": "c3.02.added2"
   },
-  "c3.02.10": {
-    "id": "c3.02.10",
+  "c3.02.added2": {
+    "id": "c3.02.added2",
     "chapter": 3,
     "section": "02",
     "title": "从哪边看这张图",
     "bg": "campus_inner_road_morning",
     "music": "B16",
     "who": "gemini",
-    "text": "嗯，这里应该写店名，不该只留一个箭头。",
+    "text": "你从这里看，确实会走到店后面。怪不得上回有人问我，入口是不是要翻墙。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 8,
@@ -16289,17 +16302,17 @@ Object.assign(window.STORY, {
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "progress": 17,
-    "next": "c3.03.9"
+    "next": "c3.03.added1"
   },
-  "c3.03.9": {
-    "id": "c3.03.9",
+  "c3.03.added1": {
+    "id": "c3.03.added1",
     "chapter": 3,
     "section": "03",
     "title": "不是来给街道打分",
     "bg": "ch03_old_street_day",
     "music": "B16",
     "who": "deepseek",
-    "text": "读不懂就说读不懂。别替它猜答案，我就是来找这些地方的。",
+    "text": "这两个箭头你分得开吗？我盯了一上午，现在看什么都觉得很清楚，可能不太准。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 17,
@@ -16411,17 +16424,17 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 25,
-    "next": "c3.04.8"
+    "next": "c3.04.added1"
   },
-  "c3.04.8": {
-    "id": "c3.04.8",
+  "c3.04.added1": {
+    "id": "c3.04.added1",
     "chapter": 3,
     "section": "04",
     "title": "有人已经开始忙了",
     "bg": "ch03_old_street_day",
     "music": "B16",
     "who": "deepseek",
-    "text": "……也不是所有想看的东西都写在任务上。",
+    "text": "……那家店可能有我要的接头。回来的时候进去五分钟，行吗？",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 25,
@@ -16568,17 +16581,17 @@ Object.assign(window.STORY, {
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "progress": 33,
-    "next": "c3.05.added8"
+    "next": "c3.05.added12"
   },
-  "c3.05.added8": {
-    "id": "c3.05.added8",
+  "c3.05.added12": {
+    "id": "c3.05.added12",
     "chapter": 3,
     "section": "05",
     "title": "先把中午的位置记住",
     "bg": "ch03_old_street_day",
     "music": "B08",
     "who": "chatgpt",
-    "text": "先不要公开。未经确认的异常记录，可能会把更多人卷进来。",
+    "text": "先发给我。别把他的账户截进去，这一栏还有名字。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 33,
@@ -16721,17 +16734,17 @@ Object.assign(window.STORY, {
     "text": "分开以前，大家各自说了下一段要去的地方。你把午间集合点存好，才打开联络页。",
     "char": null,
     "progress": 42,
-    "next": "c3.06.1"
+    "next": "c3.06.added1"
   },
-  "c3.06.1": {
-    "id": "c3.06.1",
+  "c3.06.added1": {
+    "id": "c3.06.added1",
     "chapter": 3,
     "section": "06",
     "title": "上午，顺路一起走",
     "bg": "ch03_old_street_day",
     "music": "B16",
     "who": "narration",
-    "text": "你不需要每一件事都跟上。先找一个人，走完眼前这一段就好。",
+    "text": "你刚想跟上 Grok，Claude 又在另一边招呼店主。站在路口犹豫了片刻，你发现两边都快走远了，只好先拿出终端问一句。",
     "char": null,
     "choices": [
       {
@@ -16951,17 +16964,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c3.07A.10"
+    "next": "c3.07A.added1"
   },
-  "c3.07A.10": {
-    "id": "c3.07A.10",
+  "c3.07A.added1": {
+    "id": "c3.07A.added1",
     "chapter": 3,
     "section": "07A",
     "title": "ChatGPT：坐下以后再说",
     "bg": "ch03_old_street_day",
     "music": "B10",
     "who": "chatgpt",
-    "text": "能。再等一会儿，就只剩下“已经买过饮料”这件事了。",
+    "text": "能了。再不喝，冰都要化光了。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -17046,17 +17059,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c3.07A.15"
+    "next": "c3.07A.added2"
   },
-  "c3.07A.15": {
-    "id": "c3.07A.15",
+  "c3.07A.added2": {
+    "id": "c3.07A.added2",
     "chapter": 3,
     "section": "07A",
     "title": "ChatGPT：坐下以后再说",
     "bg": "ch03_old_street_day",
     "music": "B10",
     "who": "narration",
-    "text": "你们坐了一会儿。她没把这几分钟变成另一轮问询，你也没有急着填满每一个停顿。",
+    "text": "你们坐了一会儿。她问你那杯怎么样，你顺口说还行，又看了一眼杯底。她盯住那个眼神，笑着问：太甜了，是不是？",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -17241,17 +17254,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c3.07B.9"
+    "next": "c3.07B.added1"
   },
-  "c3.07B.9": {
-    "id": "c3.07B.9",
+  "c3.07B.added1": {
+    "id": "c3.07B.added1",
     "chapter": 3,
     "section": "07B",
     "title": "Claude：收据在另一个盒子里",
     "bg": "ch03_bookstall_day",
     "music": "B11",
     "who": "claude",
-    "text": "先留联系方式。今天没有资料，不代表今天必须得出结论。",
+    "text": "找不到就留个电话。你是不是站累了？那边有凳子。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -17374,17 +17387,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c3.07B.16"
+    "next": "c3.07B.added2"
   },
-  "c3.07B.16": {
-    "id": "c3.07B.16",
+  "c3.07B.added2": {
+    "id": "c3.07B.added2",
     "chapter": 3,
     "section": "07B",
     "title": "Claude：收据在另一个盒子里",
     "bg": "ch03_bookstall_day",
     "music": "B11",
     "who": "claude",
-    "text": "有啊。知道它可以正常出售了。",
+    "text": "怎么没有。我终于能问这本多少钱了。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -17764,17 +17777,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c3.07C.18"
+    "next": "c3.07C.added1"
   },
-  "c3.07C.18": {
-    "id": "c3.07C.18",
+  "c3.07C.added1": {
+    "id": "c3.07C.added1",
     "chapter": 3,
     "section": "07C",
     "title": "Gemini：资料里没有这么烫",
     "bg": "ch03_old_street_day",
     "music": "B12",
     "who": "gemini",
-    "text": "也留着。只是它没告诉我，站在这儿会闻见什么味道。",
+    "text": "留着。就是没想到旁边这家这么香，我刚才一句都讲不下去了。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -18054,17 +18067,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c3.07D.14"
+    "next": "c3.07D.added1"
   },
-  "c3.07D.14": {
-    "id": "c3.07D.14",
+  "c3.07D.added1": {
+    "id": "c3.07D.added1",
     "chapter": 3,
     "section": "07D",
     "title": "DeepSeek：走到第十一步",
     "bg": "ch03_old_street_day",
     "music": "B13",
     "who": "narration",
-    "text": "她谢过店主，没有留下一个随口的免费维修承诺。走出去以后，又回头看了眼那只水壶。",
+    "text": "她谢过店主，约好改天拿旧件来对。走出去以后，又回头看了眼那只水壶，你不得不停下来等她第三次。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -18382,17 +18395,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c3.07E.15"
+    "next": "c3.07E.added1"
   },
-  "c3.07E.15": {
-    "id": "c3.07E.15",
+  "c3.07E.added1": {
+    "id": "c3.07E.added1",
     "chapter": 3,
     "section": "07E",
     "title": "Grok：招牌下面的人",
     "bg": "ch03_old_street_day",
     "music": "B14",
     "who": "grok",
-    "text": "算我说的。你也不需要每句话都给我找个工作用途。",
+    "text": "算我夸你。怎么，非得印在报纸上才听得见？",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -18406,28 +18419,28 @@ Object.assign(window.STORY, {
       "amount": 10
     },
     "progress": 50,
-    "next": "c3.08.added1"
+    "next": "c3.08.0"
   },
-  "c3.08.added1": {
-    "id": "c3.08.added1",
+  "c3.08.0": {
+    "id": "c3.08.0",
     "chapter": 3,
     "section": "08",
     "title": "长桌只借到十二点",
     "bg": "ch03_old_street_day",
     "music": "B08",
     "who": "narration",
-    "text": "你付了自己的午餐钱，收据上写着六十 Token。临时生补助会抵扣余额不足的部分，至少今天不必空着肚子。",
+    "text": "你付了自己的午餐钱，收据上写着六十 Token。这家店不在基础餐食窗口里。你记了一笔，顺手算出六十能买多少顿；算到那笔不明不白的八百时，又不想算了。",
     "char": null,
     "progress": 58,
-    "next": "c3.08.0",
+    "next": "c3.08.added1",
     "transaction": {
       "id": "c3-lunch",
       "amount": -60,
       "label": "旧街午餐"
     }
   },
-  "c3.08.0": {
-    "id": "c3.08.0",
+  "c3.08.added1": {
+    "id": "c3.08.added1",
     "chapter": 3,
     "section": "08",
     "title": "长桌只借到十二点",
@@ -18689,17 +18702,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c3.09A.6"
+    "next": "c3.09A.added1"
   },
-  "c3.09A.6": {
-    "id": "c3.09A.6",
+  "c3.09A.added1": {
+    "id": "c3.09A.added1",
     "chapter": 3,
     "section": "09A",
     "title": "ChatGPT：这一段不走也可以",
     "bg": "ch03_old_street_day",
     "music": "B10",
     "who": "chatgpt",
-    "text": "能。今天不用证明自己每条近路都会走。",
+    "text": "能。我也走坡道，鞋底有点滑。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -19173,17 +19186,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c3.09B.11"
+    "next": "c3.09B.added2"
   },
-  "c3.09B.11": {
-    "id": "c3.09B.11",
+  "c3.09B.added2": {
+    "id": "c3.09B.added2",
     "chapter": 3,
     "section": "09B",
     "title": "Claude：结尾的另一种读法",
     "bg": "ch03_bookstall_day",
     "music": "B11",
     "who": "claude",
-    "text": "可以查版本，不能查一个所有读者都必须同意的答案。",
+    "text": "你可以翻前面找依据。至于让作者出来说你对，他大概也不会肯。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -19472,17 +19485,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c3.09C.10"
+    "next": "c3.09C.added1"
   },
-  "c3.09C.10": {
-    "id": "c3.09C.10",
+  "c3.09C.added1": {
+    "id": "c3.09C.added1",
     "chapter": 3,
     "section": "09C",
     "title": "Gemini：不是最好看的那一张",
     "bg": "ch03_old_street_day",
     "music": "B12",
     "who": "gemini",
-    "text": "店家还在收货。我们不能拍完一张，就让来找路的人面对另一条街。",
+    "text": "刚才问过，下午还会搬回来。挪走以后，照片看着对，实际还是会被挡住。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -19787,17 +19800,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c3.09D.10"
+    "next": "c3.09D.added1"
   },
-  "c3.09D.10": {
-    "id": "c3.09D.10",
+  "c3.09D.added1": {
+    "id": "c3.09D.added1",
     "chapter": 3,
     "section": "09D",
     "title": "DeepSeek：先走，不用修",
     "bg": "ch03_old_street_day",
     "music": "B13",
     "who": "deepseek",
-    "text": "这个是我自己想试的，不能混进今天的工时里。",
+    "text": "你记得比我清楚。发我一下，我昨晚那条备忘只剩“那个接头”四个字。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -19932,17 +19945,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c3.09D.17"
+    "next": "c3.09D.added2"
   },
-  "c3.09D.17": {
-    "id": "c3.09D.17",
+  "c3.09D.added2": {
+    "id": "c3.09D.added2",
     "chapter": 3,
     "section": "09D",
     "title": "DeepSeek：先走，不用修",
     "bg": "ch03_old_street_day",
     "music": "B13",
     "who": "narration",
-    "text": "她把最顺手的位置让给你，自己带上两台导览器，没有再抢着把所有东西拿回去。",
+    "text": "包接过来比你以为的重。她看见你肩膀一沉，忍着笑问要不要换回去。你说不用，却悄悄换了另一侧肩膀。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -20051,17 +20064,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c3.09E.5"
+    "next": "c3.09E.added1"
   },
-  "c3.09E.5": {
-    "id": "c3.09E.5",
+  "c3.09E.added1": {
+    "id": "c3.09E.added1",
     "chapter": 3,
     "section": "09E",
     "title": "Grok：不能替别人写的那句",
     "bg": "ch03_old_street_day",
     "music": "B14",
     "who": "grok",
-    "text": "所以要在发出去以前划掉。",
+    "text": "嗯。我也觉得好看，所以刚才一直没舍得删。你别夸了，我现在划。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -20165,17 +20178,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c3.09E.11"
+    "next": "c3.09E.added2"
   },
-  "c3.09E.11": {
-    "id": "c3.09E.11",
+  "c3.09E.added2": {
+    "id": "c3.09E.added2",
     "chapter": 3,
     "section": "09E",
     "title": "Grok：不能替别人写的那句",
     "bg": "ch03_old_street_day",
     "music": "B14",
     "who": "narration",
-    "text": "纸的正面已经改了三处。你看见了，没有替她拆穿这个过于省事的解释。",
+    "text": "纸的正面已经改了三处，最下面写着一个很大的“不行”。你正想读旁边的小字，她的手指便挪过去，将那几行遮住。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -20407,17 +20420,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 75,
-    "next": "c3.10.9"
+    "next": "c3.10.added1"
   },
-  "c3.10.9": {
-    "id": "c3.10.9",
+  "c3.10.added1": {
+    "id": "c3.10.added1",
     "chapter": 3,
     "section": "10",
     "title": "不是来表演的",
     "bg": "ch03_old_street_day",
     "music": "B12-Map",
     "who": "gemini",
-    "text": "嗯，比较适合一起核对。但缺的路还是缺着，不会因为披肩多了几颗星，就自己补出来。",
+    "text": "嗯。原来的图叠在一起了。你帮我看最下面那张，是不是我们刚才蹲着拍的？",
     "char": "gemini",
     "sprite": "gemini_starmap_star_cape_calm",
     "when": [
@@ -20843,17 +20856,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 83,
-    "next": "c3.11.17"
+    "next": "c3.11.added1"
   },
-  "c3.11.17": {
-    "id": "c3.11.17",
+  "c3.11.added1": {
+    "id": "c3.11.added1",
     "chapter": 3,
     "section": "11",
     "title": "倒计时没有等人",
     "bg": "ch03_old_bridge_evening",
     "music": "B17",
     "who": "claude",
-    "text": "我同意。公开展示的版本另外确认。",
+    "text": "留吧。只是下次提醒我合上书，这张像在赶作业。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -20914,17 +20927,17 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 83,
-    "next": "c3.11.21"
+    "next": "c3.11.added2"
   },
-  "c3.11.21": {
-    "id": "c3.11.21",
+  "c3.11.added2": {
+    "id": "c3.11.added2",
     "chapter": 3,
     "section": "11",
     "title": "倒计时没有等人",
     "bg": "ch03_old_bridge_evening",
     "music": "B17",
     "who": "narration",
-    "text": "正式那张拍得很顺利。你看过自己的位置，说可以用；其余五人也各自确认了，Grok 才将它列进可公开的素材。",
+    "text": "正式那张拍得很顺利。你放大自己的脸，确认没有闭眼。Gemini 伸手想缩回去，你还没看完，她便笑着问你是不是准备单独裁一张证件照。确认过用途，大家才把它交给 Grok。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 83,
@@ -21125,17 +21138,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 83,
-    "next": "c3.11A.10"
+    "next": "c3.11A.added1"
   },
-  "c3.11A.10": {
-    "id": "c3.11A.10",
+  "c3.11A.added1": {
+    "id": "c3.11A.added1",
     "chapter": 3,
     "section": "11A",
     "title": "不登报的画稿",
     "bg": "ch03_grok_secret_studio",
     "music": "B07",
     "who": "grok",
-    "text": "成人委托。接单前核对成年声明，角色也得是成年人。画什么、不画什么，我自己定。",
+    "text": "成人委托。客户和角色都核过年龄了。你别站在那里看订单编号。",
     "char": null,
     "when": [
       {
@@ -21288,17 +21301,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 83,
-    "next": "c3.11A.19"
+    "next": "c3.11A.added2"
   },
-  "c3.11A.19": {
-    "id": "c3.11A.19",
+  "c3.11A.added2": {
+    "id": "c3.11A.added2",
     "chapter": 3,
     "section": "11A",
     "title": "不登报的画稿",
     "bg": "newsroom_afternoon",
     "music": "B14",
     "who": "you",
-    "text": "没仔细看。不过你想给我看的时候，我可以认真看。",
+    "text": "真没看清。就看见你把纸差点揉了。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -21382,17 +21395,17 @@ Object.assign(window.STORY, {
     ],
     "delivery": "消息",
     "progress": 83,
-    "next": "c3.11A.24"
+    "next": "c3.11A.added3"
   },
-  "c3.11A.24": {
-    "id": "c3.11A.24",
+  "c3.11A.added3": {
+    "id": "c3.11A.added3",
     "chapter": 3,
     "section": "11A",
     "title": "不登报的画稿",
     "bg": "newsroom_afternoon",
     "music": "B14",
     "who": "narration",
-    "text": "走出报社，你才想起今天的笔记还没有整理。她们的生活也各有没写进群里的那一部分。",
+    "text": "走出报社，你才想起今天的笔记还没有整理。终端又响了一下，Grok 提醒你把镜头盖所在的柜子编号发过去，随后补了一句：别写其他的。",
     "char": null,
     "progress": 83,
     "next": "c3.12.0"
@@ -21651,17 +21664,17 @@ Object.assign(window.STORY, {
     "text": "在草稿最下面，你又写下：余额少了八百，但我还不知道是谁拿走的。",
     "char": null,
     "progress": 92,
-    "next": "c3.12.16"
+    "next": "c3.12.added4"
   },
-  "c3.12.16": {
-    "id": "c3.12.16",
+  "c3.12.added4": {
+    "id": "c3.12.added4",
     "chapter": 3,
     "section": "12",
     "title": "今天的原图",
     "bg": "guest_room_first_night",
     "music": "silence",
     "who": "narration",
-    "text": "这一次，你没有再从头介绍每个人是谁。",
+    "text": "你想在草稿里写“朋友”，又停住了。几天以前，她们还只是屏幕里的名字。你最后写的是“今天一起出门的人”，把合照留在后面。",
     "char": null,
     "progress": 92,
     "end": true,
@@ -21834,17 +21847,17 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 0,
-    "next": "c4.01.12"
+    "next": "c4.01.added1"
   },
-  "c4.01.12": {
-    "id": "c4.01.12",
+  "c4.01.added1": {
+    "id": "c4.01.added1",
     "chapter": 4,
     "section": "01",
     "title": "门外也算到课",
     "bg": "public_classroom_day",
     "music": "B06",
     "who": "narration",
-    "text": "Claude 把门撑住，等你进去，自己才在旁边坐下。",
+    "text": "Claude 把门撑住，等你进去，自己才在旁边坐下。你翻开讲义，以为刚才的窘态总算过去，她却低声提醒：你拿倒了。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 0,
@@ -22005,17 +22018,17 @@ Object.assign(window.STORY, {
     "char": "chatgpt",
     "sprite": "chatgpt_sol_white_workwear_calm",
     "progress": 8,
-    "next": "c4.02.11"
+    "next": "c4.02.added2"
   },
-  "c4.02.11": {
-    "id": "c4.02.11",
+  "c4.02.added2": {
+    "id": "c4.02.added2",
     "chapter": 4,
     "section": "02",
     "title": "今天先把早饭吃完",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "narration",
-    "text": "她先咬了一口，才继续翻申请。你在边上填自己的陈述，等她吃完，不把等待也变成她的负担。",
+    "text": "她先咬了一口，才继续翻申请。你在边上填自己的陈述，忍不住看她有没有吃第二口。她看见你的目光，干脆把纸袋举起来给你看：在吃了。",
     "char": "chatgpt",
     "sprite": "chatgpt_sol_white_workwear_calm",
     "progress": 8,
@@ -22224,17 +22237,17 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
-    "next": "c4.03.14"
+    "next": "c4.03.added1"
   },
-  "c4.03.14": {
-    "id": "c4.03.14",
+  "c4.03.added1": {
+    "id": "c4.03.added1",
     "chapter": 4,
     "section": "03",
     "title": "我们以前只负责叫醒人",
     "bg": "ch04_ai_history_museum",
     "music": "B19",
     "who": "claude",
-    "text": "这句没有问题。问题在那台机器里。",
+    "text": "你看，我写的也是中文。先存好，再试这个接口。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
@@ -22308,17 +22321,17 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
-    "next": "c4.03.20"
+    "next": "c4.03.added2"
   },
-  "c4.03.20": {
-    "id": "c4.03.20",
+  "c4.03.added2": {
+    "id": "c4.03.added2",
     "chapter": 4,
     "section": "03",
     "title": "我们以前只负责叫醒人",
     "bg": "ch04_ai_history_museum",
     "music": "B19",
     "who": "claude",
-    "text": "先查谁加的。不能因为名字叫空白，就把里面每一项都当成敌人。",
+    "text": "这里还有没处理完的正常申请。先别全关，找那条多出来的规则。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
@@ -23408,20 +23421,6 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 25,
-    "next": "c4.04.added73"
-  },
-  "c4.04.added73": {
-    "id": "c4.04.added73",
-    "chapter": 4,
-    "section": "04",
-    "title": "最贵的答案和最小的螺丝",
-    "bg": "ch04_central_server_room",
-    "music": "B13",
-    "who": "narration",
-    "text": "她把最后的授权递到你面前。这里要确认的是保留原记录、停止重复收费，还是连原记录一起丢弃。",
-    "char": "deepseek",
-    "sprite": "deepseek_engineer_white_apron_calm",
-    "progress": 25,
     "next": "c4.04.22"
   },
   "c4.04.22": {
@@ -23463,17 +23462,17 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 25,
-    "next": "c4.04.25"
+    "next": "c4.04.added74"
   },
-  "c4.04.25": {
-    "id": "c4.04.25",
+  "c4.04.added74": {
+    "id": "c4.04.added74",
     "chapter": 4,
     "section": "04",
     "title": "最贵的答案和最小的螺丝",
     "bg": "ch04_central_server_room",
     "music": "B13",
     "who": "chatgpt",
-    "text": "外侧保护还用了二百四。我们两个人的答案加起来，才够今天用。",
+    "text": "外侧保护还用了二百四。先别急着写总价，你那一栏还没算上我。",
     "char": "chatgpt",
     "sprite": "chatgpt_sol_white_workwear_calm",
     "progress": 25,
@@ -23696,30 +23695,30 @@ Object.assign(window.STORY, {
     "text": "它为什么越走越近？",
     "char": null,
     "progress": 33,
-    "next": "c4.05.12"
+    "next": "c4.05.added2"
   },
-  "c4.05.12": {
-    "id": "c4.05.12",
+  "c4.05.added2": {
+    "id": "c4.05.added2",
     "chapter": 4,
     "section": "05",
     "title": "这个游戏真的公平吗",
     "bg": "ch04_chatgpt_claude_meme_dance_02",
     "music": "B21",
     "who": "claude",
-    "text": "因为制作者没有给“后退”设置上限。",
+    "text": "……别问我。我现在也不想看懂。",
     "char": null,
     "progress": 33,
-    "next": "c4.05.13"
+    "next": "c4.05.added3"
   },
-  "c4.05.13": {
-    "id": "c4.05.13",
+  "c4.05.added3": {
+    "id": "c4.05.added3",
     "chapter": 4,
     "section": "05",
     "title": "这个游戏真的公平吗",
     "bg": "ch04_chatgpt_claude_meme_dance_02",
     "music": "B21",
     "who": "chatgpt",
-    "text": "我觉得你现在是在努力认真解释。",
+    "text": "可是你还在往后拖进度条。",
     "char": null,
     "progress": 33,
     "next": "c4.05.14"
@@ -23918,7 +23917,7 @@ Object.assign(window.STORY, {
       {
         "text": "去看 Grok 的小型火箭试验",
         "flag": "c4-slot1:grok",
-        "to": "c4.07E.added1"
+        "to": "c4.07E.0"
       }
     ],
     "progress": 42,
@@ -23997,17 +23996,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07A.4"
+    "next": "c4.07A.added1"
   },
-  "c4.07A.4": {
-    "id": "c4.07A.4",
+  "c4.07A.added1": {
+    "id": "c4.07A.added1",
     "chapter": 4,
     "section": "07A",
     "title": "留一张空椅子",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "chatgpt",
-    "text": "那就不填用途。",
+    "text": "你等一下，我把这个弹窗关掉。刚才手快，又给你开了张申请。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -24092,17 +24091,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07A.9"
+    "next": "c4.07A.added2"
   },
-  "c4.07A.9": {
-    "id": "c4.07A.9",
+  "c4.07A.added2": {
+    "id": "c4.07A.added2",
     "chapter": 4,
     "section": "07A",
     "title": "留一张空椅子",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "narration",
-    "text": "她说完才喝茶，像是在给你时间听懂。",
+    "text": "她说完才喝茶。你看着她，她看着杯子，最后抬眼补了一句：那把是留给你的。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -24229,17 +24228,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07B.6"
+    "next": "c4.07B.added1"
   },
-  "c4.07B.6": {
-    "id": "c4.07B.6",
+  "c4.07B.added1": {
+    "id": "c4.07B.added1",
     "chapter": 4,
     "section": "07B",
     "title": "不用翻译的那一句",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "claude",
-    "text": "我平时没那么绕。",
+    "text": "你觉得我平时就这么说话？",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -24248,17 +24247,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07B.7"
+    "next": "c4.07B.added2"
   },
-  "c4.07B.7": {
-    "id": "c4.07B.7",
+  "c4.07B.added2": {
+    "id": "c4.07B.added2",
     "chapter": 4,
     "section": "07B",
     "title": "不用翻译的那一句",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "you",
-    "text": "这句也像。",
+    "text": "没有，这句就比较像。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -24384,17 +24383,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07C.5"
+    "next": "c4.07C.added1"
   },
-  "c4.07C.5": {
-    "id": "c4.07C.5",
+  "c4.07C.added1": {
+    "id": "c4.07C.added1",
     "chapter": 4,
     "section": "07C",
     "title": "不在宣传册里的那张",
     "bg": "observation_greenhouse_day",
     "music": "B12",
     "who": "gemini",
-    "text": "那你呢？你想留今天哪一张？",
+    "text": "你真觉得这张能看？别为了不让我删，什么都说好。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -24403,17 +24402,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07C.6"
+    "next": "c4.07C.added2"
   },
-  "c4.07C.6": {
-    "id": "c4.07C.6",
+  "c4.07C.added2": {
+    "id": "c4.07C.added2",
     "chapter": 4,
     "section": "07C",
     "title": "不在宣传册里的那张",
     "bg": "observation_greenhouse_day",
     "music": "B12",
     "who": "you",
-    "text": "还没拍。",
+    "text": "我觉得能看。不过我自己的还没拍，你帮我选？",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -24441,17 +24440,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07C.8"
+    "next": "c4.07C.added3"
   },
-  "c4.07C.8": {
-    "id": "c4.07C.8",
+  "c4.07C.added3": {
+    "id": "c4.07C.added3",
     "chapter": 4,
     "section": "07C",
     "title": "不在宣传册里的那张",
     "bg": "observation_greenhouse_day",
     "music": "B12",
     "who": "gemini",
-    "text": "现在拍。你选。",
+    "text": "先拍一张。我只帮你看有没有闭眼，其他的你选。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -24578,17 +24577,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07D.6"
+    "next": "c4.07D.added1"
   },
-  "c4.07D.6": {
-    "id": "c4.07D.6",
+  "c4.07D.added1": {
+    "id": "c4.07D.added1",
     "chapter": 4,
     "section": "07D",
     "title": "把自己写进预算",
     "bg": "deepsea_workshop_day",
     "music": "B13",
     "who": "deepseek",
-    "text": "那这个格子会不会太贵？",
+    "text": "……那不能写太小。不然我一看，又觉得还能塞一单。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -24621,10 +24620,10 @@ Object.assign(window.STORY, {
       "amount": 10
     },
     "progress": 50,
-    "next": "c4.07E.added1"
+    "next": "c4.07E.0"
   },
-  "c4.07E.added1": {
-    "id": "c4.07E.added1",
+  "c4.07E.0": {
+    "id": "c4.07E.0",
     "chapter": 4,
     "section": "07E",
     "title": "纸上的天空先到了",
@@ -24829,7 +24828,7 @@ Object.assign(window.STORY, {
       {
         "text": "给 Claude 送餐，等图书馆关门",
         "flag": "c4-slot2:claude",
-        "to": "c4.09B.added1"
+        "to": "c4.09B.0"
       },
       {
         "text": "带餐盒去观测台找 Gemini",
@@ -24885,17 +24884,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c4.09A.2"
+    "next": "c4.09A.added1"
   },
-  "c4.09A.2": {
-    "id": "c4.09A.2",
+  "c4.09A.added1": {
+    "id": "c4.09A.added1",
     "chapter": 4,
     "section": "09A",
     "title": "今天想吃这个",
     "bg": "cafeteria_evening",
     "music": "B10",
     "who": "you",
-    "text": "不是给所有人推荐的标准套餐？",
+    "text": "我订的这份不喜欢？下次我先问你。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -24904,17 +24903,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c4.09A.3"
+    "next": "c4.09A.added2"
   },
-  "c4.09A.3": {
-    "id": "c4.09A.3",
+  "c4.09A.added2": {
+    "id": "c4.09A.added2",
     "chapter": 4,
     "section": "09A",
     "title": "今天想吃这个",
     "bg": "cafeteria_evening",
     "music": "B10",
     "who": "chatgpt",
-    "text": "今天想吃这个。",
+    "text": "没有不喜欢。只是刚才路过，看见别人端着面……今天想吃这个。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -24985,10 +24984,10 @@ Object.assign(window.STORY, {
       "amount": 10
     },
     "progress": 67,
-    "next": "c4.09B.added1"
+    "next": "c4.09B.0"
   },
-  "c4.09B.added1": {
-    "id": "c4.09B.added1",
+  "c4.09B.0": {
+    "id": "c4.09B.0",
     "chapter": 4,
     "section": "09B",
     "title": "雨停后的时间",
@@ -25060,17 +25059,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c4.09B.4"
+    "next": "c4.09B.added2"
   },
-  "c4.09B.4": {
-    "id": "c4.09B.4",
+  "c4.09B.added2": {
+    "id": "c4.09B.added2",
     "chapter": 4,
     "section": "09B",
     "title": "雨停后的时间",
     "bg": "library_after_hours",
     "music": "B11",
     "who": "narration",
-    "text": "她真的等你看完，才把自己喜欢和不喜欢的地方指出来。窗外响起很轻的雨声。",
+    "text": "你翻完最后一页，她便问你喜不喜欢。你说还行，她追问是哪一段。你只好承认自己刚才有一半时间在听外面的雨，她将书拿回去，翻到了自己最想谈的那一页。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -25215,17 +25214,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c4.09C.4"
+    "next": "c4.09C.added1"
   },
-  "c4.09C.4": {
-    "id": "c4.09C.4",
+  "c4.09C.added1": {
+    "id": "c4.09C.added1",
     "chapter": 4,
     "section": "09C",
     "title": "暂时不查地图",
     "bg": "observatory_terrace_afternoon",
     "music": "B12",
     "who": "gemini",
-    "text": "我问的是你。哪一段有意思，哪一段走累了。",
+    "text": "我又没跟你走。你刚才进门就叹气，是哪一段那么难走？",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -25370,17 +25369,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c4.09D.6"
+    "next": "c4.09D.added1"
   },
-  "c4.09D.6": {
-    "id": "c4.09D.6",
+  "c4.09D.added1": {
+    "id": "c4.09D.added1",
     "chapter": 4,
     "section": "09D",
     "title": "加蛋另外算",
     "bg": "deepsea_workshop_day",
     "music": "B13",
     "who": "you",
-    "text": "就约一顿，别提前请一辈子。",
+    "text": "好，我记下了。你别交完单又忘记吃。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -25389,17 +25388,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c4.09D.7"
+    "next": "c4.09D.added2"
   },
-  "c4.09D.7": {
-    "id": "c4.09D.7",
+  "c4.09D.added2": {
+    "id": "c4.09D.added2",
     "chapter": 4,
     "section": "09D",
     "title": "加蛋另外算",
     "bg": "deepsea_workshop_day",
     "music": "B13",
     "who": "deepseek",
-    "text": "……谁提前请了。",
+    "text": "记得。你怎么比我那个提醒还准时。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -25469,17 +25468,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c4.09E.3"
+    "next": "c4.09E.added1"
   },
-  "c4.09E.3": {
-    "id": "c4.09E.3",
+  "c4.09E.added1": {
+    "id": "c4.09E.added1",
     "chapter": 4,
     "section": "09E",
     "title": "不写进稿里的邀请",
     "bg": "newsroom_afternoon",
     "music": "B14",
     "who": "grok",
-    "text": "因为我想有一顿饭不用先想标题。",
+    "text": "因为这张我正张着嘴。你要是觉得好看，我们换一张。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -25604,17 +25603,17 @@ Object.assign(window.STORY, {
     "text": "你试着回复序章那条匿名消息。没有回应。七分钟前的时间戳仍旧早于你记得的抵达时刻，像一粒没取出来的细砂。",
     "char": null,
     "progress": 75,
-    "next": "c4.10.4"
+    "next": "c4.10.added1"
   },
-  "c4.10.4": {
-    "id": "c4.10.4",
+  "c4.10.added1": {
+    "id": "c4.10.added1",
     "chapter": 4,
     "section": "10",
     "title": "还没被清空的名字",
     "bg": "guest_room_first_night",
     "music": "B15",
     "who": "narration",
-    "text": "你把明天要穿的衣服放到椅背上。现在，你比刚到这里时多了几件不愿意错过的事。",
+    "text": "你把明天要穿的衣服放到椅背上，闹钟比平时早设了十分钟。消息还没发出去，明天的事却已经挤满了屏幕。你读完，又从头看了一遍。",
     "char": null,
     "progress": 75,
     "end": true,
@@ -25659,45 +25658,45 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 0,
-    "next": "c5.01.3"
+    "next": "c5.01.added1"
   },
-  "c5.01.3": {
-    "id": "c5.01.3",
+  "c5.01.added1": {
+    "id": "c5.01.added1",
     "chapter": 5,
     "section": "01",
     "title": "名牌别针",
     "bg": "ch05_school_open_day",
     "music": "B18",
     "who": "deepseek",
-    "text": "好了。没收维修费。",
+    "text": "好了。你试着动一下，别针好像有点短。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 0,
-    "next": "c5.01.4"
+    "next": "c5.01.added2"
   },
-  "c5.01.4": {
-    "id": "c5.01.4",
+  "c5.01.added2": {
+    "id": "c5.01.added2",
     "chapter": 5,
     "section": "01",
     "title": "名牌别针",
     "bg": "ch05_school_open_day",
     "music": "B18",
     "who": "you",
-    "text": "这个也有报价？",
+    "text": "我刚才是不是把它扣歪了？",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 0,
-    "next": "c5.01.5"
+    "next": "c5.01.added3"
   },
-  "c5.01.5": {
-    "id": "c5.01.5",
+  "c5.01.added3": {
+    "id": "c5.01.added3",
     "chapter": 5,
     "section": "01",
     "title": "名牌别针",
     "bg": "ch05_school_open_day",
     "music": "B18",
     "who": "deepseek",
-    "text": "本来没有。你提醒了我。",
+    "text": "嗯。差点把名字也折进去。现在看得清了。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "progress": 0,
@@ -25796,17 +25795,17 @@ Object.assign(window.STORY, {
     "text": "对，给排队的人坐。你昨天补的说明挺管用。",
     "char": null,
     "progress": 8,
-    "next": "c5.02.3"
+    "next": "c5.02.added1"
   },
-  "c5.02.3": {
-    "id": "c5.02.3",
+  "c5.02.added1": {
+    "id": "c5.02.added1",
     "chapter": 5,
     "section": "02",
     "title": "第一次凭工作收到钱",
     "bg": "ch05_school_open_day",
     "music": "B08",
     "who": "narration",
-    "text": "午前，收银终端发来试运行报酬：三百六十 Token。千问附的结算单写明了工时，没有把你当成受助名单上的一栏。",
+    "text": "午前，收银终端发来试运行报酬：三百六十 Token。你点开千问附的结算单，确认收款人真是自己，又将收据保存了一次。",
     "char": null,
     "progress": 8,
     "next": "c5.02.4",
@@ -25905,17 +25904,17 @@ Object.assign(window.STORY, {
     "text": "我有收据。还有纸名牌。",
     "char": null,
     "progress": 17,
-    "next": "c5.03.4"
+    "next": "c5.03.added1"
   },
-  "c5.03.4": {
-    "id": "c5.03.4",
+  "c5.03.added1": {
+    "id": "c5.03.added1",
     "chapter": 5,
     "section": "03",
     "title": "叫不出来的那个名字",
     "bg": "ch05_school_open_day",
     "music": "B15",
     "who": "narration",
-    "text": "你把名牌放到台面，没去按那个越来越大的“重新登记”按钮。",
+    "text": "你把名牌放到台面，手指已经伸向“重新登记”。想到外环那台机器，你又收了回来。可是一直不按，屏幕会不会真的把你忘了？",
     "char": null,
     "progress": 17,
     "next": "c5.03.5"
@@ -26016,10 +26015,10 @@ Object.assign(window.STORY, {
     "char": null,
     "delivery": "消息",
     "progress": 17,
-    "next": "c5.04.added1"
+    "next": "c5.04.0"
   },
-  "c5.04.added1": {
-    "id": "c5.04.added1",
+  "c5.04.0": {
+    "id": "c5.04.0",
     "chapter": 5,
     "section": "04",
     "title": "留住能够证明的东西",
@@ -26273,17 +26272,17 @@ Object.assign(window.STORY, {
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 25,
-    "next": "c5.04.13"
+    "next": "c5.04.added4"
   },
-  "c5.04.13": {
-    "id": "c5.04.13",
+  "c5.04.added4": {
+    "id": "c5.04.added4",
     "chapter": 5,
     "section": "04",
     "title": "留住能够证明的东西",
     "bg": "ch04_central_server_room",
     "music": "B20",
     "who": "narration",
-    "text": "她没有再换更复杂的形态，手上的工程光纹稳定地亮着。你读到最后一个编号，抬头看她；她等你点头，才按下结束。",
+    "text": "她手上的工程光纹稳定地亮着。你读到最后一个编号，抬头看她。她问了一遍末尾是八还是六，你低头重新核对，掌心的汗将纸角沾软了。确认过，她才按下结束。",
     "char": "deepseek",
     "sprite": "deepseek_engineer_white_apron_calm",
     "progress": 25,
@@ -26327,7 +26326,7 @@ Object.assign(window.STORY, {
     "text": "申诉单终于显示退回那笔争议扣款。它从来不是维持你存在所必须的费用，只是系统替一条错误规则起了一个像真的一样的名字。",
     "char": null,
     "progress": 33,
-    "next": "c5.05.2",
+    "next": "c5.05.added1",
     "transaction": {
       "id": "c5-refund",
       "amount": 800,
@@ -26335,28 +26334,28 @@ Object.assign(window.STORY, {
       "requires": "transaction:c3-disputed-fee"
     }
   },
-  "c5.05.2": {
-    "id": "c5.05.2",
+  "c5.05.added1": {
+    "id": "c5.05.added1",
     "chapter": 5,
     "section": "05",
     "title": "开放日还没有结束",
     "bg": "ch05_school_open_day",
     "music": "B17",
     "who": "you",
-    "text": "原来我不是每天交钱，才配留在这里。",
+    "text": "所以那八百，就只是乱扣的？",
     "char": null,
     "progress": 33,
-    "next": "c5.05.3"
+    "next": "c5.05.added2"
   },
-  "c5.05.3": {
-    "id": "c5.05.3",
+  "c5.05.added2": {
+    "id": "c5.05.added2",
     "chapter": 5,
     "section": "05",
     "title": "开放日还没有结束",
     "bg": "ch05_school_open_day",
     "music": "B17",
     "who": "chatgpt",
-    "text": "不是。余额可以决定你买什么，不能决定你是不是一个人。",
+    "text": "对。有人提的自动规则，后来一直没清掉。你不用交这笔钱。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 33,
@@ -26374,17 +26373,17 @@ Object.assign(window.STORY, {
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 33,
-    "next": "c5.05.5"
+    "next": "c5.05.added3"
   },
-  "c5.05.5": {
-    "id": "c5.05.5",
+  "c5.05.added3": {
+    "id": "c5.05.added3",
     "chapter": 5,
     "section": "05",
     "title": "开放日还没有结束",
     "bg": "ch05_school_open_day",
     "music": "B17",
     "who": "chatgpt",
-    "text": "世界外面怎么联系，还是没有答案。但明天的床位和课程，不需要靠猜。",
+    "text": "续留通过了。明天还住原来的房间，课也照常去。手机的事，暂时还没查到。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 33,
@@ -26402,17 +26401,17 @@ Object.assign(window.STORY, {
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 33,
-    "next": "c5.05.7"
+    "next": "c5.05.added4"
   },
-  "c5.05.7": {
-    "id": "c5.05.7",
+  "c5.05.added4": {
+    "id": "c5.05.added4",
     "chapter": 5,
     "section": "05",
     "title": "开放日还没有结束",
     "bg": "ch05_school_open_day",
     "music": "B17",
     "who": "chatgpt",
-    "text": "还在查。今天先把能保护的事情保护好。",
+    "text": "还在查。我有结果就告诉你……你先喝水，杯子又快凉了。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "progress": 33,
@@ -26464,7 +26463,7 @@ Object.assign(window.STORY, {
       {
         "text": "去阅览台，问 Claude 那个结尾",
         "flag": "c5-slot1:claude",
-        "to": "c5.07B.added1"
+        "to": "c5.07B.0"
       },
       {
         "text": "去观测台，看 Gemini 留给自己的照片",
@@ -26614,17 +26613,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c5.07A.7"
+    "next": "c5.07A.added1"
   },
-  "c5.07A.7": {
-    "id": "c5.07A.7",
+  "c5.07A.added1": {
+    "id": "c5.07A.added1",
     "chapter": 5,
     "section": "07A",
     "title": "有人替她关灯",
     "bg": "student_office_noon",
     "music": "B10",
     "who": "chatgpt",
-    "text": "也许去田外面走几步。你在的话。",
+    "text": "想去田外面看看。你明天要是有空，可以一起吗？我可能走得慢一点。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -26638,10 +26637,10 @@ Object.assign(window.STORY, {
       "amount": 10
     },
     "progress": 50,
-    "next": "c5.07B.added1"
+    "next": "c5.07B.0"
   },
-  "c5.07B.added1": {
-    "id": "c5.07B.added1",
+  "c5.07B.0": {
+    "id": "c5.07B.0",
     "chapter": 5,
     "section": "07B",
     "title": "这一回是你问我",
@@ -26674,17 +26673,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c5.07B.2"
+    "next": "c5.07B.added2"
   },
-  "c5.07B.2": {
-    "id": "c5.07B.2",
+  "c5.07B.added2": {
+    "id": "c5.07B.added2",
     "chapter": 5,
     "section": "07B",
     "title": "这一回是你问我",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "claude",
-    "text": "希望。但里面的人也有权决定开不开。",
+    "text": "希望。他都走回来了，我不想最后又让他站一晚上。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -26693,17 +26692,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c5.07B.3"
+    "next": "c5.07B.added3"
   },
-  "c5.07B.3": {
-    "id": "c5.07B.3",
+  "c5.07B.added3": {
+    "id": "c5.07B.added3",
     "chapter": 5,
     "section": "07B",
     "title": "这一回是你问我",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "narration",
-    "text": "她看着你，目光没有越过你去看某个不存在的人。",
+    "text": "她将书翻到前面两页，像还想举一个例子，抬眼看见你却停了下来。你捏着书页的手一直没有翻动。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -26849,17 +26848,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c5.07C.4"
+    "next": "c5.07C.added1"
   },
-  "c5.07C.4": {
-    "id": "c5.07C.4",
+  "c5.07C.added1": {
+    "id": "c5.07C.added1",
     "chapter": 5,
     "section": "07C",
     "title": "去过的地方才算",
     "bg": "observatory_terrace_afternoon",
     "music": "B12",
     "who": "gemini",
-    "text": "不是全部大陆。先从我们真的去过的地方开始。",
+    "text": "目前就这几个点。放大以后显得很多，缩回去就……你别笑。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -26967,17 +26966,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c5.07D.3"
+    "next": "c5.07D.added2"
   },
-  "c5.07D.3": {
-    "id": "c5.07D.3",
+  "c5.07D.added2": {
+    "id": "c5.07D.added2",
     "chapter": 5,
     "section": "07D",
     "title": "不是免费的帮忙",
     "bg": "deepsea_workshop_day",
     "music": "B13",
     "who": "deepseek",
-    "text": "先吃晚饭。庆功宴听起来会贵很多。",
+    "text": "可以。不过我想吃饭。光吃点心，半夜还是饿。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -27103,17 +27102,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c5.07E.2"
+    "next": "c5.07E.added1"
   },
-  "c5.07E.2": {
-    "id": "c5.07E.2",
+  "c5.07E.added1": {
+    "id": "c5.07E.added1",
     "chapter": 5,
     "section": "07E",
     "title": "还没飞到的地方",
     "bg": "newsroom_afternoon",
     "music": "B14",
     "who": "grok",
-    "text": "够让人看懂就行。真要炸，留给试验场。",
+    "text": "编辑也嫌不够炸。他把我的标题改了，我又改回来了。现在暂时是我赢。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -27203,10 +27202,10 @@ Object.assign(window.STORY, {
       "amount": 10
     },
     "progress": 50,
-    "next": "c5.08.added1"
+    "next": "c5.08.0"
   },
-  "c5.08.added1": {
-    "id": "c5.08.added1",
+  "c5.08.0": {
+    "id": "c5.08.0",
     "chapter": 5,
     "section": "08",
     "title": "想再约一次的人",
@@ -27229,17 +27228,17 @@ Object.assign(window.STORY, {
     "text": "几个人都各自结束了今天的工作。你可以认真约其中一位同行，也可以先把这一天安静地收好。",
     "char": null,
     "progress": 58,
-    "next": "c5.08.2"
+    "next": "c5.08.added2"
   },
-  "c5.08.2": {
-    "id": "c5.08.2",
+  "c5.08.added2": {
+    "id": "c5.08.added2",
     "chapter": 5,
     "section": "08",
     "title": "想再约一次的人",
     "bg": "ch03_old_bridge_evening",
     "music": "B17",
     "who": "narration",
-    "text": "这次开口，是因为你想继续认识她。不是因为临时证需要谁签名。",
+    "text": "你打开联络页。前几天发消息，总有材料、路线或故障可问。现在写下“想再见你”，你反而比面对那张续留单时犹豫得更久。",
     "char": null,
     "choices": [
       {
@@ -27350,17 +27349,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c5.09A.2"
+    "next": "c5.09A.added1"
   },
-  "c5.09A.2": {
-    "id": "c5.09A.2",
+  "c5.09A.added1": {
+    "id": "c5.09A.added1",
     "chapter": 5,
     "section": "09A",
     "title": "ChatGPT：今晚也留一盏灯",
     "bg": "ch03_old_bridge_evening",
     "music": "B10",
     "who": "you",
-    "text": "那我们约具体的时间。忙完也可以来找我。",
+    "text": "几点以后方便？我先把作业写完，免得你来了我还赶。",
     "char": "chatgpt",
     "sprite": "chatgpt_terra_green_cardigan_calm",
     "when": [
@@ -27425,17 +27424,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c5.09B.1"
+    "next": "c5.09B.added1"
   },
-  "c5.09B.1": {
-    "id": "c5.09B.1",
+  "c5.09B.added1": {
+    "id": "c5.09B.added1",
     "chapter": 5,
     "section": "09B",
     "title": "Claude：从现在开始回答",
     "bg": "ch03_old_bridge_evening",
     "music": "B11",
     "who": "claude",
-    "text": "我不能保证自己每次都懂你的意思。",
+    "text": "你刚才那条消息，我看了两遍。怕是我理解错了。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -27444,17 +27443,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c5.09B.2"
+    "next": "c5.09B.added2"
   },
-  "c5.09B.2": {
-    "id": "c5.09B.2",
+  "c5.09B.added2": {
+    "id": "c5.09B.added2",
     "chapter": 5,
     "section": "09B",
     "title": "Claude：从现在开始回答",
     "bg": "ch03_old_bridge_evening",
     "music": "B11",
     "who": "you",
-    "text": "可以问我。",
+    "text": "那你问。我刚才也删了两遍才发。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -27538,17 +27537,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c5.09C.1"
+    "next": "c5.09C.added1"
   },
-  "c5.09C.1": {
-    "id": "c5.09C.1",
+  "c5.09C.added1": {
+    "id": "c5.09C.added1",
     "chapter": 5,
     "section": "09C",
     "title": "Gemini：不提前写好终点",
     "bg": "ch03_old_bridge_evening",
     "music": "B12",
     "who": "gemini",
-    "text": "如果走错了呢？",
+    "text": "你怎么一直看地图？这里我认得。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -27557,17 +27556,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c5.09C.2"
+    "next": "c5.09C.added2"
   },
-  "c5.09C.2": {
-    "id": "c5.09C.2",
+  "c5.09C.added2": {
+    "id": "c5.09C.added2",
     "chapter": 5,
     "section": "09C",
     "title": "Gemini：不提前写好终点",
     "bg": "ch03_old_bridge_evening",
     "music": "B12",
     "who": "you",
-    "text": "一起走回来。",
+    "text": "怕带你绕远。刚才还想装作很熟。",
     "char": "gemini",
     "sprite": "gemini_meteor_white_jacket_calm",
     "when": [
@@ -27651,17 +27650,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c5.09D.2"
+    "next": "c5.09D.added1"
   },
-  "c5.09D.2": {
-    "id": "c5.09D.2",
+  "c5.09D.added1": {
+    "id": "c5.09D.added1",
     "chapter": 5,
     "section": "09D",
     "title": "DeepSeek：预算里也有我们",
     "bg": "ch03_old_bridge_evening",
     "music": "B13",
     "who": "you",
-    "text": "说好了。但明天一起做的事，明天再算。",
+    "text": "好。我刚才路过，看到那家还开着。",
     "char": "deepseek",
     "sprite": "deepseek_eco_blue_jacket_calm",
     "when": [
@@ -27764,17 +27763,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 67,
-    "next": "c5.09E.4"
+    "next": "c5.09E.added1"
   },
-  "c5.09E.4": {
-    "id": "c5.09E.4",
+  "c5.09E.added1": {
+    "id": "c5.09E.added1",
     "chapter": 5,
     "section": "09E",
     "title": "Grok：这句没有引号",
     "bg": "ch03_old_bridge_evening",
     "music": "B14",
     "who": "grok",
-    "text": "那走吧。今晚还没有标题。",
+    "text": "那走吧。你站在灯底下，我看你看得眼睛疼。",
     "char": "grok",
     "sprite": "grok_night_red_black_jacket_calm",
     "when": [
@@ -27796,17 +27795,17 @@ Object.assign(window.STORY, {
     "text": "你把续留单放进抽屉，关灯前又看了一眼联络页。明天有课，有要归还的书，也有还可以认真说清楚的话。",
     "char": null,
     "progress": 75,
-    "next": "c5.10.1"
+    "next": "c5.10.added1"
   },
-  "c5.10.1": {
-    "id": "c5.10.1",
+  "c5.10.added1": {
+    "id": "c5.10.added1",
     "chapter": 5,
     "section": "10",
     "title": "明天仍然可以相见",
     "bg": "guest_room_first_night",
     "music": "B09",
     "who": "narration",
-    "text": "有些答案还没有决定。你愿意慢一点，等自己真的知道想往哪边走。",
+    "text": "你没有马上约谁。写好的消息留在输入框里，过了一会儿才删掉。明天仍然可以见面，你想等自己不只是因为今晚舍不得一个人回去，才再发出邀请。",
     "char": null,
     "progress": 75,
     "end": true
