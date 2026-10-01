@@ -20,6 +20,7 @@
   <script defer src="story/chapters/common.generated.js"></script>
   <script defer src="story/chapters/personal.generated.js"></script>
   <script defer src="music.js"></script>
+  <script defer src="minigames.js"></script>
   <script defer src="game.js"></script>
 </head>
 <body>
@@ -51,6 +52,7 @@
     </section>
 
     <section class="dialogue-area" id="dialogue-area" aria-label="对话">
+      <button id="story-activity" class="story-activity hidden"></button>
       <div class="speaker-line"><div><span class="speaker-dot" id="speaker-dot"></span><strong id="speaker">你</strong><span id="speaker-sub">未登记的来访者</span></div><span class="line-counter" id="line-counter">01 / 01</span></div>
       <button class="dialogue" id="advance" aria-label="继续剧情"><span id="dialogue-text"></span><span class="continue-mark"><i data-lucide="chevron-down"></i></span></button>
       <nav class="toolbar" aria-label="播放控制">

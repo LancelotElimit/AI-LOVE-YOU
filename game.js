@@ -252,6 +252,7 @@
     $('model-shift').classList.toggle('visible',!!node.shift);$('game').classList.toggle('shifting',!!node.shift);$('character-wrap').classList.remove('shift');
     if(node.shift){$('model-name').textContent=node.shift.name;$('model-detail').textContent=node.shift.detail;void $('character-wrap').offsetWidth;$('character-wrap').classList.add('shift');}
     $('choices').classList.add('hidden');$('game').classList.remove('choosing');
+    $('story-activity').classList.add('hidden');
     fullText=actualText(node);$('dialogue-text').textContent='';
     if(node.inputName){showStation();return;}
     if(instant||settings.speed===0||skipping){completeText();}
@@ -260,6 +261,12 @@
   function completeText(){
     clearInterval(typingTimer);isTyping=false;$('advance').classList.remove('typing');$('dialogue-text').textContent=fullText;
     seen.add(state.node);write('seen',[...seen]);
+    const activity=current().activity,config=window.STORY_ACTIVITIES?.activities[activity];
+    if(config&&!state.flags.some(flag=>flag.startsWith(`activity:${activity}:`))){
+      $('story-activity').innerHTML=`<i data-lucide="${config.icon}"></i><span>${escape(config.label)}</span>`;
+      $('story-activity').classList.remove('hidden');icons();
+      if(auto)stopPlayback();
+    }
     if(current().choices){stopPlayback();renderChoices();}
     else if(auto&&!$('modal').open){autoTimer=setTimeout(advance,Math.max(1800,settings.autoDelay*1000+fullText.length*40));}
     else if(skipping){scheduleSkip();}
@@ -300,6 +307,22 @@
 
   function openModal(title,content,eyebrow='TOKENIA'){stopPlayback();$('modal-title').textContent=title;$('modal-eyebrow').textContent=eyebrow;$('modal-content').replaceChildren();if(typeof content==='string')$('modal-content').innerHTML=content;else $('modal-content').append(content);if(!$('modal').open)$('modal').showModal();icons();}
   function closeModal(){$('modal').close();}
+  function playActivity(){
+    const id=current().activity,config=window.STORY_ACTIVITIES?.activities[id];
+    if(!config||isTyping||$('modal').open||atTitle)return;
+    activateAudio(true);
+    const nodeId=state.node;
+    const content=window.STORY_ACTIVITIES.mount(id,result=>{
+      if(state.node!==nodeId)return;
+      if(result==='continue'){closeModal();advance();return;}
+      if(!state.flags.some(flag=>flag.startsWith(`activity:${id}:`))){
+        state.flags.push(`activity:${id}:${result}`);
+        state.history.push({id:nodeId,who:'narration',text:result==='complete'?config.success:config.skip});persist();
+      }
+      $('story-activity').classList.add('hidden');
+    });
+    openModal(config.title,content,'课表之外 · '+CAST[config.who].name);
+  }
   function bind(id,fn){$(id).addEventListener('click',fn);}
   function showSettings(){
     openModal('留一点自己的节奏',`
@@ -375,6 +398,7 @@
   }
   bind('advance',()=>{activateAudio(true);advance();});bind('auto',()=>{setDialogueHidden(false);activateAudio(true);toggleAuto();});bind('skip',()=>{setDialogueHidden(false);activateAudio(true);toggleSkip();});
   bind('history',showHistory);bind('settings',showSettings);bind('save',()=>showSaves('save'));bind('load',()=>showSaves('load'));bind('close-modal',closeModal);
+  bind('story-activity',playActivity);
   bind('relationships',showRelationships);
   bind('toggle-dialogue',()=>setDialogueHidden(!dialogueHidden));
   bind('restore-dialogue',()=>setDialogueHidden(false));
