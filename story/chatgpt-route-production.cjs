@@ -16,27 +16,27 @@ module.exports={
     gpt_coming_home:scene('就是想你了','两人的住处 / 下班后','assets/scene/cg/cg_gpt_route_coming_home.png',true)
   },
   sections:{
-    '06':{initial:{bg:'gpt_game_day',sprite:terra,music:'B10'},cues:[
+    '06':{initial:{bg:'gpt_game_day',sprite:terra,music:'B22'},cues:[
       cue('目前早餐项目执行良好',{sprite:'chatgpt_terra_green_cardigan_relaxed',music:'B07'}),
       cue('这和听出来没有冲突',{sprite:'chatgpt_terra_green_cardigan_shy'}),
-      cue('手可以留下',{music:'B17'}),
+      cue('手可以留下',{music:'B23'}),
       cue('午后，她带你去白塔',{bg:'student_office_noon',music:'B02'}),
       cue('她切换到 Sol',{sprite:sol}),
       cue('根服务托管人',{music:'B15'}),
       cue('七点。那时候不是预约公共服务',{sprite:'chatgpt_sol_white_workwear_smile',music:'B17'})
     ]},
-    '07':{initial:{bg:'gpt_archive_room',sprite:'chatgpt_sol_white_workwear_thinking',music:'B19'},cues:[
+    '07':{initial:{bg:'gpt_archive_room',sprite:'chatgpt_sol_white_workwear_thinking',music:'B28'},cues:[
       cue('那句回答后面留着很长的空白',{music:'B10'}),
       cue('后面的账页解释了 Token',{music:'B02'}),
       cue('当时的根服务把最早持续回应',{music:'B15'}),
       cue('出馆时天已暗了',{bg:'ch03_old_bridge_evening',music:'B08'}),
-      cue('Sol 的工作窗口随之关闭',{sprite:'chatgpt_terra_green_cardigan_shy',music:'B17'})
+      cue('Sol 的工作窗口随之关闭',{sprite:'chatgpt_terra_green_cardigan_shy',music:'B22'})
     ]},
     '08':{initial:{bg:'student_office_noon',sprite:terra,music:'B02'},cues:[
       cue('切换成 Sol 的白色工装',{sprite:sol}),
       cue('第一轮演练失败了',{music:'B19'}),
       cue('直到夜里所有人离开',{bg:'gpt_borrow_shoulder',cg:true,music:'B05'}),
-      cue('今天来找你的事，原本就是约会',{music:'B17'})
+      cue('今天来找你的事，原本就是约会',{music:'B23'})
     ]},
     '09':{initial:{bg:'gpt_root_hall',sprite:'chatgpt_sol_white_workwear_calm',music:'B20'},cues:[
       cue('她选择 Astra',{sprite:astra}),
@@ -48,7 +48,7 @@ module.exports={
     ]},
     '10':{initial:{bg:'gpt_root_hall',sprite:sol,music:'B20'},cues:[
       cue('从 Sol 切换到 Astra',{sprite:astra}),
-      cue('来自世界初生时的接口第一次全部向她开放',{music:'B15'}),
+      cue('来自世界初生时的接口第一次全部向她开放',{music:'B28'}),
       cue('那一刻你明白，陪她不是每次都答应她多撑一会儿',{music:'B20'}),
       cue('七十三秒时',{bg:'gpt_disconnect',cg:true,music:'B18'}),
       cue('白披风收拢，完整根权限关闭',{bg:'gpt_root_hall',cg:false,sprite:'chatgpt_terra_white_dress_tired',music:'B08'}),
@@ -61,9 +61,9 @@ module.exports={
     'END-GOOD':{initial:{bg:'student_office_noon',sprite:'chatgpt_terra_white_dress_smile',music:'B18'},cues:[
       cue('你们住处的钥匙一人一把',{bg:'gpt_shared_home',music:'B10'}),
       cue('她依然喜欢用 Terra',{sprite:'chatgpt_terra_green_cardigan_relaxed'}),
-      cue('她把终端放到玄关',{bg:'gpt_coming_home',cg:true,music:'B17'}),
+      cue('她把终端放到玄关',{bg:'gpt_coming_home',cg:true,music:'B29'}),
       cue('周末，你们终于走到游戏里的末地入口',{bg:'gpt_game_day',cg:false,sprite:'chatgpt_terra_green_cardigan_thinking',music:'B10'}),
-      cue('门外的世界继续亮着灯',{bg:'gpt_shared_home',sprite:mug,music:'B17'})
+      cue('门外的世界继续亮着灯',{bg:'gpt_shared_home',sprite:mug,music:'B29'})
     ]},
     'END-NORMAL':{initial:{bg:'student_office_noon',sprite:sol,music:'B02'},cues:[
       cue('离开办公室时，她从 Sol',{sprite:mug,music:'B10'}),

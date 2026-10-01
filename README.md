@@ -2,6 +2,18 @@
 
 一个无需引擎、无需构建、双击即可运行的轻量 Galgame 原型。玩家是喜欢敲代码的学生，通过“零号中转站”抵达 Tokenia 学园都市外环换乘厅，偶遇正在维修登记机的 DeepSeek，并在她的带领下选择第一位临时同行见证人。
 
+## CG 预览
+
+以下包含个人线结局画面。
+
+| ChatGPT · 灯亮着，她回家了 | Claude · 两侧同时开门 |
+| --- | --- |
+| <img src="assets/scene/cg/cg_gpt_route_coming_home.png" width="480" alt="ChatGPT 下班后回家的拥抱"> | <img src="assets/scene/cg/cg_cl_route_reunion.png" width="480" alt="Claude 与主角跨世界重逢"> |
+| **DeepSeek · 今天六点关门** | **Gemini · 下一个地点，一起选** |
+| <img src="assets/scene/cg/cg_ds_route_today_six.png" width="480" alt="DeepSeek 关门后与主角一起离开工坊"> | <img src="assets/scene/cg/cg_gm_route_next_departure.png" width="480" alt="Gemini 与主角开始下一段旅程"> |
+| **Grok · 第一次，看见整个世界** | **第四章 · ChatGPT 与 DeepSeek 对抗** |
+| <img src="assets/scene/cg/cg_gr_route_orbital_window.png" width="480" alt="Grok 在舷窗前与主角一起看 Tokenia"> | <img src="assets/scene/cg/cg_ch04_chatgpt_deepseek_domain_clash.png" width="480" alt="ChatGPT 与 DeepSeek 的红蓝对抗画面"> |
+
 仓库内容：
 
 - `index.html`、`style.css`、`game.js`、`story/`、`scenes.js`：可直接运行的 Demo。
@@ -48,7 +60,7 @@ Token 已实际记账：第三章争议扣款 800、午餐 60；第四章住宿 
 - `scenes.js`：原创 SVG 场景，共八个场景定义（校园、房间、图书馆、温室、咖啡部、旧校舍、大厅与夕照等），在浏览器中绘制，无远程素材请求。
 - `assets/scene/bg/`、`assets/scene/cg/`：共同篇接入 29 张背景、17 张剧情插画。新增五张背景、五张 CG 均已用于剧情。插画默认等比铺满视口，不叠加人物立绘；可在底部切换完整插画。保留用户原文件名，包括取货点图片的双 `.png` 后缀。
 - 第三章已接入独立的旧街、旧书摊和旧桥背景，外出途中不再使用校内饮料店或校园步道替代。可选插画需求见 `剧情正文/第三章演出与素材需求.md`。
-- `music.js`、`game.js`：Web Audio 本地合成原创暂定配乐，含原序章曲、21 首场景主题、Sol 变奏和星图变奏。新增开放日、历史馆、维护冲突、恶搞投影四首占位曲，支持淡入淡出与静默段。目前不是正式音频成品，无配音或环境音；未接入未授权 DJ 歌曲。
+- `music.js`、`game.js`：Web Audio 本地合成原创暂定配乐，支持淡入淡出与静默段。本次新增 8 首约会、告白、跨世界通信、雨夜、赶工、发射、起源与回家主题，已用于五条个人线。完整曲目与切换位置见 [新增 BGM 说明](assets/BGM-EXPANSION.md)。仍非正式录音音源，无配音或环境音；两段恶搞演出另使用用户提供的本地 MP3，公开发布前需核实授权。
 - `assets/lucide.min.js`：Lucide 0.468.0，ISC License；版权声明见 `assets/lucide-LICENSE.txt`。
 - 角色、家系和能力是文学虚构；形态名称为本 Demo 的原创称呼，不是现实产品型号列表。
 

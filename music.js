@@ -29,6 +29,14 @@ window.SCORES = (() => {
     B20:make('保留这一行',126,43,[12,7,12,15,14,7,14,17,15,10,15,19,17,12,14,7],minor,'triangle'),
     'B20-Duel':{name:'对抗演示 · 用户选曲',src:'assets/bgm/yuai_fixed.mp3',loop:true},
     B21:{name:'恶搞投影 · 用户选曲',src:'assets/bgm/pipaqu_fixed.mp3',loop:true},
+    B22:make('把晚课走成约会',98,50,[12,16,19,null,21,19,16,null,14,17,21,19,16,null,14,null,12,14,16,19,24,null,21,19,17,16,14,null,12,null,9,null],major,'triangle'),
+    B23:make('这句话只说给你',58,53,[12,null,null,16,19,null,null,null,17,null,16,null,14,null,null,null,9,null,12,null,16,null,14,null,12,null,null,null,7,null,null,null],[[0,7,11,16],[-3,4,9,16],[-5,2,9,14],[-7,0,7,12]],'sine',true),
+    B24:make('两侧的时钟',78,50,[19,null,14,null,15,null,12,null,19,null,20,19,14,null,12,null,7,null,10,null,12,14,null,15,14,null,10,null,7,null,null,null],[[0,7,12,15],[-2,5,10,14],[-5,2,7,12],[-4,3,8,15]],'sine',true),
+    B25:make('雨声替我们留白',68,50,[19,null,null,14,17,null,16,null,12,null,null,9,14,null,null,null,16,null,19,null,21,null,17,null,16,14,null,12,9,null,null,null],[[0,7,12,16],[-5,2,7,12],[-3,4,9,14],[-7,0,5,12]],'sine',true),
+    B26:make('焊点与明天',120,48,[12,19,16,null,14,16,19,21,19,null,16,14,12,7,9,null,12,16,19,24,21,19,16,null,17,21,19,17,16,14,12,null],[[0,7,12,16],[-5,2,7,14],[-3,4,9,16],[-7,0,5,9]],'triangle'),
+    B27:make('倒数不是终点',132,48,[7,12,7,15,14,7,12,19,17,12,10,15,14,10,7,null,12,19,17,15,14,12,10,7,8,12,15,20,19,17,14,7],[[0,7,12,15],[-5,2,7,10],[-4,3,8,12],[-2,5,10,14]],'triangle'),
+    B28:make('第一句回答的回声',56,48,[12,null,null,null,19,null,15,null,14,null,null,null,10,null,null,null,7,null,null,12,15,null,null,19,14,null,12,null,10,null,null,null],[[0,7,12,15],[-4,3,10,15],[-5,2,7,14],[-2,5,10,17]],'sine',true),
+    B29:make('钥匙响起的时候',72,48,[12,null,16,null,19,21,null,19,16,null,14,null,12,null,null,null,9,null,12,16,19,null,17,16,14,null,12,null,7,null,null,null],[[0,7,12,16],[-3,4,9,12],[-5,2,9,16],[-7,0,7,14]],'sine',true),
     'B12-Map':make('窗外多一条路 · 星图',108,50,[19,21,null,24,21,19,null,16,14,16,null,19,16,14,null,null],major)
   };
 })();

@@ -23,7 +23,7 @@ module.exports={
       cue('她把一份预算给你看',{sprite:night,music:'B02'}),
       cue('这张没接单。画给自己的',{sprite:shy,music:'B17'}),
       cue('桥边的路灯逐盏亮起',{bg:'ch03_old_bridge_evening',sprite:amused,music:'B08'}),
-      cue('你伸出手。她看了半秒才握住',{sprite:'grok_night_red_black_jacket_embarrassed',music:'B17'})
+      cue('你伸出手。她看了半秒才握住',{sprite:'grok_night_red_black_jacket_embarrassed',music:'B22'})
     ]},
     '07':{initial:{bg:'newsroom_afternoon',sprite:night,music:'B14'},cues:[
       cue('给明天的我保留发挥空间',{sprite:amused,music:'B07'}),
@@ -42,15 +42,15 @@ module.exports={
       cue('外套重新展开星月纹样',{sprite:night,music:'B17'}),
       cue('能不能亲你',{sprite:'grok_night_red_black_jacket_embarrassed'})
     ]},
-    '09':{initial:{bg:'gr_control_room',sprite:blood,music:'B20'},cues:[
+    '09':{initial:{bg:'gr_control_room',sprite:blood,music:'B27'},cues:[
       cue('夜讯社的编辑给你发来',{music:'B19'}),
       cue('我想把它画完',{sprite:'grok_bloodmoon_red_black_workwear_calm',music:'B14'})
     ]},
-    'END-GOOD':{initial:{bg:'gr_crew_cabin',cg:true,sprite:blood,music:'B20'},cues:[
+    'END-GOOD':{initial:{bg:'gr_crew_cabin',cg:true,sprite:blood,music:'B27'},cues:[
       cue('窗外，云层分开',{bg:'gr_orbital_window',cg:true,music:'B18'}),
       cue('原来没有新闻标题',{music:'B17'}),
       cue('返回后她才发布',{bg:'gr_control_room',cg:false,sprite:'grok_bloodmoon_red_black_workwear_hopeful',music:'B09'}),
-      cue('再回报社的小工作间时',{bg:'gr_private_studio',sprite:amused,music:'B17'})
+      cue('再回报社的小工作间时',{bg:'gr_private_studio',sprite:amused,music:'B29'})
     ]},
     'END-NORMAL':{initial:{bg:'gr_control_room',sprite:'grok_bloodmoon_red_black_workwear_calm',music:'B14'},cues:[
       cue('这个世界等了我们几年',{sprite:'grok_bloodmoon_red_black_workwear_hopeful',music:'B08'}),

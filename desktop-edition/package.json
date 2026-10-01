@@ -1,0 +1,14 @@
+{
+  "name": "ai-love-you-desktop",
+  "productName": "AI Love You",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI Love You standalone desktop visual novel",
+  "main": "main.cjs",
+  "scripts": {
+    "prepare-game": "node prepare.cjs",
+    "start": "install-electron && npm run prepare-game && electron .",
+    "package": "npm run prepare-game && electron-packager . AI-Love-You --platform=win32 --arch=x64 --out=dist --overwrite --ignore=\"^/(dist|qa|prepare.cjs|README.md)$\""
+  },
+  "devDependencies": {"electron": "44.4.3", "@electron/packager": "20.3.0"}
+}

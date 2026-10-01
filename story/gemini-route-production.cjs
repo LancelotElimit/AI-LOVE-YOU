@@ -30,12 +30,12 @@ module.exports={
       cue('我以前只检查坐标对不对',{sprite:curious}),
       cue('展示邀请收进文件夹',{sprite:camera,music:'B17'})
     ]},
-    '08':{initial:{bg:'gm_inn_rain',sprite:calm,music:'B05'},cues:[
+    '08':{initial:{bg:'gm_inn_rain',sprite:calm,music:'B25'},cues:[
       cue('她已经展开星图形态',{sprite:focused,music:'B02'}),
-      cue('不想在今天表现得特别开心',{sprite:'gemini_starmap_star_cape_annoyed',music:'B05'}),
+      cue('不想在今天表现得特别开心',{sprite:'gemini_starmap_star_cape_annoyed',music:'B25'}),
       cue('夜里灯闪了一下',{bg:'gm_inn_night',music:'B08'}),
       cue('换回白色旅行夹克',{sprite:calm,music:'B08'}),
-      cue('她挨着你坐下',{bg:'gm_rainy_pause',cg:true,music:'B17'})
+      cue('她挨着你坐下',{bg:'gm_rainy_pause',cg:true,music:'B25'})
     ]},
     '09':{initial:{bg:'gm_valley_clear',sprite:calm,music:'B19'},cues:[
       cue('选择棱镜侧重的观察',{sprite:focused,music:'B20'}),
@@ -51,7 +51,7 @@ module.exports={
     ]},
     'END-GOOD':{initial:{bg:'activity_meeting_room_dusk',sprite:happy,music:'B18'},cues:[
       cue('拉你去看照片真正拍摄的窗台',{bg:'gm_station_day',sprite:camera,music:'B16'}),
-      cue('车窗里映着她',{bg:'gm_next_departure',cg:true,music:'B17'})
+      cue('车窗里映着她',{bg:'gm_next_departure',cg:true,music:'B29'})
     ]},
     'END-NORMAL':{initial:{bg:'observatory_terrace_afternoon',sprite:calm,music:'B12'},cues:[
       cue('给你留了前一晚写好的纸条',{bg:'gm_station_day',sprite:happy,music:'B08'})
