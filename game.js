@@ -44,12 +44,16 @@
   const escape = value => String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const blank = () => ({version:1,node:'intro.0',playerName:'',tokens:10000,route:null,personalRoute:null,transactions:[],affinity:{chatgpt:0,claude:0,gemini:0,deepseek:0,grok:0},intent:null,flags:[],history:[],finished:false});
   const current = () => STORY[state.node];
-  const chapterInfo = () => window.CHAPTERS?.[current().chapter||0];
-  function eligible(node){return (node.when||[]).every(c=>(!c.route||state.route===c.route)&&(!c.notRoute||state.route!==c.notRoute)&&(!c.flag||state.flags.includes(c.flag))&&(!c.notFlag||!state.flags.includes(c.notFlag)));}
+  function chapterData(node){
+    const info=node.personalRoute?window.PERSONAL_ROUTES?.[node.personalRoute]?.chapters[node.chapter]:window.CHAPTERS?.[node.chapter||0];
+    return node.routeEnding?{...info,ending:node.routeEnding.title,copy:node.routeEnding.copy}:info;
+  }
+  const chapterInfo = () => chapterData(current());
+  function eligible(node){return (!node.personalRoute||state.personalRoute===node.personalRoute)&&(node.when||[]).every(c=>(!c.route||state.route===c.route)&&(!c.notRoute||state.route!==c.notRoute)&&(!c.flag||state.flags.includes(c.flag))&&(!c.notFlag||!state.flags.includes(c.notFlag)));}
   function resolveNode(id){const visited=new Set();while(id&&STORY[id]&&!eligible(STORY[id])){if(visited.has(id))return null;visited.add(id);id=STORY[id].next;}return id&&STORY[id]?id:null;}
   function actualWho(node){return node.who==='$route'?state.route:node.who;}
   function named(text,saved=state){return text.replaceAll('{name}',saved.playerName||'旅人').replaceAll('{tokens}',saved.tokens.toLocaleString('en-US'));}
-  function availableChoices(){return (current().choices||[]).filter(c=>(!c.minAffinity||state.affinity[c.affinityTo]>=c.minAffinity)&&(!c.requiresAnyFlags||c.requiresAnyFlags.some(flag=>state.flags.includes(flag))));}
+  function availableChoices(){return (current().choices||[]).filter(c=>(!c.minAffinity||state.affinity[c.affinityTo]>=c.minAffinity)&&(!c.requiresAnyFlags||c.requiresAnyFlags.some(flag=>state.flags.includes(flag)))&&(!c.requiresFlags||c.requiresFlags.every(flag=>state.flags.includes(flag))));}
   function transact(entry,quiet=false){
     const flag=`transaction:${entry.id}`;
     if(state.flags.includes(flag)||(entry.requires&&!state.flags.includes(entry.requires)))return;
@@ -163,7 +167,7 @@
     soundEngine?.setCue('prologue');
     $('station-screen').classList.add('hidden');$('game').classList.remove('station-active','portal-active');$('game').classList.add('at-title');$('title-screen').classList.remove('hidden');
     const entry=read('autosave',null);$('title-continue').disabled=!validSave(entry);
-    $('title-memory').textContent=validSave(entry)?`${entry.state.playerName||'旅人'} · ${window.CHAPTERS?.[STORY[entry.state.node].chapter||0]?.title||'未登记的来访者'}${entry.state.finished?' · 已完成':''}`:'一场尚未开始的相遇';
+    $('title-memory').textContent=validSave(entry)?`${entry.state.playerName||'旅人'} · ${chapterData(STORY[entry.state.node])?.title||'未登记的来访者'}${entry.state.finished?' · 已完成':''}`:'一场尚未开始的相遇';
     $('title-new').focus({preventScroll:true});
   }
   function leaveTitle(){clearInterval(titleTimer);const entering=atTitle;atTitle=false;hasJourney=true;hideControls();$('title-screen').classList.add('hidden');$('game').classList.remove('at-title');if(entering)void enterFullscreen();}
@@ -241,7 +245,7 @@
     document.documentElement.style.setProperty('--accent',cid?CAST[cid].color:who.color);
     $('speaker').textContent=speakerName(actualWho(node));$('speaker-sub').textContent=node.delivery||((actualWho(node)==='narration'||actualWho(node)==='you')?chapterName:who.sub);$('speaker-dot').style.background=who.color;
     $('speaker').classList.toggle('long-name',Array.from($('speaker').textContent).length>8);
-    $('tokens').textContent=state.tokens.toLocaleString('en-US');$('route-label').textContent=chapter?`共同篇 · 第${chapter}章`:(state.route?`${CAST[state.route].name} · 同行见证人`:'序章 · 初来乍到');
+    $('tokens').textContent=state.tokens.toLocaleString('en-US');$('route-label').textContent=node.personalRoute?`${CAST[node.personalRoute].name} · 第${chapter}章`:chapter?`共同篇 · 第${chapter}章`:(state.route?`${CAST[state.route].name} · 同行见证人`:'序章 · 初来乍到');
     $('line-counter').textContent=String(state.history.filter(h=>h.who!=='choice').length).padStart(3,'0');
     const progress = {room:4,campus:15,transit:24,library:32,council:32,observatory:32,cafe:32,night:32,hall:68,sunset:91};
     $('progress').style.width=`${node.end?100:node.progress??((progress[node.bg]||0)+Math.min(8,Number(node.id.split('.').pop())/2))}%`;
@@ -311,7 +315,7 @@
     $('setting-motion').addEventListener('change',e=>{settings.reduceMotion=e.target.checked;applySettings();});
     bind('restart-button',()=>confirmRestart());bind('about-button',showAbout);
   }
-  function showAbout(){openModal('AI Love You',`<div class="about"><p>${window.CHAPTERS.map((chapter,i)=>`${i?'第'+['','一','二','三','四','五'][i]+'章':'序章'} · ${escape(chapter.title)}`).join('<br>')}</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>人物、组织与能力均为虚构改编。第六章个人线正文尚未开放。</p><p>角色、背景与插画由你提供。配乐包含本地合成原创曲及用户提供的对战选曲；图标使用 Lucide（ISC）。</p></div>`,'COMMON ROUTE');}
+  function showAbout(){openModal('AI Love You',`<div class="about"><p>${window.CHAPTERS.map((chapter,i)=>`${i?'第'+['','一','二','三','四','五'][i]+'章':'序章'} · ${escape(chapter.title)}`).join('<br>')}</p><p>${Object.values(window.PERSONAL_ROUTES||{}).map(route=>`${escape(route.name)} · ${escape(route.title)}`).join('<br>')}</p><p>你原本只是一个熬夜写代码的学生。直到五个窗口同时亮起，免费额度变成了口袋里唯一的财产。</p><p>人物、组织与能力均为虚构改编。</p><p>角色、背景与插画由你提供。配乐包含本地合成原创曲及用户提供的对战选曲；图标使用 Lucide（ISC）。</p></div>`,'CHAPTERS');}
   function showRelationships(){
     const rows=Object.keys(ROUTE_LINES).map(id=>{
       const value=state.affinity[id],status=value>=40?'逐渐亲近':value>=20?'多了一点熟悉':value>=10?'开始了解':value>0?'记住了彼此':'初识';
@@ -330,6 +334,7 @@
   }
   function validSave(entry){
     const s=entry?.state;
+    if(STORY[s?.node]?.personalRoute&&STORY[s.node].personalRoute!==s.personalRoute)return false;
     if(s?.personalRoute!=null&&!Object.hasOwn(ROUTE_LINES,s.personalRoute))return false;
     if(s?.transactions!==undefined&&(!Array.isArray(s.transactions)||s.transactions.length>1000||s.transactions.some(t=>!t||typeof t.id!=='string'||!Number.isFinite(t.amount)||!Number.isFinite(t.balance))))return false;
     if(s&&s.playerName!==undefined&&s.playerName!==''&&!validName(s.playerName))return false;
@@ -355,12 +360,13 @@
   function finish(){
     stopTimers();stopPlayback();state.finished=true;persist();$('choices').classList.add('hidden');$('game').classList.remove('choosing');$('game').classList.add('ended');$('dialogue-area').classList.add('hidden');
     const chapter=current().chapter||0,info=chapterInfo(),next=current().continueTo;
-    const witness=CAST[state.route]?.name||'未选择';
-    $('ending').innerHTML=`<span class="eyebrow">${chapter?'CHAPTER '+chapter:'PROLOGUE'} / COMPLETE</span><h2>${info.ending}</h2><p class="end-copy">${info.copy}</p><div class="end-stats"><div><small>同行见证人</small><strong>${witness}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div></div><div class="end-rule"></div><p class="end-teaser">${next?'下一章 · '+window.CHAPTERS[STORY[next].chapter].title:'共同篇 · 未完待续'}</p><div class="modal-actions">${next?'<button class="modal-button primary" id="end-continue"><i data-lucide="arrow-right"></i>继续故事</button>':''}<button class="modal-button" id="end-save"><i data-lucide="save"></i>保存旅程</button>${chapter===0?'<button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button>':''}<button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">${next?'共同篇 · 未锁定个人路线':`第${['','一','二','三'][chapter]||chapter}章完 · 后续章节待续`}</p>`;
+    const personal=current().personalRoute,final=current().routeEnding;
+    const witness=CAST[personal||state.route]?.name||'未选择';
+    $('ending').innerHTML=`<span class="eyebrow">${final?`${witness} / ${final.type}`:chapter?'CHAPTER '+chapter:'PROLOGUE'} / COMPLETE</span><h2>${escape(info.ending)}</h2><p class="end-copy">${escape(named(info.copy))}</p><div class="end-stats"><div><small>${personal?'同行的人':'同行见证人'}</small><strong>${witness}</strong></div><div><small>可用 TOKEN</small><strong>${state.tokens.toLocaleString('en-US')}</strong></div></div><div class="end-rule"></div><p class="end-teaser">${next?'下一章 · '+escape(chapterData(STORY[next]).title):final?`${witness} 个人线 · ${final.type} 结局`:'共同篇 · 未完待续'}</p><div class="modal-actions">${next?'<button class="modal-button primary" id="end-continue"><i data-lucide="arrow-right"></i>继续故事</button>':''}<button class="modal-button" id="end-save"><i data-lucide="save"></i>保存旅程</button>${chapter===0?'<button class="modal-button" id="end-replay"><i data-lucide="git-branch"></i>另一位见证人</button>':''}<button class="modal-button" id="end-history"><i data-lucide="list"></i>回看</button></div><p class="end-footer">${personal?(final?'个人线完':'约定继续'):next?'共同篇 · 未锁定个人路线':`第${chapter}章完`}</p>`;
     if(chapter===5){
       const route=state.personalRoute&&CAST[state.personalRoute].name;
-      $('ending').querySelector('.end-teaser').textContent=route?`第六章 · ${route} 个人线（待续）`:'共同篇结束 · 暂未选择个人路线';
-      $('ending').querySelector('.end-footer').textContent=route?'已确定个人路线 · 第六章尚未开放':'可读取选择前的存档，继续另一种约定';
+      $('ending').querySelector('.end-teaser').textContent=route?`第六章 · ${route} 个人线`:'共同篇结束 · 暂未选择个人路线';
+      $('ending').querySelector('.end-footer').textContent=route?'已确定个人路线':'可读取选择前的存档，继续另一种约定';
     }
     $('ending').classList.remove('hidden');bind('end-save',()=>showSaves('save'));bind('end-history',showHistory);
     if(chapter===0)bind('end-replay',()=>confirmRestart('arrival.0'));

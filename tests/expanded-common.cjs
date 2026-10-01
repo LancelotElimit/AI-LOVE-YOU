@@ -56,7 +56,7 @@ assert.equal(nodes.filter(n=>n.chapter===5&&n.end).length,6);
       assert.equal(result.tokens,publicFunding?9940:9340);
       assert.equal(new Set(result.transactions.map(t=>t.id)).size,result.transactions.length);
       assert.equal(result.affinity[cast[Math.max(0,hero)]],70);
-      assert.equal(await page.locator('#end-continue').count(),0);
+      assert.equal(await page.locator('#end-continue').count(),hero<0?0:1);
       assert.match(await page.locator('.end-teaser').textContent(),hero<0?/暂未选择/:/个人线/);
       await page.reload();await page.locator('#title-continue').click();assert.deepEqual(await read(),result);
     }
