@@ -4,18 +4,24 @@ const shy='deepseek_eco_blue_jacket_shy';
 const hesitant='deepseek_eco_blue_jacket_hesitant';
 const drink='deepseek_eco_blue_jacket_hotdrink';
 const engineer='deepseek_engineer_white_apron_focused';
+const date='deepseek_eco_blue_cardigan_yellow_skirt_shy';
 const cue=(at,set)=>({at,set});
 module.exports={
   scenes:{
     ds_workshop_evening:scene('深海工坊','深海工坊 / 傍晚','assets/scene/bg/bg_ds_route_workshop_evening.png'),
     ds_cafe_evening:scene('街角面馆','街角面馆 / 晚饭时间','assets/scene/bg/bg_ds_route_cafe_evening.png'),
+    ds_no_work_dinner:scene('吃饭的时候不查账','街角面馆 / 晚饭时间','assets/scene/cg/cg_ds_route_no_work_dinner.png',true),
     ds_workshop_midnight:scene('深海工坊','深海工坊 / 深夜','assets/scene/bg/bg_ds_route_workshop_midnight.png'),
     ds_today_six:scene('今天六点关门','工坊门外 / 夕阳','assets/scene/cg/cg_ds_route_today_six.png',true)
   },
   sections:{
     '06':{initial:{bg:'ds_workshop_evening',sprite:eco,music:'B13'},cues:[
-      cue('你们坐到桌边',{bg:'ds_cafe_evening',sprite:drink,music:'B04'}),
-      cue('你们回工坊列范围',{bg:'ds_workshop_evening',sprite:eco,music:'B13'}),
+      cue('回里间换好衣服才锁门',{sprite:date}),
+      cue('你们坐到桌边',{bg:'ds_cafe_evening',sprite:date,music:'B04'}),
+      cue('面端上来时',{bg:'ds_no_work_dinner',cg:true,music:'B23'}),
+      cue('饭后她提起',{bg:'ds_cafe_evening',cg:false,sprite:date,music:'B04'}),
+      cue('你们回工坊列范围',{bg:'ds_workshop_evening',sprite:date,music:'B13'}),
+      cue('她把蓝色工作外套披回肩头',{sprite:eco}),
       cue('那晚饭呢',{sprite:shy})
     ]},
     '07':{initial:{bg:'deepsea_workshop_day',sprite:eco,music:'B26'},cues:[

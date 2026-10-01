@@ -3,10 +3,12 @@ const terra='chatgpt_terra_green_cardigan_calm';
 const mug='chatgpt_terra_green_cardigan_teacup_shy';
 const sol='chatgpt_sol_white_workwear_focused';
 const astra='chatgpt_astra_white_cape_serious';
+const hoodie='chatgpt_terra_mint_hoodie_shy';
 const cue=(at,set)=>({at,set});
 module.exports={
   scenes:{
     gpt_game_day:scene('给约会留一行','游戏社 / 白天','assets/scene/bg/bg_ch02_game_club_potato_farm.png'),
+    gpt_breakfast_startle:scene('这和听出来没有冲突','游戏社 / 早餐时','assets/scene/cg/cg_gpt_route_breakfast_startle.png',true),
     gpt_archive_room:scene('第一个回答不是命令','历史馆地下档案室 / 白天','assets/scene/bg/bg_gpt_route_archive_room.png'),
     gpt_root_hall:scene('求助也是一种回答','白塔根服务大厅 / 夜晚','assets/scene/bg/bg_gpt_route_root_hall.png'),
     gpt_shared_home:scene('灯亮着，她回家了','两人的住处 / 傍晚','assets/scene/bg/bg_gpt_route_shared_home.png'),
@@ -16,10 +18,11 @@ module.exports={
     gpt_coming_home:scene('就是想你了','两人的住处 / 下班后','assets/scene/cg/cg_gpt_route_coming_home.png',true)
   },
   sections:{
-    '06':{initial:{bg:'gpt_game_day',sprite:terra,music:'B22'},cues:[
-      cue('目前早餐项目执行良好',{sprite:'chatgpt_terra_green_cardigan_relaxed',music:'B07'}),
-      cue('这和听出来没有冲突',{sprite:'chatgpt_terra_green_cardigan_shy'}),
+    '06':{initial:{bg:'gpt_game_day',sprite:hoodie,music:'B22'},cues:[
+      cue('目前早餐项目执行良好',{music:'B07'}),
+      cue('草丛后传来短促的嘶声',{bg:'gpt_breakfast_startle',cg:true}),
       cue('手可以留下',{music:'B23'}),
+      cue('你们才走到田外',{bg:'gpt_game_day',cg:false,sprite:hoodie}),
       cue('午后，她带你去白塔',{bg:'student_office_noon',music:'B02'}),
       cue('她切换到 Sol',{sprite:sol}),
       cue('根服务托管人',{music:'B15'}),

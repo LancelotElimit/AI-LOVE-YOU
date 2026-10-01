@@ -3,6 +3,7 @@ const night='grok_night_red_black_jacket_calm';
 const amused='grok_night_red_black_jacket_amused';
 const shy='grok_night_red_black_jacket_sketchbook_shy';
 const blood='grok_bloodmoon_red_black_workwear_focused';
+const bomber='grok_night_burgundy_bomber_shy';
 const cue=(at,set)=>({at,set});
 module.exports={
   scenes:{
@@ -23,7 +24,8 @@ module.exports={
       cue('她把一份预算给你看',{sprite:night,music:'B02'}),
       cue('这张没接单。画给自己的',{sprite:shy,music:'B17'}),
       cue('桥边的路灯逐盏亮起',{bg:'ch03_old_bridge_evening',sprite:amused,music:'B08'}),
-      cue('你伸出手。她看了半秒才握住',{sprite:'grok_night_red_black_jacket_embarrassed',music:'B22'})
+      cue('换了酒红色飞行夹克',{sprite:bomber}),
+      cue('你伸出手。她看了半秒才握住',{sprite:bomber,music:'B22'})
     ]},
     '07':{initial:{bg:'newsroom_afternoon',sprite:night,music:'B14'},cues:[
       cue('给明天的我保留发挥空间',{sprite:amused,music:'B07'}),

@@ -39,11 +39,18 @@ async function checkLayout(page){
     await clickControl(page,'home');const before=await saved(page);await page.reload();assert.deepEqual((await saved(page)).state,before.state);assert.ok(await page.locator('#title-screen').isVisible());
     await page.locator('#title-new').click();await page.locator('#restart-cancel').click();assert.deepEqual((await saved(page)).state,before.state);
     await page.locator('#title-continue').click();assert.equal(await page.locator('#speaker').textContent(),'林澈');
-    await page.evaluate(()=>{for(let i=0;i<80;i++){if(!document.querySelector('#choices').classList.contains('hidden'))return;document.querySelector('#advance').click();}throw Error('No routes');});
+    await page.evaluate(()=>{for(let i=0;i<300;i++){if(!document.querySelector('#choices').classList.contains('hidden'))return;document.querySelector('#advance').click();}throw Error('No routes');});
     const routeStart=await saved(page);
     for(const [index,id] of ['chatgpt','claude','gemini','deepseek','grok'].entries()){
       if(index){await clickControl(page,'load');await page.locator('#import-file').setInputFiles({name:'routes.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(routeStart))});await page.waitForFunction(()=>!document.querySelector('#modal').open);}
-      await page.locator('.choice').nth(index).click();await page.locator('#character').evaluate(i=>i.decode());
+      await page.locator('.choice').nth(index).click();
+      if(id==='gemini'){
+        await page.locator('#backdrop .scene-image').evaluate(i=>i.decode());
+        assert.equal(await page.locator('#character').getAttribute('src'),null);
+        assert.match(await page.locator('#backdrop .scene-image').getAttribute('src'),/gemini_video_call/);
+        await page.evaluate(()=>{for(let i=0;i<8;i++)document.querySelector('#advance').click();});
+      }
+      await page.locator('#character').evaluate(i=>i.decode());
       for(const [size,label] of [[{width:1440,height:960},'desktop'],[{width:390,height:844},'mobile']]){
         await page.setViewportSize(size);await checkLayout(page);
         const centered=await page.locator('#character-wrap').evaluate(el=>{const r=el.getBoundingClientRect();return Math.abs(r.left+r.width/2-innerWidth/2)<1;});assert.ok(centered,id+' should be centered');

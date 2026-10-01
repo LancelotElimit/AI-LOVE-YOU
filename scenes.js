@@ -26,6 +26,17 @@ window.SCENES = (() => {
 })();
 
 // Reuse supplied illustrations while keeping the prologue's location labels and save IDs.
+for (const [id,title,location,file,position='50% 50%'] of [
+  ['prologue_deepseek_work','还有一颗螺丝','外环维修区 / 早晨','cg_prologue_deepseek_workbench.png','35% 50%'],
+  ['prologue_chatgpt_work','还没拿起的早餐','外环接待台 / 早晨','cg_prologue_chatgpt_reception.png'],
+  ['prologue_gemini_call','另一间屋子的光','外环维修终端 ↔ 校内观测室','cg_prologue_gemini_video_call.png'],
+  ['prologue_claude_work','先留下原来的说法','外环资料窗口 / 上午','cg_prologue_claude_records.png'],
+  ['prologue_grok_work','先撤那张照片','外环等候区 / 上午','cg_prologue_grok_news_edit.png','32% 50%']
+]) {
+  const image=`assets/scene/cg/${file}`;
+  window.SCENES[id]={title,location,index:'PROLOGUE',note:'',image,cg:true,art:`<img class="scene-image" src="${image}" alt="" draggable="false" style="object-position:${position}">`};
+}
+
 for (const [scene,file] of Object.entries({
   room:'bg_guest_room_first_night.png',
   transit:'bg_outer_ring_repair_bay_day.png',

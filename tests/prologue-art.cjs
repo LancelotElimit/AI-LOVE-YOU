@@ -22,7 +22,7 @@ const {chromium}=require('C:/Users/10146/.cache/codex-runtimes/codex-primary-run
     await page.waitForTimeout(100);assert.equal(await page.locator('#character').isVisible(),false);
     await page.screenshot({path:path.resolve(__dirname,'../qa/prologue-narration-clean.png')});
     await page.locator('#advance').click();await page.locator('#character').evaluate(i=>i.decode());assert.equal(await page.locator('#character').isVisible(),true);
-    await page.evaluate(()=>{for(let i=0;i<100;i++){if(!document.querySelector('#choices').classList.contains('hidden'))return;document.querySelector('#advance').click();}throw Error('No choice');});
+    await page.evaluate(()=>{for(let i=0;i<300;i++){if(!document.querySelector('#choices').classList.contains('hidden'))return;document.querySelector('#advance').click();}throw Error('No choice');});
     await page.waitForTimeout(100);assert.equal(await page.locator('#character').isVisible(),false);
     assert.equal(await page.locator('#character-wrap').evaluate(e=>getComputedStyle(e).opacity),'0');
     await page.locator('.choice').first().click();await page.locator('#character').evaluate(i=>i.decode());

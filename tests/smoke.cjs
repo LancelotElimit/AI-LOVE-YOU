@@ -67,7 +67,11 @@ async function assertNoOverflow(page){
       await fresh(page);await untilChoice(page);
       if(r===0&&choiceIndex===0){await assertNoOverflow(page);await page.screenshot({path:path.join(qa,'desktop-choices.png')});}
       await page.locator('.choice').nth(r).click();
-      await page.locator('#character').evaluate(img=>img.decode());
+      if(routes[r]==='gemini'){
+        await page.locator('#backdrop .scene-image').evaluate(img=>img.decode());
+        assert.equal(await page.locator('#character').getAttribute('src'),null);
+        assert.match(await page.locator('#backdrop .scene-image').getAttribute('src'),/gemini_video_call/);
+      }else await page.locator('#character').evaluate(img=>img.decode());
       if(choiceIndex===0){
         await assertNoOverflow(page);await page.screenshot({path:path.join(qa,`desktop-${routes[r]}.png`)});
         if(r===1){

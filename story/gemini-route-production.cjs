@@ -4,6 +4,7 @@ const camera='gemini_meteor_white_jacket_camera_shy';
 const curious='gemini_meteor_white_jacket_curious';
 const happy='gemini_meteor_white_jacket_happy';
 const focused='gemini_starmap_star_cape_focused';
+const travel='gemini_meteor_teal_dress_camera_smile';
 const cue=(at,set)=>({at,set});
 module.exports={
   scenes:{
@@ -25,10 +26,11 @@ module.exports={
       cue('这个已经订好了',{sprite:camera,music:'B17'})
     ]},
     '07':{initial:{bg:'gm_coastal_village',sprite:curious,music:'B16'},cues:[
+      cue('出发前她换了海绿色背带裙',{sprite:travel}),
       cue('为核对路线展开星图披肩',{sprite:focused,music:'B02'}),
       cue('切回轻便的白夹克',{sprite:camera,music:'B16'}),
-      cue('我以前只检查坐标对不对',{sprite:curious}),
-      cue('展示邀请收进文件夹',{sprite:camera,music:'B17'})
+      cue('重新穿好出门时的海绿色裙子',{sprite:travel}),
+      cue('展示邀请收进文件夹',{sprite:travel,music:'B17'})
     ]},
     '08':{initial:{bg:'gm_inn_rain',sprite:calm,music:'B25'},cues:[
       cue('她已经展开星图形态',{sprite:focused,music:'B02'}),

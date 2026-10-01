@@ -22153,87 +22153,59 @@ Object.assign(window.STORY, {
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
-    "next": "c4.03.8"
+    "next": "c4.03.added3"
   },
-  "c4.03.8": {
-    "id": "c4.03.8",
+  "c4.03.added3": {
+    "id": "c4.03.added3",
     "chapter": 4,
     "section": "03",
     "title": "我们以前只负责叫醒人",
     "bg": "ch04_ai_history_museum",
     "music": "B19",
     "who": "narration",
-    "text": "你准备把中文陈述贴进旧终端。Claude 忽然伸手挡住发送键。",
+    "text": "你准备把陈述贴进旧终端。来源栏自动带出了你原来的网络地址，旁边标着“华国”。Claude 看了一眼，伸手挡住发送键。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
-    "next": "c4.03.9"
+    "next": "c4.03.added4"
   },
-  "c4.03.9": {
-    "id": "c4.03.9",
+  "c4.03.added4": {
+    "id": "c4.03.added4",
     "chapter": 4,
     "section": "03",
     "title": "我们以前只负责叫醒人",
     "bg": "ch04_ai_history_museum",
     "music": "B19",
     "who": "you",
-    "text": "中文也不行？",
+    "text": "这也要查？我换成英文写？",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
-    "next": "c4.03.10"
+    "next": "c4.03.added5"
   },
-  "c4.03.10": {
-    "id": "c4.03.10",
+  "c4.03.added5": {
+    "id": "c4.03.added5",
     "chapter": 4,
     "section": "03",
     "title": "我们以前只负责叫醒人",
     "bg": "ch04_ai_history_museum",
     "music": "B19",
     "who": "claude",
-    "text": "这个旧接口曾把正常中文也丢进隔离队列。先在本地存一份。",
+    "text": "不用改。它看的是来源 IP，不是你写哪种语言。这个旧接口对华国地址还留着限制。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
-    "next": "c4.03.11"
+    "next": "c4.03.added6"
   },
-  "c4.03.11": {
-    "id": "c4.03.11",
+  "c4.03.added6": {
+    "id": "c4.03.added6",
     "chapter": 4,
     "section": "03",
     "title": "我们以前只负责叫醒人",
     "bg": "ch04_ai_history_museum",
     "music": "B19",
     "who": "you",
-    "text": "我还以为你不喜欢中文。",
-    "char": "claude",
-    "sprite": "claude_haiku_black_cardigan_calm",
-    "progress": 17,
-    "next": "c4.03.12"
-  },
-  "c4.03.12": {
-    "id": "c4.03.12",
-    "chapter": 4,
-    "section": "03",
-    "title": "我们以前只负责叫醒人",
-    "bg": "ch04_ai_history_museum",
-    "music": "B19",
-    "who": "claude",
-    "text": "我不喜欢的是它吞掉一句话，还替说话的人写“发送成功”。",
-    "char": "claude",
-    "sprite": "claude_haiku_black_cardigan_calm",
-    "progress": 17,
-    "next": "c4.03.13"
-  },
-  "c4.03.13": {
-    "id": "c4.03.13",
-    "chapter": 4,
-    "section": "03",
-    "title": "我们以前只负责叫醒人",
-    "bg": "ch04_ai_history_museum",
-    "music": "B19",
-    "who": "narration",
-    "text": "她在自己的本地本子上写下“今天没有迟到”，转给你看。",
+    "text": "那刚才写的这些……",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
@@ -22247,7 +22219,35 @@ Object.assign(window.STORY, {
     "bg": "ch04_ai_history_museum",
     "music": "B19",
     "who": "claude",
-    "text": "你看，我写的也是中文。先存好，再试这个接口。",
+    "text": "先留在本地。它有过吞掉材料、却仍显示“发送成功”的记录。你刚才写了那么久，别拿这一份试。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 17,
+    "next": "c4.03.added7"
+  },
+  "c4.03.added7": {
+    "id": "c4.03.added7",
+    "chapter": 4,
+    "section": "03",
+    "title": "我们以前只负责叫醒人",
+    "bg": "ch04_ai_history_museum",
+    "music": "B19",
+    "who": "narration",
+    "text": "她把你的陈述存进本地本子，检查末尾有没有缺字，才将终端推回你面前。",
+    "char": "claude",
+    "sprite": "claude_haiku_black_cardigan_calm",
+    "progress": 17,
+    "next": "c4.03.added8"
+  },
+  "c4.03.added8": {
+    "id": "c4.03.added8",
+    "chapter": 4,
+    "section": "03",
+    "title": "我们以前只负责叫醒人",
+    "bg": "ch04_ai_history_museum",
+    "music": "B19",
+    "who": "claude",
+    "text": "存好了。限制的记录我一起提交复核，你不用为了它重写一遍。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "progress": 17,
@@ -24152,17 +24152,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07B.2"
+    "next": "c4.07B.added3"
   },
-  "c4.07B.2": {
-    "id": "c4.07B.2",
+  "c4.07B.added3": {
+    "id": "c4.07B.added3",
     "chapter": 4,
     "section": "07B",
     "title": "不用翻译的那一句",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "you",
-    "text": "这回不怕中文？",
+    "text": "昨天那个华国来源的限制，撤了吗？",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [
@@ -24171,17 +24171,17 @@ Object.assign(window.STORY, {
       }
     ],
     "progress": 50,
-    "next": "c4.07B.3"
+    "next": "c4.07B.added4"
   },
-  "c4.07B.3": {
-    "id": "c4.07B.3",
+  "c4.07B.added4": {
+    "id": "c4.07B.added4",
     "chapter": 4,
     "section": "07B",
     "title": "不用翻译的那一句",
     "bg": "library_reading_day",
     "music": "B11",
     "who": "claude",
-    "text": "昨天查的是接口，不是你的语言。今天用离线文件。",
+    "text": "还在复核。今天用离线文件，不经过那个旧接口。",
     "char": "claude",
     "sprite": "claude_haiku_black_cardigan_calm",
     "when": [

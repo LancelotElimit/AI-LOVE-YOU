@@ -2,10 +2,12 @@ const scene=(title,location,image,cg=false)=>({index:'CLAUDE ROUTE',title,locati
 const calm='claude_haiku_black_cardigan_calm';
 const shy='claude_haiku_black_cardigan_book_shy';
 const sonnet='claude_sonnet_book_dress_focused';
+const coat='claude_haiku_rust_coat_book_shy';
 const cue=(at,set)=>({at,set});
 module.exports={
   scenes:{
     cl_library_night:scene('闭馆后的阅览桌','Tokenia 图书馆 / 夜晚','assets/scene/bg/bg_cl_route_library_night.png'),
+    cl_last_page:scene('今天的茶也算','图书馆 / 闭馆后','assets/scene/cg/cg_cl_route_last_page.png',true),
     cl_real_dawn:scene('现实里的房间','现实世界 / 清晨','assets/scene/bg/bg_cl_route_real_room_dawn.png'),
     cl_real_night:scene('现实里的房间','现实世界 / 夜晚','assets/scene/bg/bg_cl_route_real_room_night.png'),
     cl_crossworld_call:scene('屏幕另一边','现实清晨 / Tokenia 夜晚','assets/scene/cg/cg_cl_route_crossworld_call.png',true),
@@ -16,7 +18,9 @@ module.exports={
       cue('你拿出序章的匿名消息',{sprite:'claude_opus_page_cape_serious',music:'B15'}),
       cue('闭馆时她问你',{bg:'cl_library_night',music:'B11'}),
       cue('换回 Haiku 的黑色针织外套',{sprite:shy}),
-      cue('校园里的晚课',{bg:'ch03_old_bridge_evening',sprite:shy,music:'B22'})
+      cue('门口比阅览区冷',{sprite:coat}),
+      cue('她回到还没关灯的桌边',{bg:'cl_last_page',cg:true,music:'B23'}),
+      cue('校园里的晚课',{bg:'ch03_old_bridge_evening',cg:false,sprite:coat,music:'B22'})
     ]},
     '07':{initial:{bg:'library_reading_day',sprite:calm,music:'B11'},cues:[
       cue('手机出现家里发来的消息',{music:'B15'}),
