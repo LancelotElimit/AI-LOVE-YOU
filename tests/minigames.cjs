@@ -44,10 +44,10 @@ assert.equal(s.path.at(-1),15);
   async function saved(){return page.evaluate(key=>JSON.parse(localStorage.getItem(key+'.autosave')).state,key);}
   async function seed(node){
     await page.evaluate(node=>sessionStorage.setItem('activity-seed',JSON.stringify({date:Date.now(),state:{version:1,node:node.id,playerName:'林澈',tokens:10000,route:node.chapter?'gemini':null,personalRoute:null,transactions:[],affinity:{chatgpt:0,claude:0,gemini:0,deepseek:0,grok:0},intent:null,flags:(node.when||[]).filter(c=>c.flag).map(c=>c.flag),history:[],finished:false}})),node);
-    await page.reload();await page.locator('#title-continue').click();assert.ok(await page.locator('#story-activity').isVisible());
+    await page.reload();await page.locator('#title-continue').click();assert.ok(await page.locator('#modal .activity').isVisible());
   }
   async function layout(){
-    assert.deepEqual(await page.evaluate(()=>[...document.querySelectorAll('.activity-board,.activity-actions,.activity-intro,#modal,#story-activity')].filter(e=>e.checkVisibility()).filter(e=>{const r=e.getBoundingClientRect();return e.scrollWidth>e.clientWidth+2||r.left<0||r.right>innerWidth;}).map(e=>e.className)),[]);
+    assert.deepEqual(await page.evaluate(()=>[...document.querySelectorAll('.activity-board,.activity-actions,.activity-intro,#modal')].filter(e=>e.checkVisibility()).filter(e=>{const r=e.getBoundingClientRect();return e.scrollWidth>e.clientWidth+2||r.left<0||r.right>innerWidth;}).map(e=>e.className)),[]);
   }
   fs.mkdirSync(path.join(root,'qa'),{recursive:true});
   try{
@@ -58,16 +58,19 @@ assert.equal(s.path.at(-1),15);
         await seed(node);const before=await saved();await layout();
         await page.evaluate(()=>document.querySelector('#auto').click());
         assert.equal(await page.locator('#auto').getAttribute('aria-pressed'),'false');
-        // Optional passage continuation remains compatible with existing story playback.
-        await page.locator('#advance').click();assert.notEqual((await saved()).node,node.id);
+        // Neither story controls, Escape, backdrop nor the close handler bypass an unfinished game.
+        await page.evaluate(()=>document.querySelector('#advance').click());assert.equal((await saved()).node,node.id);
         assert.ok(!(await saved()).flags.some(f=>f.startsWith('activity:')));
-        await seed(node);await page.locator('#story-activity').click();await layout();
+        await page.keyboard.press('Escape');assert.ok(await page.locator('#modal').evaluate(e=>e.open));
+        await page.mouse.click(2,2);assert.ok(await page.locator('#modal').evaluate(e=>e.open));
+        await page.evaluate(()=>document.querySelector('#close-modal').click());assert.ok(await page.locator('#modal').evaluate(e=>e.open));
+        assert.ok(await page.locator('#close-modal').isHidden());
+        assert.equal(await page.getByRole('button',{name:'交给她，继续剧情',exact:true}).count(),0);
+        await layout();
         assert.equal(await page.locator('.activity [data-lucide]:not(svg)').count(),0,'Every game icon must render');
         assert.deepEqual(await page.evaluate(()=>[...document.querySelectorAll('.activity-board button')].filter(b=>b.scrollHeight>b.clientHeight+2||b.scrollWidth>b.clientWidth+2).map(b=>b.getAttribute('aria-label'))),[],'Tile labels must fit');
         const capture=path.join(root,`qa/activity-${id}-${size.width}.png`);await page.screenshot({path:capture});
         assert.ok((await sharp(capture).stats()).channels.some(c=>c.stdev>20));
-        await page.locator('#close-modal').click();assert.equal((await saved()).node,node.id);
-        await page.locator('#story-activity').click();
         const first=page.locator('.activity-board button').first();await first.focus();await page.keyboard.press('Enter');
         assert.ok(await page.locator('#modal').evaluate(e=>e.open));assert.equal((await saved()).node,node.id);
         await page.locator('.activity-reset').click();
@@ -88,14 +91,15 @@ assert.equal(s.path.at(-1),15);
         await layout();await page.locator('#modal').getByRole('button',{name:'继续剧情',exact:true}).click();assert.notEqual((await saved()).node,node.id);
         // Reloading completed activity never grants or repeats a result.
         await page.evaluate(({key,state})=>sessionStorage.setItem('activity-seed',JSON.stringify({date:Date.now(),state})),{key,state:after});
-        await page.reload();await page.locator('#title-continue').click();assert.ok(await page.locator('#story-activity').isHidden());
-        await seed(node);await page.locator('#story-activity').click();await page.getByRole('button',{name:'交给她，继续剧情',exact:true}).click();
-        assert.equal(await page.locator('.activity-response').textContent(),config.skip);assert.equal((await saved()).tokens,10000);
-        assert.deepEqual((await saved()).affinity,before.affinity);await page.locator('#modal').getByRole('button',{name:'继续剧情',exact:true}).click();
-        assert.notEqual((await saved()).node,node.id);
+        await page.reload();await page.locator('#title-continue').click();assert.equal(await page.locator('#modal').evaluate(e=>e.open),false);
+        await page.locator('#advance').click();assert.notEqual((await saved()).node,node.id);
+        // An old optional-skip flag is not a completion under the new rules.
+        const legacy={...before,flags:[...before.flags,`activity:${id}:skip`]};
+        await page.evaluate(state=>sessionStorage.setItem('activity-seed',JSON.stringify({date:Date.now(),state})),legacy);
+        await page.reload();await page.locator('#title-continue').click();assert.ok(await page.locator('#modal .activity').isVisible());
       }
     }
     assert.deepEqual(errors,[]);
-    console.log('Three optional story activities: puzzle rules, mistakes, reset, keyboard, skip, no route/economy penalties, saved outcomes and nine desktop/mobile views passed.');
+    console.log('Three mandatory story activities: automatic entry, blocked skip/close/Escape/backdrop, puzzle rules, reset, keyboard, saved completion, legacy skips and nine desktop/mobile views passed.');
   }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});

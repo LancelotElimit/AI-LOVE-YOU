@@ -1,4 +1,4 @@
-const {clickControl}=require('./controls.cjs');
+const {clickControl,advanceUntilChoice}=require('./controls.cjs');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
@@ -29,7 +29,7 @@ async function fresh(page){
 async function state(page){return page.evaluate(k=>JSON.parse(localStorage.getItem(k+'.autosave')).state,key);}
 async function untilChoice(page){
   for(let attempt=0;attempt<3;attempt++){
-    const stop=await page.evaluate(()=>{for(let i=0;i<300;i++){if(!document.querySelector('#station-screen').classList.contains('hidden'))return 'name';if(!document.querySelector('#choices').classList.contains('hidden'))return 'choice';document.querySelector('#advance').click();}throw Error('No choice reached');});
+    const stop=await page.evaluate(advanceUntilChoice);
     if(stop==='choice')return;
     await page.locator('#player-name').fill('林澈');await page.locator('#station-submit').click();await page.waitForFunction(()=>document.querySelector('#station-screen').classList.contains('hidden'));
   }
@@ -83,7 +83,7 @@ async function assertNoOverflow(page){
       assert.equal(s.route,routes[r]);assert.equal(s.finished,true);assert.equal(s.intent,choiceIndex?'explore':'home');
       const expected=10000;
       assert.equal(s.tokens,expected);
-      assert.deepEqual(s.flags,[]);
+      assert.deepEqual(s.flags,['activity:parts:complete']);
       await assertNoOverflow(page);
       console.log(`${routes[r]} branch ${choiceIndex+1}: complete; balance ${s.tokens}; affinity ${s.affinity[s.route]}.`);
     }

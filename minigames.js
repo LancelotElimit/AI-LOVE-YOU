@@ -5,22 +5,19 @@
       title:'合不上盖的零件盒', label:'帮忙收好零件', icon:'wrench', who:'deepseek',
       anchor:'你低头捧住杯子。她也低头整理零件。',
       intro:'DeepSeek：盒盖又卡住了……这几颗大的放回对应的格子就好，小的我来。',
-      success:'DeepSeek 按下盒盖，终于听见清脆的一声“咔”。“谢谢。下次得换个大盒子。”她看了一眼价格标签，又把标签翻了过去。',
-      skip:'DeepSeek 把剩下的零件拢进掌心。“放着吧，我来。你先把饮料喝完，凉了不好喝。”'
+      success:'DeepSeek 按下盒盖，终于听见清脆的一声“咔”。“谢谢。下次得换个大盒子。”她看了一眼价格标签，又把标签翻了过去。'
     },
     potatoes: {
       title:'今天只种这一排', label:'陪她种土豆', icon:'sprout', who:'chatgpt',
       anchor:'今天只种完这一排。你不用陪到很晚。',
       intro:'ChatGPT：叶子黄的已经熟了。收起来以后，在空地上补一颗……那些小的先留着。',
-      success:'最后一块空地冒出新芽。ChatGPT 放下锄头，挨着你坐好。“这次没有少东西。”停了一会儿，她又说：“还多了个人。”',
-      skip:'“那你帮我看着门？”ChatGPT 把锄头捡起来，又偷偷确认了一遍床还在。“不用站起来，坐这里就好。”'
+      success:'最后一块空地冒出新芽。ChatGPT 放下锄头，挨着你坐好。“这次没有少东西。”停了一会儿，她又说：“还多了个人。”'
     },
     route: {
       title:'一条真正走得通的路', label:'一起核对路线', icon:'map', who:'gemini',
       anchor:'她走回来，和你一起蹲低了一点。画面里多出半个收货筐',
       intro:'Gemini：从相机这里到路牌，得绕开维修围栏。每次只接上旁边的一格，我们沿着你画的线再走一遍。',
-      success:'Gemini 沿着路线走到路牌前，回头向你挥手。“这次拍进去吧。”她站在箭头旁边，没有为了画面好看把自己挪开。',
-      skip:'Gemini 收起终端。“那就先走一次，你替我记住拐弯的地方。”她刚迈出两步，又回头等你跟上。'
+      success:'Gemini 沿着路线走到路牌前，回头向你挥手。“这次拍进去吧。”她站在箭头旁边，没有为了画面好看把自己挪开。'
     }
   };
   // Exact prose anchors survive regenerated chapter IDs and fail loudly if an event moves.
@@ -108,7 +105,6 @@
       }
       if(!finished){
         actions.append(button('重新开始','rotate-ccw',()=>{state=initial(id);response.textContent='';draw();},'activity-reset'));
-        actions.append(button('交给她，继续剧情','step-forward',()=>{finished=true;onFinish('skip');response.textContent=config.skip;draw();},'modal-button'));
       }else actions.append(button('继续剧情','arrow-right',()=>onFinish('continue'),'modal-button primary'));
       window.lucide?.createIcons({root});
       if(focusKey){const candidates=[...root.querySelectorAll('[data-key]')];const target=candidates.find(b=>b.dataset.key===focusKey&&!b.disabled)||candidates.find(b=>!b.disabled)||actions.querySelector('button');target?.focus({preventScroll:true});}

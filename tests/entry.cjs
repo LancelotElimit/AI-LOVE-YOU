@@ -1,4 +1,4 @@
-const {clickControl}=require('./controls.cjs');
+const {clickControl,advanceUntilChoice}=require('./controls.cjs');
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -39,7 +39,7 @@ async function checkLayout(page){
     await clickControl(page,'home');const before=await saved(page);await page.reload();assert.deepEqual((await saved(page)).state,before.state);assert.ok(await page.locator('#title-screen').isVisible());
     await page.locator('#title-new').click();await page.locator('#restart-cancel').click();assert.deepEqual((await saved(page)).state,before.state);
     await page.locator('#title-continue').click();assert.equal(await page.locator('#speaker').textContent(),'林澈');
-    await page.evaluate(()=>{for(let i=0;i<300;i++){if(!document.querySelector('#choices').classList.contains('hidden'))return;document.querySelector('#advance').click();}throw Error('No routes');});
+    await page.evaluate(advanceUntilChoice);
     const routeStart=await saved(page);
     for(const [index,id] of ['chatgpt','claude','gemini','deepseek','grok'].entries()){
       if(index){await clickControl(page,'load');await page.locator('#import-file').setInputFiles({name:'routes.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(routeStart))});await page.waitForFunction(()=>!document.querySelector('#modal').open);}
